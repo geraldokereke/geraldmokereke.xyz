@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Set Up React With Laravel · Gerald.</title>
+
+
+
+<link rel="stylesheet" href="/css/rocinante.css" />
+<link rel="shortcut icon" href="https://i.ibb.co/YNRSK0Z/gerald-logo.png">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<body>
+    <header><h2>
+  
+    <a href="https://geraldmokereke.xyz/">‹ Gerald.</a>
+  
+</h2>
+</header>
+    <main>
+
+    <div class="post">
+      
+        <div class="title-group">
+            <div class="title">
+                <h1>Set Up React With Laravel</h1>
+            </div>
+            <div class="date"><h5>Jan 04, 2023</h5></div>
+        </div>
+              
+        <article class="content">
+            <h1 id="how-to-set-up-laravel-with-react-js">How to set up Laravel with React JS.</h1>
+<h3 id="introduction">Introduction.</h3>
+<p>Just like I was roaming Stackoverflow, you’ve probably been wondering how to set up React JS with the Laravel framework. React is arguably one of the most powerful libraries for building user-interfaces. Yes, it’s a library, not really a framework. It forms the view component of web applications. Laravel on the other hand, is a powerful open-source PHP framework used for building small to robust web applications. It implements the model-view-controller (MVC) software architecture. Both tools, seem to go pretty well with certain tools, without having to stress at all.</p>
+<p><a href="https://miro.medium.com/max/720/1*5zbjAY6BL_u-OXF0_ZAPtw.webp" target="_blank">!Image alt</a></p>
+<p>For example, React is used in the MERN stack. Which comprises of MongoDB as the database, Express server, React itself and Node JS (A runtime and server environment for JavaScript applications. Essentialy a browser engine bundled as a server that is based on Chromium&rsquo;s V8 Engine) Whereas, Laravel a PHP framework goes pretty well with the standard HTML code. Which is used with a powerful templating engine, known as Blade. So why use Laravel and React?</p>
+<p><strong>It boils down to preferences</strong>. Being on this page, you are obviously curious and interested in this.</p>
+<h3 id="the-perquisites">The Perquisites.</h3>
+<p>Before proceeding! I assume you have the following tools and languages installed, because sadly I won’t be walking you through installing Laravel, but bootstrapping it with react.</p>
+<ul>
+<li>Laravel 5+</li>
+<li>NPM (Node Package Manager) You can use Yarn</li>
+<li>Node JS</li>
+<li>A good browser</li>
+<li>An IDE.</li>
+<li>So let’s begin.</li>
+</ul>
+<p>We will start off by creating a Laravel application. You should have composer installed.</p>
+<blockquote>
+<p>Note: I’m on a windows machine anyway. There&rsquo;s really no big difference as it applies to all operating systems.</p>
+</blockquote>
+<h3 id="installation">Installation.</h3>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>composer create-project laravel/laravel your-app-here
+</span></span></code></pre></div><p>with that, now we should have our Laravel-app successfully set up for us.</p>
+<h3 id="creating-the-react-app">Creating The React App.</h3>
+<p>Now we’re going to create a react app in our resources folder.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#111">cd</span> Resources
+</span></span><span style="display:flex;"><span>npx create-react-app your-name
+</span></span></code></pre></div><blockquote>
+<p>I named mine &ldquo;boilerplate.&rdquo;</p>
+</blockquote>
+<p>Like a charm we’ve installed react on our machine! Sighs. Open up the package.json in your react-app folder. Now we are going to copy these dependencies to our Laravel <code>package.json</code>. You see Laravel is pretty much an opinionated framework for the views. We can use Blade, React or even Vue it supports!</p>
+<p><img src="https://miro.medium.com/max/720/1*TXzOcxWX2fUVIFB5-Zr5kA.webp" alt="React Packages"></p>
+<p>Copy the above, and then paste this into the <code>devDependencies</code> section of the root <code>package.json</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span><span style="color:#d88200">&#34;devDependencies&#34;</span><span style="color:#960050;background-color:#1e0010">:</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#960050;background-color:#1e0010">....</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><p>Now this my sound crazy, but delete the <code>node_modules/</code> folder within the React app you created. We are trying
+to let laravel handle the installations and management of dependencies for the views.</p>
+<h3 id="clearing-errors">Clearing Errors.</h3>
+<p>Your our IDE looks less of a mess with errors flying around now. Now run npm install in the Laravel app’s directory itself. Not in resources. This would bring our dependency gods back, fortunately.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#111">cd</span> your-app-here
+</span></span><span style="display:flex;"><span>npm run install
+</span></span></code></pre></div><p>So we&rsquo;ve cleaned up the mess.</p>
+<h3 id="the-bootstrap">The Bootstrap.</h3>
+<p>So there&rsquo;s something called <a href="https://webpackjs.com" target="_blank">Webpack</a>. It is a powerful open-source bundler for JavaScript that handles our assets, such ass source CSS and JavaScript files if the proper loaders are included.
+Here we are going to add a piece of code to our <code>webpack.min.js</code> to bundle and mix our assets from our React App with Laravel.</p>
+<p><img src="https://miro.medium.com/max/720/1*VYv9KXIVoasC3AflBCVOXA.webp" alt="Webpack Code"></p>
+<p>Here we instruct webpack to copy our assets for &lsquo;mixing&rsquo; otherwise bundling. Then we write <code>mix.js</code> to complile the source JavaScript bundles on triggering <code>npm run dev</code>.</p>
+<p>Add this below. It’s very much needed to bootstrap and run our app with react. Navigate to your resources and dial in npm run dev Laravel should trigger a mix as below:</p>
+<p><img src="https://miro.medium.com/max/4800/1*y1QhTO-9IW76PDF60uCkIQ.webp" alt="Successful"></p>
+<p>What we did there was:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#111">cd</span> resources/your-app-here
+</span></span><span style="display:flex;"><span>npm run dev
+</span></span></code></pre></div><p>That compiles it all.</p>
+<h3 id="load-react-now-not-blade">Load React Now, not Blade.</h3>
+<p>In order to prevent loading up the standard Blade template in HTML and CSS, when we start our application, the next step we are going to take is to navigate to our <code>views/welcome.blade.php</code> folder. We will do some little configurations in there. You can clear the dump in between the body tags. Replace it with this:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#111">&lt;</span><span style="color:#f92672">div</span> <span style="color:#75af00">id</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;root&#34;</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#111">&lt;</span><span style="color:#f92672">noscript</span><span style="color:#111">&gt;</span>No JavaScript, no Party<span style="color:#111">&lt;/</span><span style="color:#f92672">noscript</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">&lt;/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
+</span></span></code></pre></div><h3 id="starting-laravel">Starting Laravel</h3>
+<p>Now we have connected and integrated our react-app, let’s have fun and try running it. This time, we won’t be running npm start but now, since we’ve bootstrapped the framework, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>php artisan serve!
+</span></span></code></pre></div><p>Happy Hacking. If you enjoyed this type of content, do share. It helps out a lot!</p>
+
+        </article>
+        
+            <div class="tags">
+                <span title="Tags">🏷</span>
+                <div class="horizontal-links links">
+                    
+                </div>
+            </div>
+        
+    </article>
+
+
+    </main>
+    <footer>
+  <div class="content-container">
+    <div class="content">I&rsquo;m Gerald Maduabuchi Okereke. Welcome to my blog. Here, I write articles about things I&rsquo;m building, learning and my thoughts
+
+
+  <p class="horizontal-links"><a href="https://github.com/grayoj"
+        target="_blank" 
+       
+      >Github</a><a href="https://twitter.com/geraldmokereke"
+        target="_blank" 
+       
+      >X</a><a href="mailto:geraldmokereke@gmail.com"
+        target="_blank" 
+       
+      >Email</a></p>
+
+</div>
+  </div>
+</footer>
+    
+    <script>
+      const emailId = atob("bWFpbEBleGFtcGxlLmNvbQ==");
+    </script>
+      <script src="/js/rocinante.min.js"></script></body>
+</html>

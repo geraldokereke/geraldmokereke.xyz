@@ -2,7 +2,6 @@
 title: "Boolean Logic and Gates Part One"
 date: 2023-10-08T19:46:32+01:00
 draft: false
-banner: https://www.visitlincolnshire.com/wp-content/uploads/2022/11/George-Boole-Statue-1.png
 cover:
   image: "https://www.visitlincolnshire.com/wp-content/uploads/2022/11/George-Boole-Statue-1.png"
   # can also paste direct link from external site
@@ -15,7 +14,6 @@ relative: false # To use relative path for cover image, used in hugo Page-bundle
 > This is part one of the [Boolean Logic and Gates series]().
 
 Worthy to think George Boole may actually be the grandfather of the digital world.
-![grandfather of the digital world](https://www.visitlincolnshire.com/wp-content/uploads/2022/11/George-Boole-Statue-1.png)
 
 ## Brief Overview
 

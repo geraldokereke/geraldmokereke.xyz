@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Building An Image Classifier · Gerald.</title>
+
+
+
+<link rel="stylesheet" href="/css/rocinante.css" />
+<link rel="shortcut icon" href="https://i.ibb.co/YNRSK0Z/gerald-logo.png">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<body>
+    <header><h2>
+  
+    <a href="https://geraldmokereke.xyz/">‹ Gerald.</a>
+  
+</h2>
+</header>
+    <main>
+
+    <div class="post">
+      
+        <div class="title-group">
+            <div class="title">
+                <h1>Building An Image Classifier</h1>
+            </div>
+            <div class="date"><h5>Jun 16, 2022</h5></div>
+        </div>
+              
+            <div class="post-cover">
+                <img src="https://miro.medium.com/max/1400/1*NNifzsJ7tD2kAfBXt3AzEg.webp" alt="V" style="max-width:100%;height:auto;" />
+                <div class="cover-caption">Diagram of a covolutional neural network</div>
+            </div>
+            
+        <article class="content">
+            
+<h1 id="introduction">Introduction.</h1>
+<p>In this article, I will guide you through the processes I went through to create an image classifier using the Flask framework, the Keras library and Google&rsquo;s popular machine learning library, Tensorflow. It was quite an <a href="https://github.com/grayoj/image-classifier" target="_blank">interesting project that managed to gain over nineteen stars on Github, as at the time of writing this article</a>. I was really pleased with the project, thus I humbly decided to share the entire workflow.</p>
+<h3 id="my-system-specifications">My System Specifications.</h3>
+<p>I love to classify my system specifications as minimalistic to engage in training neural networks and machine learning models. I use a hewlett-packard machine that runs the Linux Operating System, specifically Ubuntu, which is a fantastic debian-based distribution that I cannot just abandon for other alternatives. Below are my specifications:</p>
+<ol>
+<li>Intel Core i7 (10th Generation).</li>
+<li>Nvidia GeForce, 2GB GPU.</li>
+<li>8GB RAM.</li>
+<li>250GB SSD plus 1TB of HHD.</li>
+</ol>
+<h3 id="the-importance-of-gpus">The Importance of GPUS.</h3>
+<p>The Graphic Processing Unit, abbreviated as GPU, is a unique electronic circuit that offers parallel processing and is used to accelerate the rendering of computer graphics. GPUs are implemented within the deep learning space to to accelerate training and inference for resource and computationally intensive models. Their importance cannot be overemphasized as they contain specialized cores unlike a CPU that distribute the workload or computation across each unit to deliver a much faster performance. So I really recommend using a system with GPU to train models. I had to destroy my wallet to get a GPU machine, but it was worth it.</p>
+<p>I suggest you purchase some cloud based solutions that would give you access into a cluster or instance of compute that provides adequate GPU that would suffice for a specific task. There are several cloud providers available for this purpose.</p>
+<h3 id="getting-started">Getting Started.</h3>
+<p>First and foremost, we need to satisfy some requirements otherwise the installation of certain dependencies that are pertinet to building the platform. Hence, we must review the context of the project and understand the reason for the selected tools for the project.</p>
+<ol>
+<li><code>Tensorflow</code>: Tensorflow is Google&rsquo;s open source machine learning library used internally as well for their Machine Learning driven solutions.</li>
+<li><code>Keras</code>: This is a python based interface that acts as a layer on top of TensorFlow, to ease the abstraction and improve the implementation.</li>
+<li><code>Flask</code>: This is a fantastic microframework used for building web applications written in Python. It has always been my preferred approach to developing scalable RESTful APIs in Python, over Django.</li>
+<li><code>Pip</code>: This is the official package manager for Python which provides the above libraries hosted on <a href="https://pipy.org" target="_blank">Python&rsquo;s open source library platform</a>.</li>
+</ol>
+<h3 id="the-model">The Model.</h3>
+<p>One significant thing to note is that we are not explicitly writing a machine learning model from scratch. That would be quite exhausting. Why reinvent the wheel when you have already trained models available to integrate? Hell no.</p>
+<p>So for our prestigious model, which I cherry-picked from several options and sources. It is called the &ldquo;VGG16.&rdquo;</p>
+<p>It sounds like a rocket model crafted for another adventure into the solar system. Or a codename for a russian spy. As ludicrous as it may seem, the name of the model played an agurably important role in grabbing my attention.</p>
+<h3 id="the-vgg16-model">The VGG16 Model.</h3>
+<blockquote>
+<p>I truly believe in the importance of reviewing academic papers that cite or basically illustrate the entire context of the model available. Therefore, I was able to obtain some pretty cool sources. I suggest this <a href="https://arxiv.org/abs/1409.1556" target="_blank">paper. It was very intriguing</a></p>
+</blockquote>
+<p>VGG16 refers to the VGG model, also called VGGNet. It is a convolution neural network (CNN) model supporting 16 layers. So basically, the VGG16 model is a convolution neural network designed primarily for the sole purpose of localization and classification. It supports up to sixteen perceptron layers. Neural networks are made up of components called layers.</p>
+<p><img src="https://www.theclickreader.com/wp-content/uploads/2020/07/cnn-architecture-1024x576.png" alt="Covolutional Neural Network"></p>
+<p><u>Image Credit: The Click Reader</u></p>
+<p>For instance the covolutional neural network consists of three layers, primarily the <em>pooling layer, activation layer and covolutional layer</em>, with these three layers containing a speficic amount of weighted input that can be received. I do not want to go over neural networks here, I have a seperate article for that in theory. So I may appear quite evasive of the concepts I may subconciously instigate possibly as a means of clarifications to solidify my propositions and explanations.</p>
+<p>So let us do more fun stuff. Try and capture the below diagramatical represenation of the VGG16 Model.</p>
+<h3 id="the-vgg15-model-architecture">The VGG15 Model Architecture.</h3>
+<p><img src="https://miro.medium.com/max/1400/1*NNifzsJ7tD2kAfBXt3AzEg.webp" alt="Structure"></p>
+<p>The VGG16 is composed of \(13\) convolutional layers, \(5\) max-pooling layers, and \(3\) fully connected layers. The number of layers with tunable parameters sums up to a total of \(16\). Giving it the number preceding the name.</p>
+<p>The number of filters in the first block as shown is \(64\). The number is doubled in the subsequent blocks until it gets to \(512\). The model ends with two connected hidden layers, each containing \(4096\) neurons. The output layer contains a total of \(1000\) neurons corresponding to the number of categories in the ImageNet dataset.</p>
+<p>We would implement the following algorithm in the project. It is worthy to note that the source code was obtained from the Keras Team. The reference to the same paper I cited is coincidentally referenced in the code.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#d88200">&#34;&#34;&#34;VGG16 model for Keras.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200"># Reference
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">- [Very Deep Convolutional Networks for Large-Scale Image Recognition](
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">    https://arxiv.org/abs/1409.1556) (ICLR 2015)
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">__future__</span> <span style="color:#f92672">import</span> <span style="color:#111">absolute_import</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">__future__</span> <span style="color:#f92672">import</span> <span style="color:#111">division</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">__future__</span> <span style="color:#f92672">import</span> <span style="color:#111">print_function</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">os</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">.</span> <span style="color:#f92672">import</span> <span style="color:#111">get_submodules_from_kwargs</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">.</span> <span style="color:#f92672">import</span> <span style="color:#111">imagenet_utils</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">.imagenet_utils</span> <span style="color:#f92672">import</span> <span style="color:#111">decode_predictions</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">.imagenet_utils</span> <span style="color:#f92672">import</span> <span style="color:#111">_obtain_input_shape</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">preprocess_input</span> <span style="color:#f92672">=</span> <span style="color:#111">imagenet_utils</span><span style="color:#f92672">.</span><span style="color:#111">preprocess_input</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">WEIGHTS_PATH</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#d88200">&#39;https://github.com/fchollet/deep-learning-models/&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#d88200">&#39;releases/download/v0.1/&#39;</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#d88200">&#39;vgg16_weights_tf_dim_ordering_tf_kernels.h5&#39;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">WEIGHTS_PATH_NO_TOP</span> <span style="color:#f92672">=</span> <span style="color:#111">(</span><span style="color:#d88200">&#39;https://github.com/fchollet/deep-learning-models/&#39;</span>
+</span></span><span style="display:flex;"><span>                       <span style="color:#d88200">&#39;releases/download/v0.1/&#39;</span>
+</span></span><span style="display:flex;"><span>                       <span style="color:#d88200">&#39;vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5&#39;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">def</span> <span style="color:#75af00">VGG16</span><span style="color:#111">(</span><span style="color:#111">include_top</span><span style="color:#f92672">=</span><span style="color:#00a8c8">True</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#111">weights</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;imagenet&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#111">input_tensor</span><span style="color:#f92672">=</span><span style="color:#00a8c8">None</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#111">input_shape</span><span style="color:#f92672">=</span><span style="color:#00a8c8">None</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#111">pooling</span><span style="color:#f92672">=</span><span style="color:#00a8c8">None</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#111">classes</span><span style="color:#f92672">=</span><span style="color:#ae81ff">1000</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>          <span style="color:#f92672">**</span><span style="color:#111">kwargs</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d88200">&#34;&#34;&#34;Instantiates the VGG16 architecture.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">    Optionally loads weights pre-trained on ImageNet.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">    Note that the data format convention used by the model is
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">    the one specified in your Keras config at `~/.keras/keras.json`.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">    # Arguments
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        include_top: whether to include the 3 fully-connected
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">            layers at the top of the network.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        weights: one of `None` (random initialization),
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">              &#39;imagenet&#39; (pre-training on ImageNet),
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">              or the path to the weights file to be loaded.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        input_tensor: optional Keras tensor
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">            (i.e. output of `layers.Input()`)
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">            to use as image input for the model.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        input_shape: optional shape tuple, only to be specified
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">            if `include_top` is False (otherwise the input shape
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">            has to be `(224, 224, 3)`
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">            (with `channels_last` data format)
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">            or `(3, 224, 224)` (with `channels_first` data format).
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">            It should have exactly 3 input channels,
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">            and width and height should be no smaller than 32.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">            E.g. `(200, 200, 3)` would be one valid value.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        pooling: Optional pooling mode for feature extraction
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">            when `include_top` is `False`.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">            - `None` means that the output of the model will be
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">                the 4D tensor output of the
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">                last convolutional block.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">            - `avg` means that global average pooling
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">                will be applied to the output of the
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">                last convolutional block, and thus
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">                the output of the model will be a 2D tensor.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">            - `max` means that global max pooling will
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">                be applied.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        classes: optional number of classes to classify images
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">            into, only to be specified if `include_top` is True, and
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">            if no `weights` argument is specified.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">    # Returns
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        A Keras model instance.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">    # Raises
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">        ValueError: in case of invalid argument for `weights`,
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">            or invalid input shape.
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">    &#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">backend</span><span style="color:#111">,</span> <span style="color:#111">layers</span><span style="color:#111">,</span> <span style="color:#111">models</span><span style="color:#111">,</span> <span style="color:#111">keras_utils</span> <span style="color:#f92672">=</span> <span style="color:#111">get_submodules_from_kwargs</span><span style="color:#111">(</span><span style="color:#111">kwargs</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span> <span style="color:#f92672">not</span> <span style="color:#111">(</span><span style="color:#111">weights</span> <span style="color:#f92672">in</span> <span style="color:#111">{</span><span style="color:#d88200">&#39;imagenet&#39;</span><span style="color:#111">,</span> <span style="color:#00a8c8">None</span><span style="color:#111">}</span> <span style="color:#f92672">or</span> <span style="color:#111">os</span><span style="color:#f92672">.</span><span style="color:#111">path</span><span style="color:#f92672">.</span><span style="color:#111">exists</span><span style="color:#111">(</span><span style="color:#111">weights</span><span style="color:#111">)):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">raise</span> <span style="color:#75af00">ValueError</span><span style="color:#111">(</span><span style="color:#d88200">&#39;The `weights` argument should be either &#39;</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#d88200">&#39;`None` (random initialization), `imagenet` &#39;</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#d88200">&#39;(pre-training on ImageNet), &#39;</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#d88200">&#39;or the path to the weights file to be loaded.&#39;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span> <span style="color:#111">weights</span> <span style="color:#f92672">==</span> <span style="color:#d88200">&#39;imagenet&#39;</span> <span style="color:#f92672">and</span> <span style="color:#111">include_top</span> <span style="color:#f92672">and</span> <span style="color:#111">classes</span> <span style="color:#f92672">!=</span> <span style="color:#ae81ff">1000</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">raise</span> <span style="color:#75af00">ValueError</span><span style="color:#111">(</span><span style="color:#d88200">&#39;If using `weights` as `&#34;imagenet&#34;` with `include_top`&#39;</span>
+</span></span><span style="display:flex;"><span>                         <span style="color:#d88200">&#39; as true, `classes` should be 1000&#39;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Determine proper input shape</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">input_shape</span> <span style="color:#f92672">=</span> <span style="color:#111">_obtain_input_shape</span><span style="color:#111">(</span><span style="color:#111">input_shape</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                                      <span style="color:#111">default_size</span><span style="color:#f92672">=</span><span style="color:#ae81ff">224</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                                      <span style="color:#111">min_size</span><span style="color:#f92672">=</span><span style="color:#ae81ff">32</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                                      <span style="color:#111">data_format</span><span style="color:#f92672">=</span><span style="color:#111">backend</span><span style="color:#f92672">.</span><span style="color:#111">image_data_format</span><span style="color:#111">(),</span>
+</span></span><span style="display:flex;"><span>                                      <span style="color:#111">require_flatten</span><span style="color:#f92672">=</span><span style="color:#111">include_top</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                                      <span style="color:#111">weights</span><span style="color:#f92672">=</span><span style="color:#111">weights</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span> <span style="color:#111">input_tensor</span> <span style="color:#f92672">is</span> <span style="color:#00a8c8">None</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">img_input</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Input</span><span style="color:#111">(</span><span style="color:#111">shape</span><span style="color:#f92672">=</span><span style="color:#111">input_shape</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">else</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#f92672">not</span> <span style="color:#111">backend</span><span style="color:#f92672">.</span><span style="color:#111">is_keras_tensor</span><span style="color:#111">(</span><span style="color:#111">input_tensor</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">img_input</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Input</span><span style="color:#111">(</span><span style="color:#111">tensor</span><span style="color:#f92672">=</span><span style="color:#111">input_tensor</span><span style="color:#111">,</span> <span style="color:#111">shape</span><span style="color:#f92672">=</span><span style="color:#111">input_shape</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">else</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">img_input</span> <span style="color:#f92672">=</span> <span style="color:#111">input_tensor</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Block 1</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Conv2D</span><span style="color:#111">(</span><span style="color:#ae81ff">64</span><span style="color:#111">,</span> <span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">activation</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;relu&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">padding</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;same&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block1_conv1&#39;</span><span style="color:#111">)(</span><span style="color:#111">img_input</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Conv2D</span><span style="color:#111">(</span><span style="color:#ae81ff">64</span><span style="color:#111">,</span> <span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">activation</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;relu&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">padding</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;same&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block1_conv2&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">MaxPooling2D</span><span style="color:#111">((</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">),</span> <span style="color:#111">strides</span><span style="color:#f92672">=</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">),</span> <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block1_pool&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Block 2</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Conv2D</span><span style="color:#111">(</span><span style="color:#ae81ff">128</span><span style="color:#111">,</span> <span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">activation</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;relu&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">padding</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;same&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block2_conv1&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Conv2D</span><span style="color:#111">(</span><span style="color:#ae81ff">128</span><span style="color:#111">,</span> <span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">activation</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;relu&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">padding</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;same&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block2_conv2&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">MaxPooling2D</span><span style="color:#111">((</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">),</span> <span style="color:#111">strides</span><span style="color:#f92672">=</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">),</span> <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block2_pool&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Block 3</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Conv2D</span><span style="color:#111">(</span><span style="color:#ae81ff">256</span><span style="color:#111">,</span> <span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">activation</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;relu&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">padding</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;same&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block3_conv1&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Conv2D</span><span style="color:#111">(</span><span style="color:#ae81ff">256</span><span style="color:#111">,</span> <span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">activation</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;relu&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">padding</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;same&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block3_conv2&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Conv2D</span><span style="color:#111">(</span><span style="color:#ae81ff">256</span><span style="color:#111">,</span> <span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">activation</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;relu&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">padding</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;same&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block3_conv3&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">MaxPooling2D</span><span style="color:#111">((</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">),</span> <span style="color:#111">strides</span><span style="color:#f92672">=</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">),</span> <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block3_pool&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Block 4</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Conv2D</span><span style="color:#111">(</span><span style="color:#ae81ff">512</span><span style="color:#111">,</span> <span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">activation</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;relu&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">padding</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;same&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block4_conv1&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Conv2D</span><span style="color:#111">(</span><span style="color:#ae81ff">512</span><span style="color:#111">,</span> <span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">activation</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;relu&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">padding</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;same&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block4_conv2&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Conv2D</span><span style="color:#111">(</span><span style="color:#ae81ff">512</span><span style="color:#111">,</span> <span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">activation</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;relu&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">padding</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;same&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block4_conv3&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">MaxPooling2D</span><span style="color:#111">((</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">),</span> <span style="color:#111">strides</span><span style="color:#f92672">=</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">),</span> <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block4_pool&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Block 5</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Conv2D</span><span style="color:#111">(</span><span style="color:#ae81ff">512</span><span style="color:#111">,</span> <span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">activation</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;relu&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">padding</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;same&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block5_conv1&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Conv2D</span><span style="color:#111">(</span><span style="color:#ae81ff">512</span><span style="color:#111">,</span> <span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">activation</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;relu&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">padding</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;same&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block5_conv2&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Conv2D</span><span style="color:#111">(</span><span style="color:#ae81ff">512</span><span style="color:#111">,</span> <span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">),</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">activation</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;relu&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">padding</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;same&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                      <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block5_conv3&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">MaxPooling2D</span><span style="color:#111">((</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">),</span> <span style="color:#111">strides</span><span style="color:#f92672">=</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">),</span> <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;block5_pool&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span> <span style="color:#111">include_top</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Classification block</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Flatten</span><span style="color:#111">(</span><span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;flatten&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Dense</span><span style="color:#111">(</span><span style="color:#ae81ff">4096</span><span style="color:#111">,</span> <span style="color:#111">activation</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;relu&#39;</span><span style="color:#111">,</span> <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;fc1&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Dense</span><span style="color:#111">(</span><span style="color:#ae81ff">4096</span><span style="color:#111">,</span> <span style="color:#111">activation</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;relu&#39;</span><span style="color:#111">,</span> <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;fc2&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">Dense</span><span style="color:#111">(</span><span style="color:#111">classes</span><span style="color:#111">,</span> <span style="color:#111">activation</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;softmax&#39;</span><span style="color:#111">,</span> <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;predictions&#39;</span><span style="color:#111">)(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">else</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">pooling</span> <span style="color:#f92672">==</span> <span style="color:#d88200">&#39;avg&#39;</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">GlobalAveragePooling2D</span><span style="color:#111">()(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">elif</span> <span style="color:#111">pooling</span> <span style="color:#f92672">==</span> <span style="color:#d88200">&#39;max&#39;</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">layers</span><span style="color:#f92672">.</span><span style="color:#111">GlobalMaxPooling2D</span><span style="color:#111">()(</span><span style="color:#111">x</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Ensure that the model takes into account</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># any potential predecessors of `input_tensor`.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span> <span style="color:#111">input_tensor</span> <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#00a8c8">None</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">inputs</span> <span style="color:#f92672">=</span> <span style="color:#111">keras_utils</span><span style="color:#f92672">.</span><span style="color:#111">get_source_inputs</span><span style="color:#111">(</span><span style="color:#111">input_tensor</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">else</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">inputs</span> <span style="color:#f92672">=</span> <span style="color:#111">img_input</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Create model.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">model</span> <span style="color:#f92672">=</span> <span style="color:#111">models</span><span style="color:#f92672">.</span><span style="color:#111">Model</span><span style="color:#111">(</span><span style="color:#111">inputs</span><span style="color:#111">,</span> <span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;vgg16&#39;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Load weights.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span> <span style="color:#111">weights</span> <span style="color:#f92672">==</span> <span style="color:#d88200">&#39;imagenet&#39;</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">include_top</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">weights_path</span> <span style="color:#f92672">=</span> <span style="color:#111">keras_utils</span><span style="color:#f92672">.</span><span style="color:#111">get_file</span><span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#d88200">&#39;vgg16_weights_tf_dim_ordering_tf_kernels.h5&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">WEIGHTS_PATH</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">cache_subdir</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;models&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">file_hash</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;64373286793e3c8b2b4e3219cbf3544b&#39;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">else</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">weights_path</span> <span style="color:#f92672">=</span> <span style="color:#111">keras_utils</span><span style="color:#f92672">.</span><span style="color:#111">get_file</span><span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#d88200">&#39;vgg16_weights_tf_dim_ordering_tf_kernels_notop.h5&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">WEIGHTS_PATH_NO_TOP</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">cache_subdir</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;models&#39;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">file_hash</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;6d6bbae143d832006294945121d1f1fc&#39;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">model</span><span style="color:#f92672">.</span><span style="color:#111">load_weights</span><span style="color:#111">(</span><span style="color:#111">weights_path</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">backend</span><span style="color:#f92672">.</span><span style="color:#111">backend</span><span style="color:#111">()</span> <span style="color:#f92672">==</span> <span style="color:#d88200">&#39;theano&#39;</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">keras_utils</span><span style="color:#f92672">.</span><span style="color:#111">convert_all_kernels_in_model</span><span style="color:#111">(</span><span style="color:#111">model</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">elif</span> <span style="color:#111">weights</span> <span style="color:#f92672">is</span> <span style="color:#f92672">not</span> <span style="color:#00a8c8">None</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">model</span><span style="color:#f92672">.</span><span style="color:#111">load_weights</span><span style="color:#111">(</span><span style="color:#111">weights</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#111">model</span>
+</span></span></code></pre></div><h3 id="building-the-project">Building the project</h3>
+<p>Now we have an overview, we can commence the development of the image classifier, finally. The first thing I suggest you do is create a folder for the project.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkdir image-classifier
+</span></span><span style="display:flex;"><span><span style="color:#111">cd</span> image-classifier
+</span></span></code></pre></div><p>Create a virtual environment. This is relatively simple to do.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#75715e"># Install on Ubuntu</span>
+</span></span><span style="display:flex;"><span>sudo apt-get install python3-venv
+</span></span><span style="display:flex;"><span>python3 -m venv .venv
+</span></span><span style="display:flex;"><span><span style="color:#111">source</span> .venv/bin/activate
+</span></span></code></pre></div><p>Please ensure you fulfilled the requirements above. Ensure you have the Python programming language installed. Now we would neet to set up our dependencies.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install pip3
+</span></span><span style="display:flex;"><span>python -m pip3 install --upgrade pip
+</span></span><span style="display:flex;"><span>pip3 install keras, flask, tensorflow
+</span></span></code></pre></div><p><img src="https://i.ibb.co/crSNBhR/Screenshot-from-2023-01-23-12-31-38.png" alt="Installing Dependencies"></p>
+<p>Create a file named <code>app.py</code> in the directory you created. This would be the main file that Flask will startup. Then append the following line of code to the <code>app.py</code> file:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">flask</span> <span style="color:#f92672">import</span> <span style="color:#111">Flask</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">app</span> <span style="color:#f92672">=</span> <span style="color:#111">Flask</span><span style="color:#111">(</span><span style="color:#111">__name__</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">@app.route</span><span style="color:#111">(</span><span style="color:#d88200">&#34;/&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">def</span> <span style="color:#75af00">home</span><span style="color:#111">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#d88200">&#34;Hello, Flask!&#34;</span>
+</span></span></code></pre></div><p>Then run the following command: <code>python -m flask run</code> to boot up the application.</p>
+<h3 id="creating-the-html-template">Creating the HTML template.</h3>
+<p>The application would need a front-end to run in the browser. Therefore to achieve this, we would need to create a template in HTML. You should be able to do this by first creating a folder called <code>&quot;template&quot;</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo mkdir template
+</span></span><span style="display:flex;"><span>touch app.html
+</span></span><span style="display:flex;"><span>sudo vi app.html
+</span></span></code></pre></div><p>Then append the following code for the HTML template. We are using some Bootstrap for simple styling served through a content delivery network.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- The Template: Gerald Maduabuchi --&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">&lt;!DOCTYPE html&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">&lt;</span><span style="color:#f92672">html</span> <span style="color:#75af00">lang</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;en&#34;</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#111">&lt;</span><span style="color:#f92672">head</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">&lt;</span><span style="color:#f92672">title</span><span style="color:#111">&gt;</span>Python Image Classification | Flask<span style="color:#111">&lt;/</span><span style="color:#f92672">title</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">&lt;</span><span style="color:#f92672">meta</span> <span style="color:#75af00">charset</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;utf-8&#34;</span> <span style="color:#111">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">&lt;</span><span style="color:#f92672">link</span> <span style="color:#75af00">rel</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;stylesheet&#34;</span> <span style="color:#75af00">href</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;app.css&#34;</span> <span style="color:#111">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">&lt;</span><span style="color:#f92672">link</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#75af00">rel</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;stylesheet&#34;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#75af00">href</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css&#34;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#75af00">integrity</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u&#34;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#75af00">crossorigin</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;anonymous&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">/&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#111">&lt;/</span><span style="color:#f92672">head</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#111">&lt;</span><span style="color:#f92672">body</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">&lt;</span><span style="color:#f92672">nav</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;navbar navbar-default navbar-fixed-top nav&#34;</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#111">&lt;</span><span style="color:#f92672">a</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;navbar-brand&#34;</span> <span style="color:#75af00">href</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;app.html&#34;</span> <span style="color:#75af00">aria-label</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;Go to home section&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">&gt;</span>Python Image Classification<span style="color:#111">&lt;/</span><span style="color:#f92672">a</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">&lt;/</span><span style="color:#f92672">nav</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#111">&lt;/</span><span style="color:#f92672">body</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#111">&lt;</span><span style="color:#f92672">form</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75af00">action</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;/&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75af00">method</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;POST&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75af00">enctype</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;multipart/form-data&#34;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;form-style&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">&lt;</span><span style="color:#f92672">div</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;form-group&#34;</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#111">&lt;</span><span style="color:#f92672">label</span> <span style="color:#75af00">for</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;file image&#34;</span><span style="color:#111">&gt;</span>Enter your Image<span style="color:#111">&lt;/</span><span style="color:#f92672">label</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#111">&lt;</span><span style="color:#f92672">input</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">type</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;file&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;form-control&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">name</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;fileImage&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">placeholder</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;enter image&#34;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#111">/&gt;&lt;</span><span style="color:#f92672">br</span> <span style="color:#111">/&gt;</span>
+</span></span><span style="display:flex;"><span>   <span style="color:#111">&lt;</span><span style="color:#f92672">input</span> <span style="color:#75af00">type</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;submit&#34;</span> <span style="color:#75af00">value</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;Predict&#34;</span> <span style="color:#75af00">class</span><span style="color:#f92672">=</span><span style="color:#d88200">&#34;btn btn-success&#34;</span> <span style="color:#111">/&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">&lt;/</span><span style="color:#f92672">div</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#111">&lt;/</span><span style="color:#f92672">form</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">&lt;/</span><span style="color:#f92672">html</span><span style="color:#111">&gt;</span>
+</span></span></code></pre></div><p>We created a form with a <code>POST</code> method to handle the submission of the image as an input from the browser to Flask, which would then leverage on the power of the VGG16 model to classify the image and return a prediction score. We would later implement the latter as we proceed.</p>
+<h3 id="styling-the-template">Styling the Template.</h3>
+<p>For some extra styling, we would create an <code>css/app.css</code> then write the following styling otherwise rulesets to make our site look less ugly. I am still in the process of improving my front-end development skills, so bear with me the atrocious interface you may behold. It may be as generic as you think.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-css" data-lang="css"><span style="display:flex;"><span><span style="color:#111">.</span><span style="color:#75af00">form-style</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span> <span style="color:#00a8c8">padding-top</span><span style="color:#111">:</span> <span style="color:#ae81ff">25</span><span style="color:#00a8c8">rem</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#00a8c8">width</span><span style="color:#111">:</span> <span style="color:#ae81ff">50</span><span style="color:#00a8c8">rem</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#00a8c8">margin-left</span><span style="color:#111">:</span> <span style="color:#ae81ff">50</span><span style="color:#00a8c8">rem</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">input</span><span style="color:#f92672">[</span><span style="color:#f92672">type</span><span style="color:#f92672">=</span><span style="color:#d88200">&#39;file&#39;</span><span style="color:#f92672">]</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span> <span style="color:#00a8c8">color</span><span style="color:#111">:</span> <span style="color:#00a8c8">red</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#00a8c8">padding-bottom</span><span style="color:#111">:</span> <span style="color:#ae81ff">3</span><span style="color:#00a8c8">rem</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><h3 id="model-implementation-in-flask">Model Implementation in Flask.</h3>
+<p>In your <code>app.py</code> we are going to write the basic logic, otherwise implementations of the VGG16 model in our application. It is quite straightforward, and does not in anyway represent the level of complexity we covered in the introductory section of the article.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Importing flask module</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">flask</span> <span style="color:#f92672">import</span> <span style="color:#111">Flask</span><span style="color:#111">,</span> <span style="color:#111">render_template</span><span style="color:#111">,</span> <span style="color:#111">request</span>
+</span></span></code></pre></div><p>First and foremost, you need to import the flask module which you installed by means of the pip tooling. Including the render_template to render the HTML template we wrote, as well as the request to retrieve requests from the client of our application.</p>
+<p>Below, we carefully import the modules required for processing and the VGG16 model into the flask application. I will carefully elaborate on each import and its own contribution to the functionality.</p>
+<ul>
+<li>The <code>img_to_array</code> module is for converting a loaded image in PIL format into a <a href="https://numpy.org" target="_blank">NumPy</a> array.</li>
+<li>The <code>load_img</code>, as the name implies is to load an image into the model.</li>
+<li>The <code>preprocess_input</code> is meant to adequate the image to a format that the VGG16 requires.</li>
+<li>The <code>VGG16</code> module is the library or implementation itself that we would call into the application.</li>
+<li>The <code>decode_predictions</code> is used to provide the prediction accuracy score, otherwise estimate.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Importing Keras Modules</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">keras.preprocessing.image</span> <span style="color:#f92672">import</span> <span style="color:#111">img_to_array</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">keras.preprocessing.image</span> <span style="color:#f92672">import</span> <span style="color:#111">load_img</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">keras.applications.vgg16</span> <span style="color:#f92672">import</span> <span style="color:#111">preprocess_input</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">keras.applications.vgg16</span> <span style="color:#f92672">import</span> <span style="color:#111">VGG16</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">keras.applications.vgg16</span> <span style="color:#f92672">import</span> <span style="color:#111">decode_predictions</span>
+</span></span></code></pre></div><p>Now we need to write out new methods to start the application. We would also assign the VGG16 instansiation, to the variable <code>model</code> to represent the initialization across our codebase.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Start App</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">app</span> <span style="color:#f92672">=</span> <span style="color:#111">Flask</span><span style="color:#111">(</span><span style="color:#111">__name__</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#The Model.</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">model</span> <span style="color:#f92672">=</span> <span style="color:#111">VGG16</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p>Next we would assign a sample route again, and write a function to render the <code>app.html</code> template accordingly. This could be done effectively by writing the below code:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Get Route</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">@app.route</span><span style="color:#111">(</span><span style="color:#d88200">&#39;/&#39;</span><span style="color:#111">,</span> <span style="color:#111">methods</span><span style="color:#f92672">=</span><span style="color:#111">[</span><span style="color:#d88200">&#39;GET&#39;</span><span style="color:#111">])</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">def</span> <span style="color:#75af00">hello_world</span><span style="color:#111">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#Render Template</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#111">render_template</span><span style="color:#111">(</span><span style="color:#d88200">&#39;app.html&#39;</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>Now, this is where the entire logic is written. We would need to receive inputs from the post into the model.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Receive input and post to model</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">@app.route</span><span style="color:#111">(</span><span style="color:#d88200">&#39;/&#39;</span><span style="color:#111">,</span> <span style="color:#111">methods</span><span style="color:#f92672">=</span><span style="color:#111">[</span><span style="color:#d88200">&#39;POST&#39;</span><span style="color:#111">])</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Predict function</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">def</span> <span style="color:#75af00">predict</span><span style="color:#111">():</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">fileImage</span> <span style="color:#f92672">=</span> <span style="color:#111">request</span><span style="color:#f92672">.</span><span style="color:#111">files</span><span style="color:#111">[</span><span style="color:#d88200">&#39;fileImage&#39;</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">image_path</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;./images/&#34;</span> <span style="color:#f92672">+</span> <span style="color:#111">fileImage</span><span style="color:#f92672">.</span><span style="color:#111">filename</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">fileImage</span><span style="color:#f92672">.</span><span style="color:#111">save</span><span style="color:#111">(</span><span style="color:#111">image_path</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>Here we request the image path, within the predict function we have written.</p>
+<h3 id="loading-the-image">Loading the image.</h3>
+<p>Here we load the image into our application by calling the <code>load_img</code> method imported, passing the <code>image_path</code> as a parameter and the target size to conform to the requirements of the model.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e">#Load Image</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">image</span> <span style="color:#f92672">=</span> <span style="color:#111">load_img</span><span style="color:#111">(</span><span style="color:#111">image_path</span><span style="color:#111">,</span> <span style="color:#111">target_size</span><span style="color:#f92672">=</span><span style="color:#111">(</span><span style="color:#ae81ff">224</span><span style="color:#111">,</span> <span style="color:#ae81ff">224</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">image</span> <span style="color:#f92672">=</span> <span style="color:#111">img_to_array</span><span style="color:#111">(</span><span style="color:#111">image</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">image</span> <span style="color:#f92672">=</span> <span style="color:#111">image</span><span style="color:#f92672">.</span><span style="color:#111">reshape</span><span style="color:#111">((</span><span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#111">image</span><span style="color:#f92672">.</span><span style="color:#111">shape</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">],</span> <span style="color:#111">image</span><span style="color:#f92672">.</span><span style="color:#111">shape</span><span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">],</span> <span style="color:#111">image</span><span style="color:#f92672">.</span><span style="color:#111">shape</span><span style="color:#111">[</span><span style="color:#ae81ff">2</span><span style="color:#111">]))</span>
+</span></span></code></pre></div><h3 id="classification-and-prediction">Classification and Prediction.</h3>
+<p>Now we execute the prediction, and classification of the input. Then we return the prediction score to the <code>app.html</code> template.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>    <span style="color:#75715e">#Process Image</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">image</span> <span style="color:#f92672">=</span> <span style="color:#111">preprocess_input</span><span style="color:#111">(</span><span style="color:#111">image</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#Make Predictions</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">yhat</span> <span style="color:#f92672">=</span> <span style="color:#111">model</span><span style="color:#f92672">.</span><span style="color:#111">predict</span><span style="color:#111">(</span><span style="color:#111">image</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">label</span> <span style="color:#f92672">=</span> <span style="color:#111">decode_predictions</span><span style="color:#111">(</span><span style="color:#111">yhat</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">label</span> <span style="color:#f92672">=</span> <span style="color:#111">label</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">][</span><span style="color:#ae81ff">0</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">#Make Classifications</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">classification</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;</span><span style="color:#d88200">%s</span><span style="color:#d88200"> (</span><span style="color:#d88200">%.2f%%</span><span style="color:#d88200">)&#39;</span> <span style="color:#f92672">%</span> <span style="color:#111">(</span><span style="color:#111">label</span><span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">],</span> <span style="color:#111">label</span><span style="color:#111">[</span><span style="color:#ae81ff">2</span><span style="color:#111">]</span><span style="color:#f92672">*</span><span style="color:#ae81ff">100</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#111">render_template</span><span style="color:#111">(</span><span style="color:#d88200">&#39;app.html&#39;</span><span style="color:#111">,</span> <span style="color:#111">prediction</span><span style="color:#f92672">=</span><span style="color:#111">classification</span><span style="color:#111">)</span>
+</span></span></code></pre></div><h3 id="integrating-to-the-template">Integrating to the Template.</h3>
+<p>Since we are using flask, we would need to call the prediction method by the following convention into our html template to fully integrate it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-html" data-lang="html"><span style="display:flex;"><span><span style="color:#75715e">&lt;!-- Predict Function --&gt;</span>
+</span></span><span style="display:flex;"><span>{% if prediction %}
+</span></span><span style="display:flex;"><span><span style="color:#111">&lt;</span><span style="color:#f92672">small</span><span style="color:#111">&gt;</span>The image you uploaded is a {{prediction}}<span style="color:#111">&lt;/</span><span style="color:#f92672">small</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>{% endif %}
+</span></span></code></pre></div><p>Excellent. I forgot. It is required to write in the initialization method for the flask application and assign a port number like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Intitalise Port</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">if</span> <span style="color:#111">__name__</span> <span style="color:#f92672">==</span> <span style="color:#d88200">&#39;__main__&#39;</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">app</span><span style="color:#f92672">.</span><span style="color:#111">run</span><span style="color:#111">(</span><span style="color:#111">port</span><span style="color:#f92672">=</span><span style="color:#ae81ff">3000</span><span style="color:#111">,</span> <span style="color:#111">debug</span><span style="color:#f92672">=</span><span style="color:#00a8c8">False</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>Run <code>python -m flask run</code> to start the application.</p>
+<h3 id="conclusion">Conclusion.</h3>
+<p>Did you get to the end solider? If you did, congratulations. You have successfully created a flask application that executes image recognition. Till the next time we meet. Have a nice day. Share the article and also, I am open to any suggestions. Also, feel free to explore the <a href="https://github.com/grayoj/image-classifier" target="_blank">repository</a> if it does not seem to work for you the way you want it to, follow the instructions and then you should be all set. Regards.</p>
+
+        </article>
+        
+    </article>
+
+
+    </main>
+    <footer>
+  <div class="content-container">
+    <div class="content">I&rsquo;m Gerald Maduabuchi Okereke. Welcome to my blog. Here, I write articles about things I&rsquo;m building, learning and my thoughts
+
+
+  <p class="horizontal-links"><a href="https://github.com/grayoj"
+        target="_blank" 
+       
+      >Github</a><a href="https://twitter.com/geraldmokereke"
+        target="_blank" 
+       
+      >X</a><a href="mailto:geraldmokereke@gmail.com"
+        target="_blank" 
+       
+      >Email</a></p>
+
+</div>
+  </div>
+</footer>
+    
+    <script>
+      const emailId = atob("bWFpbEBleGFtcGxlLmNvbQ==");
+    </script>
+      <script src="/js/rocinante.min.js"></script></body>
+</html>

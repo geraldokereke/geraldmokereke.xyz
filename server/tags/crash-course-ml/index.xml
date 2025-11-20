@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Crash Course, ML on Gerald.</title>
+    <link>https://geraldmokereke.xyz/tags/crash-course-ml/</link>
+    <description>Recent content in Crash Course, ML on Gerald.</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 25 Jan 2023 23:37:44 +0100</lastBuildDate>
+    <atom:link href="https://geraldmokereke.xyz/tags/crash-course-ml/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Crash Course: Matplotlib and Jupyter Notebook</title>
+      <link>https://geraldmokereke.xyz/posts/crash-course-matplotlib/</link>
+      <pubDate>Wed, 25 Jan 2023 23:37:44 +0100</pubDate>
+      <guid>https://geraldmokereke.xyz/posts/crash-course-matplotlib/</guid>
+      <description>&lt;h1 id=&#34;introduction-to-matplotlib&#34;&gt;Introduction to Matplotlib.&lt;/h1&gt;&#xA;&lt;p&gt;Matplotlib is a library used to create visualisations of data in the Python programming language. With matplotlib, you can create two-dimensional graphs using Python Scripts. It’s pretty cool and I will be showing you how you could use it for your subsequent projects, research and schoolwork alongside the Jupyter Notebook tool.&lt;/p&gt;&#xA;&lt;h3 id=&#34;jupyter-notebooks&#34;&gt;Jupyter Notebooks.&lt;/h3&gt;&#xA;&lt;p&gt;A Jupyter Notebook is a locally hosted web application used for machine learning and data science tasks, which involves writing models, documenting models and visualising their implementation with tools such as Matplotlib or Seaborn (an alternative). It is relatively easy to set up and configure. You can easily install it by using the pip package manager, or &lt;a href=&#34;https://anaconda.org&#34; target=&#34;_blank&#34;&gt;Anaconda&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

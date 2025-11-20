@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Crash Course: Matplotlib and Jupyter Notebook · Gerald.</title>
+
+
+
+<link rel="stylesheet" href="/css/rocinante.css" />
+<link rel="shortcut icon" href="https://i.ibb.co/YNRSK0Z/gerald-logo.png">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<body>
+    <header><h2>
+  
+    <a href="https://geraldmokereke.xyz/">‹ Gerald.</a>
+  
+</h2>
+</header>
+    <main>
+
+    <div class="post">
+      
+        <div class="title-group">
+            <div class="title">
+                <h1>Crash Course: Matplotlib and Jupyter Notebook</h1>
+            </div>
+            <div class="date"><h5>Jan 25, 2023</h5></div>
+        </div>
+              
+        <article class="content">
+            <h1 id="introduction-to-matplotlib">Introduction to Matplotlib.</h1>
+<p>Matplotlib is a library used to create visualisations of data in the Python programming language. With matplotlib, you can create two-dimensional graphs using Python Scripts. It’s pretty cool and I will be showing you how you could use it for your subsequent projects, research and schoolwork alongside the Jupyter Notebook tool.</p>
+<h3 id="jupyter-notebooks">Jupyter Notebooks.</h3>
+<p>A Jupyter Notebook is a locally hosted web application used for machine learning and data science tasks, which involves writing models, documenting models and visualising their implementation with tools such as Matplotlib or Seaborn (an alternative). It is relatively easy to set up and configure. You can easily install it by using the pip package manager, or <a href="https://anaconda.org" target="_blank">Anaconda</a></p>
+<p>I have worked with anaconda primarily, to do cool stuff. But in this tutorial, we would be using pip and the general Python interpreter that works easily.</p>
+<h3 id="getting-started">Getting Started.</h3>
+<p>You should have Python installed on your machine. It is one of the most important perquisites. I usually recommend a Python 3 installation. To verify your version, simply run: <code>python --v</code>. That should print out the version you use, on your terminal. If you do not have Python, you can follow the <a href="https://docs.python-guide.org/starting/install3/linux/" target="_blank">installation guide here for Ubuntu</a> or your local machine <a href="https://python.org" target="_blank">here</a>.</p>
+<ul>
+<li>I recommend you install <a href="https://jupyter.org" target="_blank">JupyterLab</a> by running: <code>pip install jupyterlab</code>.</li>
+<li>Install Jupyter Notebook, via Pip. <code>pip install notebook</code>.</li>
+<li>To start the notebook, run the following command: <code>jupyter notebook</code>.</li>
+</ul>
+<p>Viola. You should have a working notebook on your machine. It usually opens up for you in the browser. I am on chrome anyways.</p>
+<p><img src="https://i.ibb.co/Jr5NpW6/Screencast-from-25-01-2023-17-49-10.gif" alt="Notebook is working!"></p>
+<p>Install matplotlib on your machine after satisfying the above requirements. Run <code>pip install matplotlib</code>.</p>
+<h3 id="using-matplotlib">Using Matplotlib.</h3>
+<p>To use matplotlib, we are going to write a simple Python script in our jupyter notebook. Copy the code below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Import the module</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">matplotlib</span> <span style="color:#f92672">import</span> <span style="color:#111">pyplot</span> <span style="color:#00a8c8">as</span> <span style="color:#111">plt</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># x-axis values</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">8</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Y-axis values</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">y</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#ae81ff">6</span><span style="color:#111">,</span> <span style="color:#ae81ff">9</span><span style="color:#111">,</span> <span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#ae81ff">9</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Function for plot scatter</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">scatter</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">y</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Function to display plot</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">show</span><span style="color:#111">()</span>
+</span></span></code></pre></div><p>Look at that nice plot. It worked!</p>
+<p><img src="https://i.ibb.co/DGJ2LMB/Screencast-from-25-01-2023-17-59-49.gif" alt="Matplotlib is working!"></p>
+<h3 id="exploring-chart-options">Exploring Chart Options.</h3>
+<p>In Matplotlib, we can effectively define our plots and how they appear by passing in a function after describing our $x$ and $y$ axis. I find this cool and useful. You could represent the data in the following:</p>
+<ul>
+<li>Line graph.</li>
+<li>Bar Plot</li>
+<li>Histogram</li>
+<li>Scattered Plot - (Above we used)</li>
+</ul>
+<p>The only thing you have to do is specify which format the datasets should be represented on the graph.</p>
+<h3 id="labelling-the-graph">Labelling the Graph.</h3>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># importing matplotlib module</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">from</span> <span style="color:#111">matplotlib</span> <span style="color:#f92672">import</span> <span style="color:#111">pyplot</span> <span style="color:#00a8c8">as</span> <span style="color:#111">plt</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># x-axis values</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">x</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#ae81ff">7</span><span style="color:#111">,</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span><span style="color:#ae81ff">8</span><span style="color:#111">,</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#ae81ff">3</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Y-axis values</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">y</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#ae81ff">6</span><span style="color:#111">,</span> <span style="color:#ae81ff">9</span><span style="color:#111">,</span> <span style="color:#ae81ff">10</span><span style="color:#111">,</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#ae81ff">9</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Function to plot</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">scatter</span><span style="color:#111">(</span><span style="color:#111">x</span><span style="color:#111">,</span> <span style="color:#111">y</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Adding Title</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">title</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Gray&#39;s graph.&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Labeling the axes</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">xlabel</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Time (hr)&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">ylabel</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Position (Km)&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span> 
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># function to show the plot</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">plt</span><span style="color:#f92672">.</span><span style="color:#111">show</span><span style="color:#111">()</span>
+</span></span></code></pre></div><h3 id="conclusion">Conclusion.</h3>
+<p>Hope you ennjoyed the tutorial on matplotlib and jupyter notebook. Stay tuned in for more tutorials like these.</p>
+
+        </article>
+        
+            <div class="tags">
+                <span title="Tags">🏷</span>
+                <div class="horizontal-links links">
+                    
+                </div>
+            </div>
+        
+    </article>
+
+
+    </main>
+    <footer>
+  <div class="content-container">
+    <div class="content">I&rsquo;m Gerald Maduabuchi Okereke. Welcome to my blog. Here, I write articles about things I&rsquo;m building, learning and my thoughts
+
+
+  <p class="horizontal-links"><a href="https://github.com/grayoj"
+        target="_blank" 
+       
+      >Github</a><a href="https://twitter.com/geraldmokereke"
+        target="_blank" 
+       
+      >X</a><a href="mailto:geraldmokereke@gmail.com"
+        target="_blank" 
+       
+      >Email</a></p>
+
+</div>
+  </div>
+</footer>
+    
+    <script>
+      const emailId = atob("bWFpbEBleGFtcGxlLmNvbQ==");
+    </script>
+      <script src="/js/rocinante.min.js"></script></body>
+</html>

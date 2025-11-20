@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Fibonacci Algorithms in C · Gerald.</title>
+
+
+
+<link rel="stylesheet" href="/css/rocinante.css" />
+<link rel="shortcut icon" href="https://i.ibb.co/YNRSK0Z/gerald-logo.png">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<body>
+    <header><h2>
+  
+    <a href="https://geraldmokereke.xyz/">‹ Gerald.</a>
+  
+</h2>
+</header>
+    <main>
+
+    <div class="post">
+      
+        <div class="title-group">
+            <div class="title">
+                <h1>Fibonacci Algorithms in C</h1>
+            </div>
+            <div class="date"><h5>Aug 17, 2022</h5></div>
+        </div>
+              
+        <article class="content">
+            
+<h1 id="introduction">Introduction</h1>
+<p>This article covers the concept of Fibonacci series. A very popular algorithm in Computer Science. We would be implementing the theory practically in the C programming language.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center"><img src="https://i.ibb.co/B3sDpvH/images.jpg" alt="Fibonacci"></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">Italian Mathematician, Fibonacci.</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="what-is-the-fibonacci-series">What is the Fibonacci Series?</h3>
+<p>The Fibonacci series is a unique set of series whereby the following term is always equal
+to the sum of the previous two terms. We could reframe this explanation in another
+perspective. We could refer to these series as a growing array or set of numbers where
+the previous sum of two terms is the determinant of the next term. In the Fibonacci
+Series, there is an increment in the numbers proceeding along the right in the series.
+Here is a graphical representation of the Fibonacci series, as an example:
+To furthermore illustrate the above, we will assign \(f(0)\) and \(f(1)\) to represent the first two
+terms in the series below. To calculate five terms in a Fibonacci series, the series would
+be:
+Where \(f(5)\) represents the number of terms in the series.</p>
+<p>\(f(5) = \{0, 1, 1, 2, 3, 5\}\)</p>
+<p>1, 2, 3, 4, 5
+(Number of Values)</p>
+<p>This is a basic progression. \(0+1=1\) to yield the next value which is third in our</p>
+<p>series. \(1+2=3\), to yield the next value which is fifth in our series. For another
+example, to calculate twelve terms in a Fibonacci series, would be represented by:</p>
+<p>\(f(12) = \{0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55, 89, 144\}\)</p>
+<p>1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12.</p>
+<p>This is a basic progression. \(8+13=21\) to yield the next value which is eight in our
+series. \(21+34=55\), to yield the next value which is tenth in our series.</p>
+<h3 id="implementing-fibonacci-series">Implementing Fibonacci Series.</h3>
+<ol>
+<li>Space Optimization</li>
+<li>Recursion</li>
+<li>Iterative</li>
+</ol>
+<p>I will explain these methods, just incase you are not familiar with the above principles.
+Specifically Recursion and Iteration.</p>
+<h3 id="recursion">Recursion.</h3>
+<p>Recursion is a technique in computer programming that uses a function or algorithm
+that is called multiple times until a specific condition is met, at which time the rest of
+each repetition executed is processed from the last one to the first. It is an approach to
+solving computational problems, whereby the solutions of a smaller instance of the
+problem is a determinant factor of the solution. The benefits of recursion include:</p>
+<ol>
+<li>Reducing time complexity.</li>
+<li>Higher performance when solving problems derived from tree structures.</li>
+<li>It is faster and easier to write.</li>
+<li>Recursion improves clarity.</li>
+<li>Reduces unnecessary calling of functions.</li>
+</ol>
+<p>Likewise, the method of recursion also has it’s disadvantages, which includes:</p>
+<ol>
+<li>Recursive functions are much more slower.</li>
+<li>Not efficient in terms of memory.</li>
+<li>Not efficient in terms of time and space complexity.</li>
+</ol>
+<h3 id="iteration">Iteration.</h3>
+<p>Iteration is a technique wherein a set of instructions are repeated in a sequence of a
+pecified number of times, until the condition provided is met in the program. When
+the first set of instructions is executed again, it is referred to as iteration. An iteration
+could be defined as a loop, due to the fact that it is continuously repeated.</p>
+<ol>
+<li>Iteration is much faster.</li>
+<li>It does not use a stack.</li>
+<li>No overhead of repetitive functions.</li>
+</ol>
+<p>The disadvantages of Iteration method are stated below:</p>
+<ol>
+<li>Code is longer to write and more complex.</li>
+<li>Difficult to solve trees and graphs.</li>
+<li>Only limited information can be passed from one to another.</li>
+</ol>
+<h3 id="the-algorithm">The Algorithm.</h3>
+<p>Before evaluating a computational problem, it is a proper ethic to employ pseudo codes
+and construct an algorithm, that serves as a blueprint or framework of the program.</p>
+<h3 id="iterative-algorithm">Iterative Algorithm.</h3>
+<p>This uses a loop method to execute the sum or addition of the previous two terms.
+Observe the pseudo-code below:</p>
+<pre tabindex="0"><code class="language-code" data-lang="code">Method Iterative_Fibonacci(n):
+ int f0, f1, fib
+   f0 = 0
+   f1 = 1
+ display f0, f1
+   for int i := 1 to n:
+     fib := f0 + f1
+     f0 := f1
+     f1 := fib
+ display fib
+ END for loop
+ END Iterative_Fibonacci
+</code></pre><h3 id="iterative-implementation">Iterative Implementation.</h3>
+<blockquote>
+<p>NOTE: This implementation is written in the C programming Language.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">Iterative_fib</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">n</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span> <span style="color:#00a8c8">int</span> <span style="color:#75af00">fib</span><span style="color:#111">(</span><span style="color:#111">n</span><span style="color:#f92672">+</span><span style="color:#ae81ff">2</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span> <span style="color:#111">fib</span><span style="color:#111">[</span><span style="color:#ae81ff">0</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#111">fib</span><span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">for</span> <span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">i</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span><span style="color:#111">;</span> <span style="color:#111">i</span> <span style="color:#f92672">&lt;=</span> <span style="color:#111">n</span><span style="color:#111">;</span> <span style="color:#111">i</span><span style="color:#f92672">++</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#111">Fib</span><span style="color:#111">[</span><span style="color:#111">i</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#111">fib</span><span style="color:#111">[</span><span style="color:#111">i</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">]</span> <span style="color:#f92672">+</span> <span style="color:#111">fib</span><span style="color:#111">[</span><span style="color:#ae81ff">1</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#111">];</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#00a8c8">return</span> <span style="color:#111">fib</span><span style="color:#111">[</span><span style="color:#111">n</span><span style="color:#111">];</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span> <span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#111">n</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">9</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">printf</span><span style="color:#111">(</span><span style="color:#960050;background-color:#1e0010">“</span><span style="color:#f92672">%</span><span style="color:#111">d</span><span style="color:#960050;background-color:#1e0010">”</span><span style="color:#111">,</span> <span style="color:#75af00">Iterative_fib</span><span style="color:#111">(</span><span style="color:#111">n</span><span style="color:#111">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Return</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><h3 id="recursive-algorithm">Recursive Algorithm</h3>
+<p>This implements recursion to provide the series. Observe the pseudo-code below:</p>
+<pre tabindex="0"><code class="language-code" data-lang="code">Method Recursive_Fibonacci(n)
+  int f0, f1
+  f0, f1
+  f0 := 0
+  f1 := 1
+   if(n &lt;= 1):
+     return n
+   return Recursive_Fibonacci(n-1) + Recursive Fibonacci
+END Recursive_Fibonacci
+</code></pre><h3 id="recursive-implementation">Recursive Implementation</h3>
+<blockquote>
+<p>NOTE: This implementation is written in the C programming Language.</p>
+</blockquote>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span><span style="color:#75715e">&lt;stdio.h&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">int</span> <span style="color:#75af00">Recursive_fib</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">n</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#f92672">&lt;=</span> <span style="color:#ae81ff">1</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">return</span> <span style="color:#111">n</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">return</span> <span style="color:#75af00">Recursive_fib</span><span style="color:#111">(</span><span style="color:#111">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span><span style="color:#111">)</span> <span style="color:#f92672">+</span> <span style="color:#75af00">Recursive_fib</span><span style="color:#111">(</span><span style="color:#111">n</span><span style="color:#f92672">-</span><span style="color:#ae81ff">2</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">Int</span> <span style="color:#75af00">main</span> <span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#111">n</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">printf</span><span style="color:#111">(</span><span style="color:#960050;background-color:#1e0010">“</span><span style="color:#f92672">%</span><span style="color:#111">d</span><span style="color:#960050;background-color:#1e0010">”</span><span style="color:#111">,</span> <span style="color:#75af00">Recursive_fib</span><span style="color:#111">(</span><span style="color:#111">n</span><span style="color:#111">));</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">return</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><h3 id="time-space-analysis">Time-Space Analysis</h3>
+<p>A time complexity of an algorithm is used to quantify the total amount of time taken by
+an algorithm to execute a function of the length of the input. Space complexity of an
+algorithm quantifies the amount of memory taken to execute a function of the length of
+the input. This analysis is utilized to test the efficiency of an algorithm. This way we can
+determine the best approach or algorithm to implement in solving a computational task.
+Below, in a table is the time-space complexity using the method of recursion and
+iteration.</p>
+<table>
+  <thead>
+      <tr>
+          <th>The Implementation</th>
+          <th>The Time Complexity</th>
+          <th>Space Complexity</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Recursion</td>
+          <td>\(T(n) = T(n-1) + T(n-2)\)</td>
+          <td>\( O(n) \)</td>
+      </tr>
+      <tr>
+          <td>Iterative</td>
+          <td>\( O(n) \)</td>
+          <td>\( O(1) \)</td>
+      </tr>
+      <tr>
+          <td>Space Optimization</td>
+          <td>\( O(n) \)</td>
+          <td>\( O(1) \)</td>
+      </tr>
+  </tbody>
+</table>
+<h3 id="conclusion">Conclusion</h3>
+<p>In this article, I was able to cover Fibonacci series and the implementations in the C
+programming Language. I hope you enjoyed this article. I would also do a detailed
+definition using this article on my upcoming YouTube channel where I teach
+programming and computer science. The Fibonacci series was one of the first ever topic
+in Data Structures and algorithms that I covered young, in computer science and
+dynamic programming. I hope you found this article inspiring and interesting.</p>
+
+        </article>
+        
+            <div class="tags">
+                <span title="Tags">🏷</span>
+                <div class="horizontal-links links">
+                    
+                </div>
+            </div>
+        
+    </article>
+
+
+    </main>
+    <footer>
+  <div class="content-container">
+    <div class="content">I&rsquo;m Gerald Maduabuchi Okereke. Welcome to my blog. Here, I write articles about things I&rsquo;m building, learning and my thoughts
+
+
+  <p class="horizontal-links"><a href="https://github.com/grayoj"
+        target="_blank" 
+       
+      >Github</a><a href="https://twitter.com/geraldmokereke"
+        target="_blank" 
+       
+      >X</a><a href="mailto:geraldmokereke@gmail.com"
+        target="_blank" 
+       
+      >Email</a></p>
+
+</div>
+  </div>
+</footer>
+    
+    <script>
+      const emailId = atob("bWFpbEBleGFtcGxlLmNvbQ==");
+    </script>
+      <script src="/js/rocinante.min.js"></script></body>
+</html>

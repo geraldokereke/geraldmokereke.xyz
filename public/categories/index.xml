@@ -1,15 +1,1 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Categories on Gerald.</title>
-    <link>https://geraldmokereke.xyz/categories/</link>
-    <description>Recent content in Categories on Gerald.</description>
-    <image>
-      <title>Gerald.</title>
-      <url>https://i.ibb.co/YNRSK0Z/gerald-logo.png</url>
-      <link>https://i.ibb.co/YNRSK0Z/gerald-logo.png</link>
-    </image>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language><atom:link href="https://geraldmokereke.xyz/categories/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Categories on Gerald's Journal</title><link>https://geraldmokereke.xyz/categories/</link><description>Recent content in Categories on Gerald's Journal</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://geraldmokereke.xyz/categories/index.xml" rel="self" type="application/rss+xml"/></channel></rss>

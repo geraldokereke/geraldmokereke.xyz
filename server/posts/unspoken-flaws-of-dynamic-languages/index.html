@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Unspoken Flaws of Dynamic Languages · Gerald.</title>
+
+
+
+<link rel="stylesheet" href="/css/rocinante.css" />
+<link rel="shortcut icon" href="https://i.ibb.co/YNRSK0Z/gerald-logo.png">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<body>
+    <header><h2>
+  
+    <a href="https://geraldmokereke.xyz/">‹ Gerald.</a>
+  
+</h2>
+</header>
+    <main>
+
+    <div class="post">
+      
+        <div class="title-group">
+            <div class="title">
+                <h1>Unspoken Flaws of Dynamic Languages</h1>
+            </div>
+            <div class="date"><h5>Oct 03, 2023</h5></div>
+        </div>
+              
+            <div class="post-cover">
+                <img src="https://i.redd.it/wtbzgdt2i6j71.jpg" alt="V" style="max-width:100%;height:auto;" />
+                <div class="cover-caption">Meme on Dynamic typing</div>
+            </div>
+            
+        <article class="content">
+            <blockquote>
+<p>Disclaimer: Possible rant session.</p>
+</blockquote>
+<h2 id="introduction">Introduction</h2>
+<p>I decided to write this essay after the recent rebuttals from the Vanilla
+JavaScript community towards Typescript — Typecasting, Typesafety — call it
+whatever you wish.</p>
+<p>A lot of people who got into programming probably began with dynamic programming
+languages — such as Ruby, PHP, Perl, and Python, for example. Hence, being their
+&ldquo;first love,&rdquo; it&rsquo;s really hard trying to convince them that those languages may
+not be the best choice for large codebases where a lot of collaboration is
+needed. Not only that, but runtime errors and clear-in-the-night sky type errors
+go unnoticed.</p>
+<p>This is bad. Some people would say otherwise, but hear me out. It&rsquo;s actually
+bad.</p>
+<p>For this article, we would be focusing heavily on the most popular language
+there is and the web&rsquo;s backbone – Javascript.</p>
+<h2 id="javascript">Javascript</h2>
+<p>Javascript, as you know, is a dynamic programming language used primarily for
+web development. But thanks to the brilliant programming community and Meta,
+we&rsquo;ve seen Javascript used to build mobile applications using react native — a
+library that I pretty much love.</p>
+<p>Building in javascript or infact learning the language as a newbie appears to be
+a seamless experience. It&rsquo;s less verbose. No matter your editor, it&rsquo;s not
+throwing you red dots across your entire editor. It appears to be interpreted
+to. It runs as you decide to execute the program.</p>
+<p>You can even work outside the browser with javascript, as you know, by using
+Nodejs. It&rsquo;s a cool runtime for javascript applications that can act as a server
+as well.</p>
+<p>So, javascript is fun. Yes, this doesn&rsquo;t mean it lacks a syntax. It has a
+syntax. But it&rsquo;s intuitive and with less boilerplate. You know what I&rsquo;m talking
+about, friend? Or do you need me to refresh your memory with a &ldquo;hello world&rdquo;
+program in C++ or Java?</p>
+<p>Hmm. I guess not.</p>
+<h2 id="javascript-bottlenecks">Javascript bottlenecks</h2>
+<p>Despite javascript being dynamic, it was used to write Nodejs — basically. It
+was also used to write some of the most popular, existing javascript frameworks
+and libraries that you install via your favourite package manager. It was all
+fine, no issues.</p>
+<p>Then problems began to arise. The problem was that most of these libraries had
+an awful amount of code to maintain and refactor, which was made hard due to the
+lack of types in the codebase.</p>
+<ul>
+<li>OS (open source) developers had a hard time maintaining the existing codebase
+due to the lack of types, I could only imagine their pain, sigh.</li>
+<li>Developers who wanted to contribute and got into the codebase were confused.</li>
+<li>The fact that these libraries being used in production by enterprises was
+written in Javascript, this complicated things.</li>
+<li>Documenting, extending code with an absence of proper type annotations was
+risky.</li>
+</ul>
+<h2 id="jsdocs-not-the-solution">JSDoc&rsquo;s not the solution</h2>
+<p>So, then they brought out JSDoc. Funny, I didn&rsquo;t like JSDoc – not at all. It&rsquo;s
+essentially a way to define types explicitly used in your javascript code.</p>
+<p>I know. Why castigate a solution to a problem you&rsquo;ve just complained about?
+Here&rsquo;s my reasons.</p>
+<h2 id="my-reasons">My Reasons</h2>
+<p>It&rsquo;s mainly a documentation tool. It&rsquo;s adding type annotations, yes, but it&rsquo;s
+not technically enforcing them. Then again, it&rsquo;s not Typescript. It&rsquo;s not just
+Typescript. JSDoc, from my point of view, only negates one thing &ldquo;Type
+annotations.&rdquo; But it doesn&rsquo;t enforce it, that&rsquo;s my problem. Hence, statically
+typed languages rule.</p>
+<p>That&rsquo;s why Typescript is just much, much better. Typescript gives you way more
+quality code with type annotations applied to the code, which is readable
+without the use of a &ldquo;JSDoc&rdquo; and is enforced. Typescript features a type
+inference — which examines your code for possible hitches and glitches, i.e.,
+(absence of type annotations), and enforces it. Hence, you get a statically
+typed javascript — if that makes sense.</p>
+<p>Featuring union types, generics, interfaces, and a powerful toolchain makes you
+question the decisions of most developers to drop Typescript and embrace raw
+Javascript in their codebases.</p>
+<p>According to most people, they feel the type of annotations on the code is
+unnecessary and creates an unnecessary overhead or abstraction over the code.
+It&rsquo;s really weird to me, though. I know I&rsquo;m biased towards statically typed
+languages, but what?</p>
+<p>Typescript code is frankly pretty if you&rsquo;d ask me. What and where exactly is the
+clutter? You know, sometimes I assume a lot of people are trolling. This flashes
+me back to <a href="">Ben Awad&rsquo;s April Fool on Dropping Typescript</a>.</p>
+<h2 id="facts-dont-care-about-feelings">Facts don&rsquo;t care about feelings</h2>
+<p>Now, this is one major flaw and the perils of being too stuck in the dynamic
+land. Every single code with type enforcement and annotations would appear like
+clutter. Or as verbose. Or &ldquo;too strict.&rdquo; Or &ldquo;slowing down my productivity.&rdquo;</p>
+<p>I think it is okay to sacrifice the &ldquo;productivity,&rdquo; which is spawning unsafe,
+unmaintainable code in the future that may give you issues in production due to
+type errors, for using a tool like Typescript</p>
+<p>The downside to dynamic programming languages is the sense of entitlement they
+give you. Future pain is masked as freedom. Laugh now, cry later.</p>
+<p>Dynamic programming languages like Python too become very disgusting to maintain
+and glance upon in large codebases.</p>
+<p>Companies migrated from Ruby on Rails due to its dynamic nature and its lack of
+type safety and type checking. I remember outrightly rejecting an offer to work
+on a legacy Ruby codebase — with 0 type safety. Nothing. It would&rsquo;ve been a
+circus in there.</p>
+<p>Lastly, no JSDoc is preventing Undefined or null in runtime either. It can&rsquo;t.</p>
+<p>Now, this is not to downplay any of these languages. I still believe Python is a
+fantastic choice for automating, scripting, prototyping software, and, in fact,
+writing complicated machine learning models. So you can focus on the
+implementation and not mind verbosity.</p>
+<p>I still do believe Lua is great as well despite being dynamic as it lets us
+craft the best IDE in the world, neovim. Better features.</p>
+<p>Ruby lets you modify classes and objects at runtime.</p>
+<p>PHP, too, but supports OOP, and around good tooling, you can really get the best
+out of it. To even languages like LISP.</p>
+<p>The point of contention is — dynamic languages do have flaws in real codebases.
+It&rsquo;s important to understand this — and not absolutely downplay the importance.</p>
+<p>To libraries that decided to drop it like Svelte. Fortunately, I never really
+invested in the library anyway. Remain unbothered today, tomorrow, and forever
+as long as your favourite library doesn&rsquo;t drop Typescript.</p>
+
+        </article>
+        
+    </article>
+
+
+    </main>
+    <footer>
+  <div class="content-container">
+    <div class="content">I&rsquo;m Gerald Maduabuchi Okereke. Welcome to my blog. Here, I write articles about things I&rsquo;m building, learning and my thoughts
+
+
+  <p class="horizontal-links"><a href="https://github.com/grayoj"
+        target="_blank" 
+       
+      >Github</a><a href="https://twitter.com/geraldmokereke"
+        target="_blank" 
+       
+      >X</a><a href="mailto:geraldmokereke@gmail.com"
+        target="_blank" 
+       
+      >Email</a></p>
+
+</div>
+  </div>
+</footer>
+    
+    <script>
+      const emailId = atob("bWFpbEBleGFtcGxlLmNvbQ==");
+    </script>
+      <script src="/js/rocinante.min.js"></script></body>
+</html>

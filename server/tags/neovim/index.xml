@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Neovim on Gerald.</title>
+    <link>https://geraldmokereke.xyz/tags/neovim/</link>
+    <description>Recent content in Neovim on Gerald.</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Sep 2023 10:46:46 +0100</lastBuildDate>
+    <atom:link href="https://geraldmokereke.xyz/tags/neovim/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Development Setup</title>
+      <link>https://geraldmokereke.xyz/posts/my-development-setup/</link>
+      <pubDate>Thu, 21 Sep 2023 10:46:46 +0100</pubDate>
+      <guid>https://geraldmokereke.xyz/posts/my-development-setup/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This article was created because of my guy,&#xA;&lt;a href=&#34;https://ng.linkedin.com/in/collins-ikotun-0a11a11b6&#34; target=&#34;_blank&#34;&gt;Collins Ikotun&lt;/a&gt;, my vim&#xA;convert! Also,&#xA;&lt;a href=&#34;https://www.reddit.com/r/linuxmemes/comments/pfv8hq/i_use_vim_btw/&#34; target=&#34;_blank&#34;&gt;I use vim btw&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;When I started off programming I really had a very wrong perception of a&#xA;&amp;ldquo;development environment&amp;rdquo; or &amp;ldquo;development setup.&amp;rdquo; This led to me, eventually&#xA;wanting to do the most. Effectively creating an amazing workflow to most people&#xA;with very much reduced productivity. Now, I&amp;rsquo;ve come to realise that a&#xA;development setup isn&amp;rsquo;t necessarily spawning an ultra wide $5,000 monitor. But&#xA;creating a very productive environment that maximises your experience and gets&#xA;the best out of your abilities.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Neovim Is Overrated</title>
+      <link>https://geraldmokereke.xyz/posts/neovim-is-overrated/</link>
+      <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://geraldmokereke.xyz/posts/neovim-is-overrated/</guid>
+      <description>&lt;p&gt;Neovim is actually overrated. I don&amp;rsquo;t really understand the buzz with some lua scripted, terminal based editor, which is a Vim rip-off. Which same human being hits &amp;ldquo;gg&amp;rdquo; to go to the top of a line, and &amp;ldquo;ggVG&amp;rdquo; with case sensitivity in mind to select all content?&lt;/p&gt;&#xA;&lt;p&gt;Hold up. I got you in the first paragraph, didn&amp;rsquo;t I? Neovim is a pretty cool Vim based editor that I still can not understand why people may hate on or have misgivings about it.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

@@ -1,8 +1,9 @@
 baseURL: "https://geraldmokereke.xyz"
 languageCode: "en-us"
-title: "Gerald."
+title: "Gerald's Journal"
 theme: "rocinante"
-paginate: 8
+pagination:
+  pagerSize: 8
 
 markup:
   highlight:
@@ -18,19 +19,15 @@ params:
   email: "mail@example.com"
   favicon: "https://i.ibb.co/YNRSK0Z/gerald-logo.png"
   about: |
-    I'm Gerald Maduabuchi Okereke. Welcome to my blog. A software engineer exploring Types, Tensors and Distributed systems.
-    Here, I write articles about things I'm building, learning and other stuff.
+    I'm Gerald Maduabuchi Okereke. Welcome to my thoughts, my journal and my little space on the web. 
 
   links:
     - link:
-        - name: "My Website"
-          href: "https://geraldokereke.xyz"
-          new_tab: true
         - name: "Github"
           href: "https://github.com/grayoj"
           new_tab: true
         - name: "X"
-          href: "https://twitter.com/geraldabuchi"
+          href: "https://twitter.com/geraldmokereke"
           new_tab: true
         - name: "Email"
           href: "mailto:geraldmokereke@gmail.com"

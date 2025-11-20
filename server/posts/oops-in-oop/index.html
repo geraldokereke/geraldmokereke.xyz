@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Avoiding The Oops in Oop · Gerald.</title>
+
+
+
+<link rel="stylesheet" href="/css/rocinante.css" />
+<link rel="shortcut icon" href="https://i.ibb.co/YNRSK0Z/gerald-logo.png">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<body>
+    <header><h2>
+  
+    <a href="https://geraldmokereke.xyz/">‹ Gerald.</a>
+  
+</h2>
+</header>
+    <main>
+
+    <div class="post">
+      
+        <div class="title-group">
+            <div class="title">
+                <h1>Avoiding The Oops in Oop</h1>
+            </div>
+            <div class="date"><h5>Jan 05, 2023</h5></div>
+        </div>
+              
+        <article class="content">
+            <h1 id="introduction">Introduction</h1>
+<p>There is an awful lot that goes into writing good code that abides by proper Object-Oriented Programming principles. In this tutorial I will basically cover the importance and significance of writing quality code (though I feel that quality code is subjective) thereby avoding &ldquo;Oops in Oop.&rdquo;</p>
+<blockquote>
+<p>Note: &ldquo;Oops&rdquo; is basically an exclamation made after a significant mistake or accident rather.</p>
+</blockquote>
+<h3 id="getting-started">Getting Started</h3>
+<p>Before being able to follow this tutorial and get the best out of it, you have to meet up with the following perquisites.</p>
+<ol>
+<li>Java (Java Development Kit)</li>
+<li>Functioning IDE, Intelli J or Vscode works fine. You can use Netbeans.</li>
+</ol>
+<p>If you do not have a Java Installation, kindly proceed to the fourth section.</p>
+<h3 id="java-oops-bastard-god-son">Java: OOP&rsquo;s Bastard God Son</h3>
+<p>What is Java? Java is a general purpose language developed by James Gosling. It fully supports the Object-Oriented Paradigm and runs on the Java Virtual Machine, where it is compiled to Bytecode, that enables it appear as a universal language that can run anywhere! Yes that&rsquo;s right. Fortunately unlike languages like Swift and C# that are platform otherwise operating system dependent - Java runs on all operating systems conveniently. Java is used heavily by huge firms, enterprise organisations, educational and government facilities. Java was the primary choice of development on the Android platform, before the advent of Kotlin&rsquo;s full adoption. Java is stil used for building the server infrastructure for applications, games, mobile applications and so much more. Java&rsquo;s JVM serves as a platform to compile Java programs into bytecode. Not only Java, but the JVM is so powerful that it is used to compile other languages such as Scala and Kotlin which I refer toas Java&rsquo;s cousins.</p>
+<p>Diagram of the Java-Virtual-Machine:</p>
+<p><img src="https://upload.wikimedia.org/wikipedia/commons/d/dd/JvmSpec7.png" alt="Java Virtual Machine Image"></p>
+<p>Java comes bundled in a package known as the JDK. The JDK is the Java Development Kit. It comes with the right tools for developing in Java. Not the IDE, but components such as the language itself, the Java Virtual Machine and Java Runtime environment. There are about three Java Editions offered by Oracle. They include: The Standard Edition, Enterprise Edition and Micro Edition.</p>
+<p>But in this case, we would be using the Java Standard Edition.</p>
+<h3 id="installing-java">Installing Java</h3>
+<p>To install Java is dependent on the operating system you are on. For Windows, it&rsquo;s as simple as getting the installer up and running on your machine, and you can download here: <a href="https://www.oracle.com/java/technologies/downloads/#jdk19-windows" target="_blank">JDK for Windows</a>
+Let&rsquo;s use Java 19. Or of you are a terminal dude like myself use Choclatey.</p>
+<p>If you&rsquo;re on a MacOS, you can install by opening up your terminal and running:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>brew install openjdk@19
+</span></span></code></pre></div><p>That would get you the Open JDK installed using the Homebrew Package Manager. Homebrew is a package management system for Linux and Unix machines that you can use for free. I&rsquo;m on Linux now, but I prefer to use the <code>apt-install</code> package.
+For debian Linux, which I am on, run on bash&quot;</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo apt install openjdk-19-jdk-headless
+</span></span></code></pre></div><blockquote>
+<p>On windows, you may need to add <code>JAVA_HOME</code> to your environment variables to get it up and running.</p>
+</blockquote>
+<p>To Verify your installation, run on Linux and Mac:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>javac -version
+</span></span></code></pre></div><p>For Windows, run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span>java --version
+</span></span></code></pre></div><p>If it prints out your current version for you, then my friend you are good, ready set and up to go.</p>
+<h3 id="setting-up-your-environment">Setting up your Environment</h3>
+<p>I usually advice people to use an enabling Integrated Development Environment for ease of development in opposition to the traditional editors such as Emacs, Vim, or even Sublime Text. Please use Visual Studio Code, Netbeans or Intelli J (which by many is the best Java Development IDE available in the market)</p>
+<h3 id="what-exactly-is-oop">What Exactly Is OOP?</h3>
+<p>OOP is a programming paradigm, that is responsible for basically writing scalable, functional and organised code for software systems. OOP, known as Object-Oriented-Programming is a model of programming and software design that is conceptualised on the implementation of data types and objects as opposed to functions. For more on Object Oriented Programming, check <a href="https://en.wikipedia.org/wiki/Object-oriented_programming" target="_blank">here</a></p>
+<p>I won&rsquo;t really dive deep into OOP, but you get the context here.</p>
+<h3 id="principles-of-oop">Principles of OOP</h3>
+<p>OOP has several principles that govern its implementation in programming. They include:</p>
+<ol>
+<li>Encapsulation</li>
+<li>Inheritance</li>
+<li>Polymorphism</li>
+<li>Abstraction</li>
+</ol>
+<p>Those are the four basic principles we will cover. We will leave out composition and aggregation for another day.</p>
+<p><strong>1. Encapsulation</strong></p>
+<p>Not to confuse with abstraction, is a means of data security to help protect your data stored in a class from unauthorised access. Anytime you come across methods such as Public, Private and Protected, these are methods of encapsulation to save guard your code.</p>
+<p><strong>2. Inheritance</strong></p>
+<p>This is one of my favourite concepts of OOP. Inheritance is a means of referencing classes in code, i.e Parent to Child, otherwise Superclasses (Parent Classes) to Base Classes. By employing the <code>extend</code> keyword each time, you tell Java to implement inheritance. Inheritance pretty much solves the <strong>DRY Problem</strong> which is &ldquo;Do not Repeat Yourself.&rdquo;</p>
+<p><strong>3. Polymorphism</strong></p>
+<p>Polymorphism is how a program can execute an action in different ways. Polymorphism has two forms in the Java Programming language, which includes method overloading (when various functions with the same name are within a class) and method overriding (when a child class overrides the parent method)</p>
+<p><strong>4. Abstraction</strong></p>
+<p>This is a process used to hide the overall complexity from users and present information that is relevant. In Java you can hide the details of implementation using interfaces or abstract classes. Abstraction also helps present the important piece of functionality.</p>
+<h3 id="putting-in-practice">Putting in Practice</h3>
+<p>Let&rsquo;s write some code to implement the above principles of Object Oriented Programming.</p>
+<p><strong>1. Encapsulation/Data Hiding</strong></p>
+<p>You may have seen this example before. To find the area of a rectangle.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Create parent class to accept fields.</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">Area</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">int</span> <span style="color:#111">breadth</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">int</span> <span style="color:#111">length</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Initialize Values</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">Area</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">length</span><span style="color:#111">,</span> <span style="color:#00a8c8">int</span> <span style="color:#111">breadth</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#00a8c8">this</span><span style="color:#111">.</span><span style="color:#75af00">length</span> <span style="color:#f92672">=</span> <span style="color:#111">length</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#00a8c8">this</span><span style="color:#111">.</span><span style="color:#75af00">breadth</span> <span style="color:#f92672">=</span> <span style="color:#111">breadth</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Function to calculate the Area</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">CalcArea</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#00a8c8">int</span> <span style="color:#111">area</span> <span style="color:#f92672">=</span> <span style="color:#111">length</span> <span style="color:#f92672">*</span> <span style="color:#111">breadth</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#111">system</span><span style="color:#111">.</span><span style="color:#75af00">out</span><span style="color:#111">.</span><span style="color:#75af00">println</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Area: &#34;</span> <span style="color:#f92672">+</span> <span style="color:#111">area</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">Main</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">static</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">man</span><span style="color:#111">(</span><span style="color:#111">string</span><span style="color:#f92672">[]</span> <span style="color:#111">args</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">Area</span> <span style="color:#111">rectangle</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">Area</span><span style="color:#111">(</span><span style="color:#111">2</span><span style="color:#111">.</span> <span style="color:#111">16</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">rectangle</span><span style="color:#111">.</span><span style="color:#75af00">calcArea</span><span style="color:#111">():</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><p>This example above is to calculate the area of a rectangle. So included the two fields otherwise variables inside a single class which is accessible from other classes.</p>
+
+        </article>
+        
+            <div class="tags">
+                <span title="Tags">🏷</span>
+                <div class="horizontal-links links">
+                    <a href="/tags/oop/">OOP</a><a href="/tags/java/">Java</a><a href="/tags/best-practices/">Best Practices</a>
+                </div>
+            </div>
+        
+    </article>
+
+
+    </main>
+    <footer>
+  <div class="content-container">
+    <div class="content">I&rsquo;m Gerald Maduabuchi Okereke. Welcome to my blog. Here, I write articles about things I&rsquo;m building, learning and my thoughts
+
+
+  <p class="horizontal-links"><a href="https://github.com/grayoj"
+        target="_blank" 
+       
+      >Github</a><a href="https://twitter.com/geraldmokereke"
+        target="_blank" 
+       
+      >X</a><a href="mailto:geraldmokereke@gmail.com"
+        target="_blank" 
+       
+      >Email</a></p>
+
+</div>
+  </div>
+</footer>
+    
+    <script>
+      const emailId = atob("bWFpbEBleGFtcGxlLmNvbQ==");
+    </script>
+      <script src="/js/rocinante.min.js"></script></body>
+</html>
