@@ -2,227 +2,227 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Gerald&#39;s Journal</title>
-    <link>https://geraldmokereke.xyz/</link>
+    <link>http://localhost:1313/</link>
     <description>Recent content on Gerald&#39;s Journal</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 14 Jun 2025 15:42:00 +0100</lastBuildDate>
-    <atom:link href="https://geraldmokereke.xyz/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Nigerian Pastors Are Full of Sh*t</title>
-      <link>https://geraldmokereke.xyz/posts/nigerian-pastors-are-full-of-shit/</link>
+      <link>http://localhost:1313/posts/nigerian-pastors-are-full-of-shit/</link>
       <pubDate>Sat, 14 Jun 2025 15:42:00 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/nigerian-pastors-are-full-of-shit/</guid>
+      <guid>http://localhost:1313/posts/nigerian-pastors-are-full-of-shit/</guid>
       <description>&lt;p&gt;A pastorpreneur is essentially an entrepreneur who uses religion, particularly Christianity in this context, to extract money from gullible members. This is usually done under the guise of a ten-percent tax called tithe. According to them, this mandate applies today, even though its original scriptural context had nothing to do with modern church-goers.&lt;/p&gt;&#xA;&lt;p&gt;These clerics live lavishly. They eat the best, drive the best, and wear the best. They mingle with individuals at the upper echelon of Nigeria’s political and religious circles. They are detached from reality, or they pretend to be, in order to protect their interests and avoid offending the political godfathers who fund and defend their empires.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Technocracy is the Key to Fixing Governance in Nigeria</title>
-      <link>https://geraldmokereke.xyz/posts/technocrats-in-governance/</link>
+      <link>http://localhost:1313/posts/technocrats-in-governance/</link>
       <pubDate>Fri, 21 Feb 2025 09:18:00 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/technocrats-in-governance/</guid>
+      <guid>http://localhost:1313/posts/technocrats-in-governance/</guid>
       <description>&lt;p&gt;Nigeria has been stuck in the same cycle for years. We talk about change, promise reform, elect new leaders, yet the country continues to struggle with the same problems: corruption, slow service delivery, poor planning, inconsistent policies, and a political class that often treats public office as a reward rather than a responsibility. At this point, it is clear that politics alone cannot fix Nigeria. What we need is technocracy—not as a replacement for democracy, but as a foundation for serious governance.&lt;/p&gt;</description>
     </item>
     <item>
       <title>The Quiet Pressure on Nigerian First Sons</title>
-      <link>https://geraldmokereke.xyz/posts/the-quiet-pressure-on-nigerian-first-sons/</link>
+      <link>http://localhost:1313/posts/the-quiet-pressure-on-nigerian-first-sons/</link>
       <pubDate>Wed, 03 Jul 2024 18:27:00 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/the-quiet-pressure-on-nigerian-first-sons/</guid>
+      <guid>http://localhost:1313/posts/the-quiet-pressure-on-nigerian-first-sons/</guid>
       <description>&lt;p&gt;In many Nigerian households, the role of the &lt;strong&gt;first son&lt;/strong&gt; comes with an &lt;em&gt;unspoken weight&lt;/em&gt;. It is rarely discussed openly, yet almost every first son knows it. You are groomed to be dependable, to lead quietly, to protect without complaint, and to absorb responsibilities far earlier than you should. For some, this role is guided by love and structure. For others, it is shaped by absence.&lt;/p&gt;&#xA;&lt;p&gt;My own life shifted when my father &lt;strong&gt;abandoned my siblings and me&lt;/strong&gt; when I was barely fourteen. At an age where most boys were figuring out who they were, I was suddenly confronted with what I had to become. My sister battled an illness that affected her brain, my mother was left to carry four children on her shoulders, and I could see clearly that &lt;em&gt;childhood was no longer something I had the luxury to enjoy&lt;/em&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Why I don&#39;t like Mongo DB</title>
-      <link>https://geraldmokereke.xyz/posts/mongodb-slander/</link>
+      <link>http://localhost:1313/posts/mongodb-slander/</link>
       <pubDate>Thu, 18 Jan 2024 10:17:51 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/mongodb-slander/</guid>
+      <guid>http://localhost:1313/posts/mongodb-slander/</guid>
       <description>&lt;p&gt;Gerald, why so much hate for Mongo DB? You don&amp;rsquo;t understand &lt;strong&gt;SCALE!&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://i.ibb.co/s3TNdNB/mongodb.png&#34; alt=&#34;Mongo DB, A Joke&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Yes, I like boring relational databases. I love SQL, SQLite. Except it&amp;rsquo;s Oracle owned.&lt;/p&gt;&#xA;&lt;p&gt;Before anything else, once Mongo DB comes up — the first thing that comes to my mind is &lt;em&gt;data integrity&lt;/em&gt; as it should be. Mongo DB as we all know is a NoSQL database that has gained popularity over the years. Ah, partly because it’s being used in maybe — &lt;em&gt;every single Node JS beginner tutorial on the internet?&lt;/em&gt; Maybe that, or because in standard industries such as banking/finance, education, we tend to lean towards structured data which Mongo DB is a train-wreck for such use cases.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Developing Console</title>
-      <link>https://geraldmokereke.xyz/posts/developing-console/</link>
+      <link>http://localhost:1313/posts/developing-console/</link>
       <pubDate>Mon, 15 Jan 2024 14:13:34 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/developing-console/</guid>
+      <guid>http://localhost:1313/posts/developing-console/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://i.ibb.co/WxycM1G/console.png&#34; alt=&#34;Console&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;I love Go. For many reasons, at the same time I hate the language. It&amp;rsquo;s the regular toxic love-hate relationship to have for a programming language.&#xA;Nothing new. Firstly Go is so much like C. Being a C programmer, it has been an enjoyable experience. The simplicty is fantastic for me.&lt;/p&gt;&#xA;&lt;p&gt;The only problem with Go is the error handling and, as a matter of fact, the stupid compiler. Though I have some other &amp;ldquo;icks,&amp;rdquo; the aforementioned are the most significant. Anyways, I&amp;rsquo;m not here to rant about Go. Rather, I want to walk you through how I developed a project called &amp;ldquo;Console&amp;rdquo; that you can use to view your system processes, memory, system usage, and system information from a decent GUI.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Boolean Logic and Gates Part One</title>
-      <link>https://geraldmokereke.xyz/posts/boolean-logic-and-gates-part-1/</link>
+      <link>http://localhost:1313/posts/boolean-logic-and-gates-part-1/</link>
       <pubDate>Sun, 08 Oct 2023 19:46:32 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/boolean-logic-and-gates-part-1/</guid>
+      <guid>http://localhost:1313/posts/boolean-logic-and-gates-part-1/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This is part one of the &lt;a href=&#34;&#34;&gt;Boolean Logic and Gates series&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;Worthy to think George Boole may actually be the grandfather of the digital world.&lt;/p&gt;&#xA;&lt;h2 id=&#34;brief-overview&#34;&gt;Brief Overview&lt;/h2&gt;&#xA;&lt;p&gt;Boolean Logic is quintessential to the field of computer science and programming&#xA;in general. It is an integral component and foundational cornerstone to the way&#xA;digital circuits are constructed and data is manipulated.&lt;/p&gt;&#xA;&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=JQBRzsPhw2&#34; target=&#34;_blank&#34;&gt;I&amp;rsquo;ve been revisting a lot of content concerning Boolean Logic&lt;/a&gt;.&#xA;Boolean Logic and Logic Gates, were among the topics I enjoyed while in high&#xA;school in my computer science class.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Unspoken Flaws of Dynamic Languages</title>
-      <link>https://geraldmokereke.xyz/posts/unspoken-flaws-of-dynamic-languages/</link>
+      <link>http://localhost:1313/posts/unspoken-flaws-of-dynamic-languages/</link>
       <pubDate>Tue, 03 Oct 2023 21:00:01 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/unspoken-flaws-of-dynamic-languages/</guid>
+      <guid>http://localhost:1313/posts/unspoken-flaws-of-dynamic-languages/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;Disclaimer: Possible rant session.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;&#xA;&lt;p&gt;I decided to write this essay after the recent rebuttals from the Vanilla&#xA;JavaScript community towards Typescript — Typecasting, Typesafety — call it&#xA;whatever you wish.&lt;/p&gt;&#xA;&lt;p&gt;A lot of people who got into programming probably began with dynamic programming&#xA;languages — such as Ruby, PHP, Perl, and Python, for example. Hence, being their&#xA;&amp;ldquo;first love,&amp;rdquo; it&amp;rsquo;s really hard trying to convince them that those languages may&#xA;not be the best choice for large codebases where a lot of collaboration is&#xA;needed. Not only that, but runtime errors and clear-in-the-night sky type errors&#xA;go unnoticed.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Discovering the Binary Abacus With C&#43;&#43;</title>
-      <link>https://geraldmokereke.xyz/posts/discovering-the-abacus-with-cpp/</link>
+      <link>http://localhost:1313/posts/discovering-the-abacus-with-cpp/</link>
       <pubDate>Sat, 23 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/discovering-the-abacus-with-cpp/</guid>
+      <guid>http://localhost:1313/posts/discovering-the-abacus-with-cpp/</guid>
       <description>&lt;h2 id=&#34;the-binary-abacus&#34;&gt;The Binary Abacus&lt;/h2&gt;&#xA;&lt;p&gt;An abacus was one of the earliest computing devices created that was used to&#xA;perform the four basic operations in mathematics — addition, subtraction,&#xA;multiplication, and division.&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;In this article, we are going to be designing a binary abacus from scratch&#xA;using C++&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;This program will be CLI/Terminal based. We would not need any GUI software&#xA;necessary to begin. I got interested by stumbling across the video below:&lt;/p&gt;</description>
     </item>
     <item>
       <title>My Development Setup</title>
-      <link>https://geraldmokereke.xyz/posts/my-development-setup/</link>
+      <link>http://localhost:1313/posts/my-development-setup/</link>
       <pubDate>Thu, 21 Sep 2023 10:46:46 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/my-development-setup/</guid>
+      <guid>http://localhost:1313/posts/my-development-setup/</guid>
       <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This article was created because of my guy,&#xA;&lt;a href=&#34;https://ng.linkedin.com/in/collins-ikotun-0a11a11b6&#34; target=&#34;_blank&#34;&gt;Collins Ikotun&lt;/a&gt;, my vim&#xA;convert! Also,&#xA;&lt;a href=&#34;https://www.reddit.com/r/linuxmemes/comments/pfv8hq/i_use_vim_btw/&#34; target=&#34;_blank&#34;&gt;I use vim btw&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;When I started off programming I really had a very wrong perception of a&#xA;&amp;ldquo;development environment&amp;rdquo; or &amp;ldquo;development setup.&amp;rdquo; This led to me, eventually&#xA;wanting to do the most. Effectively creating an amazing workflow to most people&#xA;with very much reduced productivity. Now, I&amp;rsquo;ve come to realise that a&#xA;development setup isn&amp;rsquo;t necessarily spawning an ultra wide $5,000 monitor. But&#xA;creating a very productive environment that maximises your experience and gets&#xA;the best out of your abilities.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Optimising React Native Apps</title>
-      <link>https://geraldmokereke.xyz/posts/optimising-react-native-apps/</link>
+      <link>http://localhost:1313/posts/optimising-react-native-apps/</link>
       <pubDate>Sun, 17 Sep 2023 19:07:06 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/optimising-react-native-apps/</guid>
+      <guid>http://localhost:1313/posts/optimising-react-native-apps/</guid>
       <description>&lt;p&gt;The performance of mobile applications is extremely important. Users want a seamless experience with almost no bugs or glitches — to save yourself the violent reviews your mobile app would get on the app stores. Or preferably reduce? Because haters will hate.&lt;/p&gt;&#xA;&lt;p&gt;JavaScript is arguably a performant language naturally. It&amp;rsquo;s the pinnacle of all web applications that run on the client. A modern day functioning app cannot exist without shipping JavaScript modules to the client. There are several &lt;a href=&#34;https://webtips.dev/webtips/javascript/benchmark-javascript&#34; target=&#34;_blank&#34;&gt;benchmarking tools to illustrate this&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>* Engineering Nicfosts Eservices Module</title>
-      <link>https://geraldmokereke.xyz/posts/engineering-nicfosts-eservices-module/</link>
+      <link>http://localhost:1313/posts/engineering-nicfosts-eservices-module/</link>
       <pubDate>Sun, 10 Sep 2023 00:00:00 +0000</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/engineering-nicfosts-eservices-module/</guid>
+      <guid>http://localhost:1313/posts/engineering-nicfosts-eservices-module/</guid>
       <description>&lt;p&gt;The &amp;ldquo;&lt;a href=&#34;https://nicfost.gov.ng/&#34; target=&#34;_blank&#34;&gt;Nigerian Council of Food Science and Technology&lt;/a&gt; is a professional body in Nigeria that is focused advancing the field of food science and technology in the country. It serves as an organization for professionals, researchers, educators, and practitioners who are involved in various aspects of food science and technology.&lt;/p&gt;&#xA;&lt;p&gt;They have a portal that is used by the adminstrative team at Nicfost. The client side is written entirely in JavaScript. I didn&amp;rsquo;t build the client, it was written by someone else. After all, I have expressed my distate severall on this blog for JavaScript as &lt;a href=&#34;https://news.ycombinator.com/item?id=4113458&#34; target=&#34;_blank&#34;&gt;a bad dynamic programming language for robust projects&lt;/a&gt;. I use Typescript instead. The backend is also written in Java, I didn&amp;rsquo;t write the initial Java backend though - which I wish I did. The refactoring and process wasn&amp;rsquo;t funny.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Dijkstra&#39;s Algorithm: Solving the shortest path problem</title>
-      <link>https://geraldmokereke.xyz/posts/shortest-path-problem/</link>
+      <link>http://localhost:1313/posts/shortest-path-problem/</link>
       <pubDate>Sat, 09 Sep 2023 12:39:50 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/shortest-path-problem/</guid>
+      <guid>http://localhost:1313/posts/shortest-path-problem/</guid>
       <description>&lt;p&gt;Let&amp;rsquo;s solve the shortest path problem&lt;/p&gt;&#xA;&lt;p&gt;Today we&amp;rsquo;re going to be solving the shortest path problem by implementing &lt;a href=&#34;https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm&#34; target=&#34;_blank&#34;&gt;Dijkstra&amp;rsquo;s algorithm&lt;/a&gt; with some Python. So get a cup of coffee and a neovim buffer opened, it&amp;rsquo;s going to be a ride.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-the-shortest-path-problem&#34;&gt;What is the shortest path problem?&lt;/h2&gt;&#xA;&lt;p&gt;Before we begin, we must first understand what is the shortest path problem. The shortest path problem is a fundamental optimization problem in computer science, speficifically graph theory under discrete mathematics or data structures and algorithms. It involves finding the shortest path or the minimum distance between two nodes (vertices) in a weighted graph. The &amp;ldquo;shortest path&amp;rdquo; is defined as the path with the smallest total sum of edge weights or distances. From this, we can tell that we would be working with a non-linear data structure throughout this article, The &lt;a href=&#34;https://www.google.com/url?sa=i&amp;amp;url=https%3A%2F%2Fwww.simplilearn.com%2Ftutorials%2Fdata-structure-tutorial%2Fgraphs-in-data-structure&amp;amp;psig=AOvVaw1b4ReK_eZpIpF0QyT36lVf&amp;amp;ust=1694343143651000&amp;amp;source=images&amp;amp;cd=vfe&amp;amp;opi=89978449&amp;amp;ved=2ahUKEwi2sPSarp2BAxXDpycCHfeZAt4Qr4kDegQIARBx&#34; target=&#34;_blank&#34;&gt;&amp;ldquo;graph.&amp;rdquo;&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Nigeria is A failed State: What Next?</title>
-      <link>https://geraldmokereke.xyz/posts/a-failed-state-what-next/</link>
+      <link>http://localhost:1313/posts/a-failed-state-what-next/</link>
       <pubDate>Fri, 08 Sep 2023 18:32:38 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/a-failed-state-what-next/</guid>
+      <guid>http://localhost:1313/posts/a-failed-state-what-next/</guid>
       <description>&lt;p&gt;&lt;em&gt;Officially a failed state, what next?&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Nigeria&amp;rsquo;s situation is a laughable one. Imagine being led by a president who has quite a &lt;a href=&#34;https://gazettengr.com/u-s-court-releases-certified-true-copies-of-bola-tinubus-drug-dealing-money-laundering-case-in-chicago/&#34; target=&#34;_blank&#34;&gt;disturbing criminal record history&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Then, a &lt;a href=&#34;https://saharareporters.com/2022/07/11/flashback-how-tinubu%E2%80%99s-running-mate-shettima%E2%80%99s-government-borno-contributed-abduction&#34; target=&#34;_blank&#34;&gt;vice president who allegedly has had dealings with Boko Haram&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Or the current Chief of Staff to the president select, a former head of the House of Representatives who was a &lt;a href=&#34;https://saharareporters.com/2019/06/05/exclusive-gbajabiamila-was-found-guilty-supreme-court-georgia-us&#34; target=&#34;_blank&#34;&gt;convicted criminal in the United States&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Yikes.&lt;/p&gt;&#xA;&lt;p&gt;Then, much recently, they appointed a criminal who &lt;a href=&#34;https://gazettengr.com/wike-should-be-jailed-for-oil-bunkering-mindless-looting-of-rivers-treasury-ned-nwoko/&#34; target=&#34;_blank&#34;&gt;looted Rivers&amp;rsquo; state wealth and participated in the rigging of the elections&lt;/a&gt; on the President Select&amp;rsquo;s request, Nyesom Wike, as the Minister of Abuja.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Do Not Call Me Techbro ...</title>
-      <link>https://geraldmokereke.xyz/posts/do-not-call-me-techbro/</link>
+      <link>http://localhost:1313/posts/do-not-call-me-techbro/</link>
       <pubDate>Fri, 28 Jul 2023 00:00:00 +0000</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/do-not-call-me-techbro/</guid>
+      <guid>http://localhost:1313/posts/do-not-call-me-techbro/</guid>
       <description>&lt;p&gt;Don&amp;rsquo;t call me &amp;ldquo;Tech bro.&amp;rdquo;&lt;/p&gt;&#xA;&lt;p&gt;I was handing over a document I printed out, highlighting the several suggestions and feature requests I made concerning an existing application, and then I was called the TB word.&lt;/p&gt;&#xA;&lt;p&gt;Infuriating to say, &amp;ldquo;Tech Bro&amp;rdquo; is not something I&amp;rsquo;d like to be called or I&amp;rsquo;d like to address someone as. It&amp;rsquo;s already disgusting how a serious discipline is consolidated into the word &amp;ldquo;tech,&amp;rdquo; which influencers are tweeting around for a payout from X.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Neovim Is Overrated</title>
-      <link>https://geraldmokereke.xyz/posts/neovim-is-overrated/</link>
+      <link>http://localhost:1313/posts/neovim-is-overrated/</link>
       <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/neovim-is-overrated/</guid>
+      <guid>http://localhost:1313/posts/neovim-is-overrated/</guid>
       <description>&lt;p&gt;Neovim is actually overrated. I don&amp;rsquo;t really understand the buzz with some lua scripted, terminal based editor, which is a Vim rip-off. Which same human being hits &amp;ldquo;gg&amp;rdquo; to go to the top of a line, and &amp;ldquo;ggVG&amp;rdquo; with case sensitivity in mind to select all content?&lt;/p&gt;&#xA;&lt;p&gt;Hold up. I got you in the first paragraph, didn&amp;rsquo;t I? Neovim is a pretty cool Vim based editor that I still can not understand why people may hate on or have misgivings about it.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Men Have Feelings</title>
-      <link>https://geraldmokereke.xyz/posts/men-have-feelings/</link>
+      <link>http://localhost:1313/posts/men-have-feelings/</link>
       <pubDate>Thu, 11 May 2023 11:24:29 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/men-have-feelings/</guid>
+      <guid>http://localhost:1313/posts/men-have-feelings/</guid>
       <description>&lt;p&gt;There are so much vulnerable men in the world. Men do have feelings. But they deny. Heck, we deny.&#xA;The rise of so much “red pill” podcasts and part-time sex-traffickers, girlfriend beating, chinless men like &lt;a href=&#34;https://en.wikipedia.org/wiki/Andrew_Tate&#34; target=&#34;_blank&#34;&gt;Andrew Tate&lt;/a&gt; or proven miscreant turned saviour, Sneako, with a cult following of young vulnerable men is worrisome. Why is this so, you may ask? Well, it’s really hard to say.&lt;/p&gt;&#xA;&lt;h2 id=&#34;why-bad-representations-exist&#34;&gt;Why bad representations exist.&lt;/h2&gt;&#xA;&lt;p&gt;I genuinely believe the reason for the success of the aforementioned platforms and individuals is because men deep down are looking for a voice, otherwise firm figure to endorse and represent their patriarchal beliefs. It’s a man’s world in most third world countries and Africa, but we can agree that in the Western society today, it’s a “woman’s world” frankly speaking. Which isn’t bad, per say. The problem is, the individuals taking up the baton happen to be shallow-minded and in a way, misrepresent the thoughts and feelings of the majority of men.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Positional Play</title>
-      <link>https://geraldmokereke.xyz/posts/positional-play-for-tactical-lovers/</link>
+      <link>http://localhost:1313/posts/positional-play-for-tactical-lovers/</link>
       <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/positional-play-for-tactical-lovers/</guid>
+      <guid>http://localhost:1313/posts/positional-play-for-tactical-lovers/</guid>
       <description>&lt;p&gt;Johan Cruyff is regarded as one of the greatest players and coaches of all time. He is remembered for the very attractive, unique technical approach to football he employed at Barcelona, which he inherited from Rinus Michels&amp;rsquo; ideology at Ajax.&lt;/p&gt;&#xA;&lt;p&gt;This is why Ajax, historically, would forever be an essential piece to modern-day football.&lt;/p&gt;&#xA;&lt;p&gt;Cruyff took the idea to Barcelona where he developed it. By carrying the Dutch philosophy or Ajax system to Barcelona, he also inspired other coaches at that time in Spain to adopt the philosophy. That is why, to date, it appears as if every LaLiga team adopted some variation of positional play, which casuals would be known to refer to as &amp;ldquo;Tiki Taka.&amp;rdquo;&lt;/p&gt;</description>
     </item>
     <item>
       <title>How to Dockerize Spring Boot and PostgreSQL</title>
-      <link>https://geraldmokereke.xyz/posts/dockerizing-spring-boot-postgres/</link>
+      <link>http://localhost:1313/posts/dockerizing-spring-boot-postgres/</link>
       <pubDate>Tue, 21 Feb 2023 18:19:39 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/dockerizing-spring-boot-postgres/</guid>
+      <guid>http://localhost:1313/posts/dockerizing-spring-boot-postgres/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction.&lt;/h1&gt;&#xA;&lt;p&gt;In this article, I will walk you through the entire process of dockerizing a Spring Boot application, and connecting it to a PostgreSQL database which would be spun up in a seperate container. I assume you have a little knowledge of &lt;a href=&#34;https://docker.com&#34; target=&#34;_blank&#34;&gt;Docker&lt;/a&gt;. I initially planned to do a Docker tutorial. I think at the time of writing this&amp;ndash;I have a draft on medium about it. Expect an article soon based on Docker.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Crash Course: Matplotlib and Jupyter Notebook</title>
-      <link>https://geraldmokereke.xyz/posts/crash-course-matplotlib/</link>
+      <link>http://localhost:1313/posts/crash-course-matplotlib/</link>
       <pubDate>Wed, 25 Jan 2023 23:37:44 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/crash-course-matplotlib/</guid>
+      <guid>http://localhost:1313/posts/crash-course-matplotlib/</guid>
       <description>&lt;h1 id=&#34;introduction-to-matplotlib&#34;&gt;Introduction to Matplotlib.&lt;/h1&gt;&#xA;&lt;p&gt;Matplotlib is a library used to create visualisations of data in the Python programming language. With matplotlib, you can create two-dimensional graphs using Python Scripts. It’s pretty cool and I will be showing you how you could use it for your subsequent projects, research and schoolwork alongside the Jupyter Notebook tool.&lt;/p&gt;&#xA;&lt;h3 id=&#34;jupyter-notebooks&#34;&gt;Jupyter Notebooks.&lt;/h3&gt;&#xA;&lt;p&gt;A Jupyter Notebook is a locally hosted web application used for machine learning and data science tasks, which involves writing models, documenting models and visualising their implementation with tools such as Matplotlib or Seaborn (an alternative). It is relatively easy to set up and configure. You can easily install it by using the pip package manager, or &lt;a href=&#34;https://anaconda.org&#34; target=&#34;_blank&#34;&gt;Anaconda&lt;/a&gt;&lt;/p&gt;</description>
     </item>
     <item>
       <title>Writing better Git Commits</title>
-      <link>https://geraldmokereke.xyz/posts/commiting-in-git/</link>
+      <link>http://localhost:1313/posts/commiting-in-git/</link>
       <pubDate>Sun, 22 Jan 2023 16:05:12 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/commiting-in-git/</guid>
+      <guid>http://localhost:1313/posts/commiting-in-git/</guid>
       <description>&lt;h3 id=&#34;introduction&#34;&gt;Introduction.&lt;/h3&gt;&#xA;&lt;p&gt;In this article you would learn how to properly structure and craft decent, intuitive and readable commit messages that summarise the context of the code you published to either a remote or local branch of a repository. This would be helpful if you work on collaborative projects, and would also save you the mental stress of trying to figure out a commit. I was once guilty of creating incredibly confusing and inappropriate commit messages, that did not capture the context of my code. I totally underestimated the concept of good commit messages, feeling &amp;ldquo;code readablity&amp;rdquo; was far more important to understand. That the code itself should tell, and not the messages. I was wrong, and I do not want you to be caught up in a similar situation.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Microservices, RPCs, SOAP, REST &amp; GraphQL</title>
-      <link>https://geraldmokereke.xyz/posts/musketeers-of-api/</link>
+      <link>http://localhost:1313/posts/musketeers-of-api/</link>
       <pubDate>Sun, 22 Jan 2023 11:27:55 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/musketeers-of-api/</guid>
+      <guid>http://localhost:1313/posts/musketeers-of-api/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;This article will cover the topic of application programming interfaces, which is an essential unit that makes up the microservice architecture.&lt;/p&gt;&#xA;&lt;h3 id=&#34;the-microservice-architecture&#34;&gt;The Microservice Architecture.&lt;/h3&gt;&#xA;&lt;p&gt;The micro service architecture is a type of application architecture where the application is broken into several units, communicating effectively with each other over a network protocol. In contrast to &lt;a href=&#34;https://g.co/kgs/apoGDN&#34; target=&#34;_blank&#34;&gt;monolith applications&lt;/a&gt;, which contains the entire logic, client side and server side units in one package that is deployed on a server. On the other hand, the Microservice architecture has its units loosely coupled together, and in most cases distributed across multiple system servers. This is why in many cases, the micro service architecture is referred to as a type of &lt;a href=&#34;https://g.co/kgs/WHxZ7E&#34; target=&#34;_blank&#34;&gt;&lt;em&gt;distributed system&lt;/em&gt;&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Set up Tailwind and Storybook with Next</title>
-      <link>https://geraldmokereke.xyz/posts/install-tailwind-storybook/</link>
+      <link>http://localhost:1313/posts/install-tailwind-storybook/</link>
       <pubDate>Fri, 20 Jan 2023 16:56:38 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/install-tailwind-storybook/</guid>
+      <guid>http://localhost:1313/posts/install-tailwind-storybook/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction.&lt;/h1&gt;&#xA;&lt;p&gt;In this article, you will learn how to install storybook and configure it with tailwindcss, in a Next JS project. I have used these tools to build several side projects of mine and even professional projects.&#xA;I hope you find it interesting.&lt;/p&gt;&#xA;&lt;h3 id=&#34;why-tailwind-and-storybook&#34;&gt;Why Tailwind and Storybook?&lt;/h3&gt;&#xA;&lt;p&gt;It boils down to your preference. Storybook is a pretty nice tool that could be used alongside several CSS in options. From utility first frameworks such as tailwindcss, to Chakra UI, CSS in JS (Styled Components) or plain styling in CSS.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Avoiding The Oops in Oop</title>
-      <link>https://geraldmokereke.xyz/posts/oops-in-oop/</link>
+      <link>http://localhost:1313/posts/oops-in-oop/</link>
       <pubDate>Thu, 05 Jan 2023 09:13:23 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/oops-in-oop/</guid>
+      <guid>http://localhost:1313/posts/oops-in-oop/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;There is an awful lot that goes into writing good code that abides by proper Object-Oriented Programming principles. In this tutorial I will basically cover the importance and significance of writing quality code (though I feel that quality code is subjective) thereby avoding &amp;ldquo;Oops in Oop.&amp;rdquo;&lt;/p&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;Note: &amp;ldquo;Oops&amp;rdquo; is basically an exclamation made after a significant mistake or accident rather.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;h3 id=&#34;getting-started&#34;&gt;Getting Started&lt;/h3&gt;&#xA;&lt;p&gt;Before being able to follow this tutorial and get the best out of it, you have to meet up with the following perquisites.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Set Up React With Laravel</title>
-      <link>https://geraldmokereke.xyz/posts/set-up-react-with-laravel/</link>
+      <link>http://localhost:1313/posts/set-up-react-with-laravel/</link>
       <pubDate>Wed, 04 Jan 2023 09:09:15 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/set-up-react-with-laravel/</guid>
+      <guid>http://localhost:1313/posts/set-up-react-with-laravel/</guid>
       <description>&lt;h1 id=&#34;how-to-set-up-laravel-with-react-js&#34;&gt;How to set up Laravel with React JS.&lt;/h1&gt;&#xA;&lt;h3 id=&#34;introduction&#34;&gt;Introduction.&lt;/h3&gt;&#xA;&lt;p&gt;Just like I was roaming Stackoverflow, you’ve probably been wondering how to set up React JS with the Laravel framework. React is arguably one of the most powerful libraries for building user-interfaces. Yes, it’s a library, not really a framework. It forms the view component of web applications. Laravel on the other hand, is a powerful open-source PHP framework used for building small to robust web applications. It implements the model-view-controller (MVC) software architecture. Both tools, seem to go pretty well with certain tools, without having to stress at all.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Fibonacci Algorithms in C</title>
-      <link>https://geraldmokereke.xyz/posts/fibonacci-in-c/</link>
+      <link>http://localhost:1313/posts/fibonacci-in-c/</link>
       <pubDate>Wed, 17 Aug 2022 16:59:56 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/fibonacci-in-c/</guid>
+      <guid>http://localhost:1313/posts/fibonacci-in-c/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;&#xA;&lt;p&gt;This article covers the concept of Fibonacci series. A very popular algorithm in Computer Science. We would be implementing the theory practically in the C programming language.&lt;/p&gt;&#xA;&lt;table&gt;&#xA;  &lt;thead&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;th style=&#34;text-align: center&#34;&gt;&lt;img src=&#34;https://i.ibb.co/B3sDpvH/images.jpg&#34; alt=&#34;Fibonacci&#34;&gt;&lt;/th&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/thead&gt;&#xA;  &lt;tbody&gt;&#xA;      &lt;tr&gt;&#xA;          &lt;td style=&#34;text-align: center&#34;&gt;Italian Mathematician, Fibonacci.&lt;/td&gt;&#xA;      &lt;/tr&gt;&#xA;  &lt;/tbody&gt;&#xA;&lt;/table&gt;&#xA;&lt;h3 id=&#34;what-is-the-fibonacci-series&#34;&gt;What is the Fibonacci Series?&lt;/h3&gt;&#xA;&lt;p&gt;The Fibonacci series is a unique set of series whereby the following term is always equal&#xA;to the sum of the previous two terms. We could reframe this explanation in another&#xA;perspective. We could refer to these series as a growing array or set of numbers where&#xA;the previous sum of two terms is the determinant of the next term. In the Fibonacci&#xA;Series, there is an increment in the numbers proceeding along the right in the series.&#xA;Here is a graphical representation of the Fibonacci series, as an example:&#xA;To furthermore illustrate the above, we will assign \(f(0)\) and \(f(1)\) to represent the first two&#xA;terms in the series below. To calculate five terms in a Fibonacci series, the series would&#xA;be:&#xA;Where \(f(5)\) represents the number of terms in the series.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Building An Image Classifier</title>
-      <link>https://geraldmokereke.xyz/posts/building-image-classifier/</link>
+      <link>http://localhost:1313/posts/building-image-classifier/</link>
       <pubDate>Thu, 16 Jun 2022 14:05:25 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/building-image-classifier/</guid>
+      <guid>http://localhost:1313/posts/building-image-classifier/</guid>
       <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction.&lt;/h1&gt;&#xA;&lt;p&gt;In this article, I will guide you through the processes I went through to create an image classifier using the Flask framework, the Keras library and Google&amp;rsquo;s popular machine learning library, Tensorflow. It was quite an &lt;a href=&#34;https://github.com/grayoj/image-classifier&#34; target=&#34;_blank&#34;&gt;interesting project that managed to gain over nineteen stars on Github, as at the time of writing this article&lt;/a&gt;. I was really pleased with the project, thus I humbly decided to share the entire workflow.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Archive</title>
-      <link>https://geraldmokereke.xyz/archives.fr/</link>
+      <link>http://localhost:1313/archives.fr/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://geraldmokereke.xyz/archives.fr/</guid>
+      <guid>http://localhost:1313/archives.fr/</guid>
       <description>archives</description>
     </item>
     <item>
       <title>Archive</title>
-      <link>https://geraldmokereke.xyz/archives/</link>
+      <link>http://localhost:1313/archives/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://geraldmokereke.xyz/archives/</guid>
+      <guid>http://localhost:1313/archives/</guid>
       <description>archives</description>
     </item>
     <item>
       <title>Introduction</title>
-      <link>https://geraldmokereke.xyz/posts/hello_world.md/</link>
+      <link>http://localhost:1313/posts/hello_world.md/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://geraldmokereke.xyz/posts/hello_world.md/</guid>
+      <guid>http://localhost:1313/posts/hello_world.md/</guid>
       <description>&lt;h1 id=&#34;welcome-to-grays-notes&#34;&gt;Welcome to Gray&amp;rsquo;s Notes.&lt;/h1&gt;&#xA;&lt;p&gt;I have a little note to drop proceeding the creation of this site. You are about to behold, sacred content - carved from the most reliable resources on the planet and my brain of course.&#xA;Peril to thee, who assumes this blog is subjected to computers alone. It is a piece of entertainment to the fanatics of computers, but also a platform of expression, research, ideologies and beliefs spanning&#xA;through several fields of science, technology, engineering, faith and poetry!&lt;/p&gt;</description>
     </item>
     <item>
       <title>Search</title>
-      <link>https://geraldmokereke.xyz/search/</link>
+      <link>http://localhost:1313/search/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://geraldmokereke.xyz/search/</guid>
+      <guid>http://localhost:1313/search/</guid>
       <description></description>
     </item>
     <item>
       <title>SearchL2</title>
-      <link>https://geraldmokereke.xyz/search.fr/</link>
+      <link>http://localhost:1313/search.fr/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://geraldmokereke.xyz/search.fr/</guid>
+      <guid>http://localhost:1313/search.fr/</guid>
       <description></description>
     </item>
   </channel>

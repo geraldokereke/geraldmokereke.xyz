@@ -2,157 +2,157 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Gerald&#39;s Journal</title>
-    <link>https://geraldmokereke.xyz/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Gerald&#39;s Journal</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 18 Jan 2024 10:17:51 +0100</lastBuildDate>
-    <atom:link href="https://geraldmokereke.xyz/tags/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Databases</title>
-      <link>https://geraldmokereke.xyz/tags/databases/</link>
+      <link>http://localhost:1313/tags/databases/</link>
       <pubDate>Thu, 18 Jan 2024 10:17:51 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/databases/</guid>
+      <guid>http://localhost:1313/tags/databases/</guid>
       <description></description>
     </item>
     <item>
       <title>Neovim</title>
-      <link>https://geraldmokereke.xyz/tags/neovim/</link>
+      <link>http://localhost:1313/tags/neovim/</link>
       <pubDate>Thu, 21 Sep 2023 10:46:46 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/neovim/</guid>
+      <guid>http://localhost:1313/tags/neovim/</guid>
       <description></description>
     </item>
     <item>
       <title>Programming</title>
-      <link>https://geraldmokereke.xyz/tags/programming/</link>
+      <link>http://localhost:1313/tags/programming/</link>
       <pubDate>Thu, 21 Sep 2023 10:46:46 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/programming/</guid>
+      <guid>http://localhost:1313/tags/programming/</guid>
       <description></description>
     </item>
     <item>
       <title>Setup</title>
-      <link>https://geraldmokereke.xyz/tags/setup/</link>
+      <link>http://localhost:1313/tags/setup/</link>
       <pubDate>Thu, 21 Sep 2023 10:46:46 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/setup/</guid>
+      <guid>http://localhost:1313/tags/setup/</guid>
       <description></description>
     </item>
     <item>
       <title>React</title>
-      <link>https://geraldmokereke.xyz/tags/react/</link>
+      <link>http://localhost:1313/tags/react/</link>
       <pubDate>Sun, 17 Sep 2023 19:07:06 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/react/</guid>
+      <guid>http://localhost:1313/tags/react/</guid>
       <description></description>
     </item>
     <item>
       <title>Politics</title>
-      <link>https://geraldmokereke.xyz/tags/politics/</link>
+      <link>http://localhost:1313/tags/politics/</link>
       <pubDate>Fri, 08 Sep 2023 18:32:38 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/politics/</guid>
+      <guid>http://localhost:1313/tags/politics/</guid>
       <description></description>
     </item>
     <item>
       <title>Life</title>
-      <link>https://geraldmokereke.xyz/tags/life/</link>
+      <link>http://localhost:1313/tags/life/</link>
       <pubDate>Thu, 11 May 2023 11:24:29 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/life/</guid>
+      <guid>http://localhost:1313/tags/life/</guid>
       <description></description>
     </item>
     <item>
       <title>Men</title>
-      <link>https://geraldmokereke.xyz/tags/men/</link>
+      <link>http://localhost:1313/tags/men/</link>
       <pubDate>Thu, 11 May 2023 11:24:29 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/men/</guid>
+      <guid>http://localhost:1313/tags/men/</guid>
       <description></description>
     </item>
     <item>
       <title>Football</title>
-      <link>https://geraldmokereke.xyz/tags/football/</link>
+      <link>http://localhost:1313/tags/football/</link>
       <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/football/</guid>
+      <guid>http://localhost:1313/tags/football/</guid>
       <description></description>
     </item>
     <item>
       <title>Sports</title>
-      <link>https://geraldmokereke.xyz/tags/sports/</link>
+      <link>http://localhost:1313/tags/sports/</link>
       <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/sports/</guid>
+      <guid>http://localhost:1313/tags/sports/</guid>
       <description></description>
     </item>
     <item>
       <title>Tactics</title>
-      <link>https://geraldmokereke.xyz/tags/tactics/</link>
+      <link>http://localhost:1313/tags/tactics/</link>
       <pubDate>Wed, 10 May 2023 00:00:00 +0000</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/tactics/</guid>
+      <guid>http://localhost:1313/tags/tactics/</guid>
       <description></description>
     </item>
     <item>
       <title>Crash Course, ML</title>
-      <link>https://geraldmokereke.xyz/tags/crash-course-ml/</link>
+      <link>http://localhost:1313/tags/crash-course-ml/</link>
       <pubDate>Wed, 25 Jan 2023 23:37:44 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/crash-course-ml/</guid>
+      <guid>http://localhost:1313/tags/crash-course-ml/</guid>
       <description></description>
     </item>
     <item>
       <title>Git, Commits, Version Control</title>
-      <link>https://geraldmokereke.xyz/tags/git-commits-version-control/</link>
+      <link>http://localhost:1313/tags/git-commits-version-control/</link>
       <pubDate>Sun, 22 Jan 2023 16:05:12 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/git-commits-version-control/</guid>
+      <guid>http://localhost:1313/tags/git-commits-version-control/</guid>
       <description></description>
     </item>
     <item>
       <title>API, Microservices, RPC, REST, SOAP</title>
-      <link>https://geraldmokereke.xyz/tags/api-microservices-rpc-rest-soap/</link>
+      <link>http://localhost:1313/tags/api-microservices-rpc-rest-soap/</link>
       <pubDate>Sun, 22 Jan 2023 11:27:55 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/api-microservices-rpc-rest-soap/</guid>
+      <guid>http://localhost:1313/tags/api-microservices-rpc-rest-soap/</guid>
       <description></description>
     </item>
     <item>
       <title>Storybook, Tailwind</title>
-      <link>https://geraldmokereke.xyz/tags/storybook-tailwind/</link>
+      <link>http://localhost:1313/tags/storybook-tailwind/</link>
       <pubDate>Fri, 20 Jan 2023 16:56:38 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/storybook-tailwind/</guid>
+      <guid>http://localhost:1313/tags/storybook-tailwind/</guid>
       <description></description>
     </item>
     <item>
       <title>Best Practices</title>
-      <link>https://geraldmokereke.xyz/tags/best-practices/</link>
+      <link>http://localhost:1313/tags/best-practices/</link>
       <pubDate>Thu, 05 Jan 2023 09:13:23 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/best-practices/</guid>
+      <guid>http://localhost:1313/tags/best-practices/</guid>
       <description></description>
     </item>
     <item>
       <title>Java</title>
-      <link>https://geraldmokereke.xyz/tags/java/</link>
+      <link>http://localhost:1313/tags/java/</link>
       <pubDate>Thu, 05 Jan 2023 09:13:23 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/java/</guid>
+      <guid>http://localhost:1313/tags/java/</guid>
       <description></description>
     </item>
     <item>
       <title>OOP</title>
-      <link>https://geraldmokereke.xyz/tags/oop/</link>
+      <link>http://localhost:1313/tags/oop/</link>
       <pubDate>Thu, 05 Jan 2023 09:13:23 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/oop/</guid>
+      <guid>http://localhost:1313/tags/oop/</guid>
       <description></description>
     </item>
     <item>
       <title>Laravel, React</title>
-      <link>https://geraldmokereke.xyz/tags/laravel-react/</link>
+      <link>http://localhost:1313/tags/laravel-react/</link>
       <pubDate>Wed, 04 Jan 2023 09:09:15 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/laravel-react/</guid>
+      <guid>http://localhost:1313/tags/laravel-react/</guid>
       <description></description>
     </item>
     <item>
       <title>Algorithms, C</title>
-      <link>https://geraldmokereke.xyz/tags/algorithms-c/</link>
+      <link>http://localhost:1313/tags/algorithms-c/</link>
       <pubDate>Wed, 17 Aug 2022 16:59:56 +0100</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/algorithms-c/</guid>
+      <guid>http://localhost:1313/tags/algorithms-c/</guid>
       <description></description>
     </item>
     <item>
       <title>Introduction, FAQ</title>
-      <link>https://geraldmokereke.xyz/tags/introduction-faq/</link>
+      <link>http://localhost:1313/tags/introduction-faq/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      <guid>https://geraldmokereke.xyz/tags/introduction-faq/</guid>
+      <guid>http://localhost:1313/tags/introduction-faq/</guid>
       <description></description>
     </item>
   </channel>
