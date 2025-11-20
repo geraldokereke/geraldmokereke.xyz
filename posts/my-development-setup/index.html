@@ -1,0 +1,910 @@
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>My Development Setup · Gerald&#39;s Journal</title>
+
+
+
+<link rel="stylesheet" href="/css/rocinante.css" />
+<link rel="shortcut icon" href="https://i.ibb.co/YNRSK0Z/gerald-logo.png">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<body>
+    <header><h2>
+  
+    <a href="https://geraldmokereke.xyz/">‹ Gerald&#39;s Journal</a>
+  
+</h2>
+</header>
+    <main>
+
+    <div class="post">
+      
+        <div class="title-group">
+            <div class="title">
+                <h1>My Development Setup</h1>
+            </div>
+            <div class="date"><h5>Sep 21, 2023</h5></div>
+        </div>
+              
+            <div class="post-cover">
+                <img src="https://i.ibb.co/Yc2FbML/Screenshot-2023-09-21-at-17-14-13.png" alt="My neovim environment, on Wezterm." style="max-width:100%;height:auto;" />
+                <div class="cover-caption">My neovim environment on Wezterm.</div>
+            </div>
+            
+        <article class="content">
+            <blockquote>
+<p>This article was created because of my guy,
+<a href="https://ng.linkedin.com/in/collins-ikotun-0a11a11b6" target="_blank">Collins Ikotun</a>, my vim
+convert! Also,
+<a href="https://www.reddit.com/r/linuxmemes/comments/pfv8hq/i_use_vim_btw/" target="_blank">I use vim btw</a>.</p>
+</blockquote>
+<p>When I started off programming I really had a very wrong perception of a
+&ldquo;development environment&rdquo; or &ldquo;development setup.&rdquo; This led to me, eventually
+wanting to do the most. Effectively creating an amazing workflow to most people
+with very much reduced productivity. Now, I&rsquo;ve come to realise that a
+development setup isn&rsquo;t necessarily spawning an ultra wide $5,000 monitor. But
+creating a very productive environment that maximises your experience and gets
+the best out of your abilities.</p>
+<h2 id="starting-hard-with-vim">Starting hard with Vim</h2>
+<p>If I can remember correctly - my first experience with Vim - was being petrified
+about getting stuck in an unusual terminal environment that I could not exit
+easily. I tried everything. To even powering off my computer in fear of what I
+had done. I attempted again, consulted Google. Nothing. Quit the terminal. I was
+the <a href="https://i.redd.it/5yz0nnw08qm61.jpg" target="_blank">living meme on the Vim subreddit</a> at
+that point.</p>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center"><img src="https://i.ibb.co/rmm3F9d/vimmeme.jpg" alt="Graph"></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">Exiting Vim</td>
+      </tr>
+  </tbody>
+</table>
+<p>Reflecting on that and where I am today really makes me laugh. It was truly a
+fun ride. That was early in the 2009s and 2010s. There was no &ldquo;cool&rdquo;
+<a href="https://en.wikipedia.org/wiki/Language_Server_Protocol" target="_blank">LSPs (Language Server Protocol)</a>
+to do some autocomplete, there was no treesitter or any of the available cool integrations
+today.</p>
+<p>The advantages of Vim which I realised on the early onset were:</p>
+<ul>
+<li><strong>Extremely light and portable</strong>: Vim was well suited to computers running on
+low memory or CPU. This was what made it perfect for me. At that time, I was
+running netbeans on my system and it was causing a major lag.</li>
+<li><strong>Felt like a game</strong>: Being a kid, I really enjoyed the odd keybindings it
+took to execute certain commands on my Vim. It gave me this game feeling and I
+absolutely enjoyed it.</li>
+<li><strong>The hollywood hacker persona</strong>: Anytime my relatives came around for
+Christmas, Easter or any holidays - I would bam! Inside vim, inside a pile of
+long ass bash commands and disorganised C code to run a simple CLI calculator.</li>
+<li><strong>Keeping strangers off</strong>: Anyone who got into Vim on my computer then was
+basically confused. So this in a way was pretty helpful in keeping strangers
+off.</li>
+</ul>
+<p>The problems I faced as of then were related to poor autocomplete, no cool
+features and GUI like <a href="https://www.codeblocks.org/" target="_blank">codeblocks</a> and
+<a href="https://netbeans.apache.org/" target="_blank">netbeans</a> gave me later on in my development
+life. Hence, I eventually dropped Vim, landed upon Windows. The transition was
+quite difficult. I struggled earlier on with the command prompt in Windows
+because bash just seemed so much better.</p>
+<h2 id="visual-studio-code">Visual Studio Code</h2>
+<p>I was basically a C programmer. I spent most of my time writing CLI
+applications. From calculators, to minimalistic games. That was all I could
+basically do. Till I came across JavaScript - which then changed my scope
+in 2016. JavaScript was bubbling and I had hopped on the hype train. I learnt
+JSON, JavaScript Syntax, Node JS and began to build browser based web pages at
+that time. My first site was a single HTML page with a JavaScript implementation
+popping my name up from nowhere which was pretty cool. Most tutorials I began to
+follow all used a similar IDE. This was
+<a href="https://code.visualstudio.com/" target="_blank">Visual Studio Code</a>, and eventually I picked it
+up to be in sync with the tutorials I watched.</p>
+<p>Boy. I loved it. I could install so many cool extensions that I wasn&rsquo;t privy to
+on my Vim. It seemed like my development was getting better. I enjoyed the
+syntax highlighting, integrated terminal - the search feature. It was crazy.
+Fast forward, I got so sucked up into the GUI crew that I began to handle by Git
+workflow via a GUI. My first Github account came out the following year or two
+years with the username <a href="https://github.com/mgeraldoj" target="_blank">Mgeraldoj</a> which
+unfortunately, I pretty much lost access to.</p>
+<p>I was a VScode ambassador at that point, cycling through crazy themes,
+extensions and essentially making my RAM and CPU regret being in my hands -
+which I didn&rsquo;t realise anyways. One day, I stumbled across a
+<a href="https://medium.com/swlh/the-best-of-both-worlds-visual-studio-code-vim-f8e343eb070f" target="_blank">post that talked
+about the Vim Plugin in VScode</a>.
+I was instantly hooked. I tried it out. I won&rsquo;t lie, i was embarrassingly rusty.
+I eventually started using it then dropped it again, to lay back on VSCode&rsquo;s own
+keybindings.</p>
+<p>What changed it?</p>
+<h2 id="vim-again">Vim again</h2>
+<p>I had a whole lot of channels I watched on YouTube then to keep me
+motivated. I used these channels as <em>background noise</em>. One of my favourite
+channels as of the time was the
+<a href="https://www.youtube.com/@geohotarchive" target="_blank">George Hotz Archive</a> that would
+eventually hook me on Vim, again.</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/hYxwe-bYkrU?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p><a href="https://en.wikipedia.org/wiki/George_Hotz" target="_blank">George Hotz</a> is a cool systems level
+programmer I followed for many reasons. I mean, it seemed like he loved C and
+the only thing with me that didn&rsquo;t sync with him, was his avid use of Python.</p>
+<p>I was blown away - he was extremely fast. I am trying to mimmick his movements
+and I&rsquo;m nothing close to him. He&rsquo;s in a terminal window, practically schooling
+me on what it means to be productive. Questions were plopping into my head.</p>
+<ul>
+<li>How on earth, is he moving that fast?</li>
+<li>How does he jump between several terminal windows? What terminal does he use?
+Which tabs? But he&rsquo;s on a single tab.</li>
+<li>How does his Vim look like this? A little bit of syntax highlighting?</li>
+<li>HOW CAN I BE LIKE THIS?</li>
+</ul>
+<p>I began to hunt very diligently for ideas to get a similar workflow. I copied
+his Vim dotfiles, I essentially wrote some vimscript, set up keybindings. I was
+still kind of abysmal. How was he jumping that fast between windows, I still
+didn&rsquo;t know. My goodness, I wanted to just relapse on Visual Studio Code again,
+but his workflow was so enticing to implement. I am running through articles on
+Hackernews, Reddit before eventually stumbling across an editor that would
+change my life and workflow. Neovim.</p>
+<h2 id="neovim">Neovim</h2>
+<p>The articles, screenshots and forums I came across were buzzing about Neovim.
+Infact - I succumbed quickly to the peer pressure. My first experience with
+Neovim was trying to get the executable, like a <code>neovim.exe</code> installed on my
+Windows machine? Hey. Laugh all you want, sucker. It proved otherwise. Something
+beautiful I appreciated about the Neovim community was how much exposure I got
+to CLI based tooling, and even WSL (Windows Subsytem for Linux). Sooner or
+later, I had told my best friend - I was moving off the Windows train.</p>
+<p>Attempting to relive the past moments. In less than a year, I had ported fully
+to Ubuntu, a
+<a href="https://ubuntu.com/download/desktop" target="_blank">debian distribution of Linux</a>. I did not
+regret. I truly recommend except you&rsquo;re someone who is heavily invested on the
+<a href="https://dotnet.microsoft.com/en-us/languages/csharp" target="_blank">C# and .NET stack</a>,
+<a href="https://www.googleadservices.com/pagead/aclk?sa=L&amp;ai=DChcSEwi4zPSniLyBAxUMx-0KHaoSCA8YABARGgJkZw&amp;ase=2&amp;gclid=Cj0KCQjw06-oBhC6ARIsAGuzdw3NJVuBHK57kgmLNRnSBDDRKCpy1OInak3WsRCRSb5Wd9UIFYKLO0MaAgZ5EALw_wcB&amp;ohost=www.google.com&amp;cid=CAESa-D2XMkE3sPtkgeZd3TvUlsHOeIb59zsZgXVkoWmhu29fPPkVnzqxXjqqpLinNpb2hx-trZEffAEnppAxvTNAZw416vsQsmA7moHV6shxYKrrB0ptGHrLC3rZl1uxRjEdBKzj8U0zSTK_lz_&amp;sig=AOD64_2Z6W0n9uLf1C9GyWtZu_BpVUuBcA&amp;q&amp;nis=4&amp;adurl&amp;ved=2ahUKEwjD9-yniLyBAxUViVwKHd81CP0Q0Qx6BAgKEAE" target="_blank">Windows Server</a>
+and Microsoft platform? You should definitely port to Linux. I promise you, that
+you would enjoy it and become really productive. You escape the .exe and MSI
+installers for packages and that disgusting font called
+<a href="https://www.reddit.com/r/vscode/comments/ftmehh/why_does_the_consolas_font_look_weird_on_vs_code/" target="_blank">Consolas</a>
+or
+<a href="https://www.ghisler.ch/board/viewtopic.php?t=38214" target="_blank">&ldquo;Segoe EWWW I&rdquo; (Segoe UI)</a>.</p>
+<p>In general, Neovim was amazing. It was basically an improved version or
+distribution of Vim, packed with a lot of features. This time, you would write
+your configurations in a programming language called <a href="https://www.lua.org/" target="_blank">Lua</a>
+which is a really easy to understand and intuitive language. Guess what this
+meant? Yes.</p>
+<blockquote>
+<p>No more Vimscript (<code>.Vimrc</code>) again for configurations.</p>
+</blockquote>
+<p>What did this mean? The advent of
+<a href="https://en.wikipedia.org/wiki/Language_Server_Protocol" target="_blank">Language Server Protocols</a>
+providing <em>intellisense</em> to a language such as autocomplete, suggestions and
+snippets. Speeding up my productivity. Not to mention, other features of an IDE,
+like a status bar, a file explorer called a <strong>NerdTree</strong> - the formatters, the
+debuggers, the syntax highlighting thanks to <strong>treesitter</strong> and oh baby, we were
+ready to do madness with all of these.</p>
+<p>At that moment, I was like Ben 10 discovering something greater than the
+<a href="https://ben10.fandom.com/wiki/Ultimatrix_%28Original%29" target="_blank">ultimatrix</a>. Neovim, was
+the next big thing. The community too was fantastic.</p>
+<h2 id="losing-my-configurations">Losing my configurations</h2>
+<p>My basic Neovim setup was absolutely not minimalistic. It was bloated. A cool
+background colour which would fry my eyes today and some other configurations.
+At the basic level this was the most important components of my configuration:</p>
+<ul>
+<li>The status-line. I needed to see the name of my file, the branch I was on. The
+LSP that was active. How many lines and columns I was on, and so on.</li>
+<li>Telescope. I wanted to search through my files easily, without the <code>grep</code>.</li>
+<li>The Nerdtree, because nobody is writing code without a file explorer or way to
+navigate.</li>
+<li>Treesitter.</li>
+<li>Git integrations.</li>
+<li>Glyphs which looked pretty cool when I used and installed a nerdfont.</li>
+<li>An integrated terminal, which I would end up not using that much after
+figuring out why
+<a href="https://www.reddit.com/r/vim/comments/ey78p3/vimmers_with_heavy_configs_every_thought_about/" target="_blank">Hotz was so productive</a>.</li>
+</ul>
+<p>Those were the basic building blocks of my neovim configurations. The rest, were
+well - excess. But nevermind - how about you check out my configurations?</p>
+<h2 id="tldr-my-development-environment">tl:dr; My Development environment</h2>
+<p>tl:dr?</p>
+<p>Okay, so what&rsquo;s my setup exactly? You&rsquo;d be surprised to find out how extremely
+minimalistic it is, compared to the bloatware I had before. I&rsquo;ll start off with
+the editors I use at the basic level. I starred them below:</p>
+<ul>
+<li>Neovim. *</li>
+<li>Intelli J IDEA *</li>
+<li>Visual Studio Code *</li>
+<li>Tmux a multiplexer. Lets me use one tab, create multiple windows.</li>
+<li>Starship.rs</li>
+<li>Zsh</li>
+<li>Fish Shell</li>
+<li>Alacritty terminal</li>
+<li>Wezterm terminal</li>
+</ul>
+<p>I use Neovim for basically everything. You&rsquo;d find me on Intelli J when on Java
+based projects for example with
+<a href="https://spring.io/projects/spring-boot" target="_blank">Spring Boot</a> or on Scala based
+projects. This is because I genuinely believe the experience of Intelli J for
+Java, Scala and Kotlin projects is absolutely unbeatable. Would still use vim
+for editing. I also use Visual Studio Code as well for remote server, and very
+occasionally. I am also fond of this recent IDE called <a href="https://zed.dev/" target="_blank">Zed</a>
+due to their early support for Elixir.</p>
+<h3 id="setting-up-neovim">Setting up Neovim</h3>
+<p>My neovim is quite minimalistic as possible, to start with to maximise my
+productivity and efficiency. In order to get the best out of my neovim with
+liberty to still make certain edits to my experience, I use a Neovim
+distribution popularly known as <a href="https://nvchad.com/docs/features" target="_blank">Nvchad</a>. Now
+there are several distributions, where you can choose from such as
+<a href="https://astronvim.com/" target="_blank">Astrovim</a> and <a href="https://www.lunarvim.org/" target="_blank">Lunarvim</a>,
+but I find Nvchad better, and I&rsquo;ve gotten used to it. You can set up Nvchad by
+<a href="https://nvchad.com/docs/features" target="_blank">visiting their documentation</a>. Maybe you&rsquo;d be
+&ldquo;chad&rdquo; enough.</p>
+<p>Like I said my configuration is minimalistic and the only thing that changes is
+my theme. I use the <a href="https://github.com/morhetz/gruvbox" target="_blank">Grubvox</a> theme.
+Possibly because it&rsquo;s easier on the eyes, for me.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- chadrc.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">---@type ChadrcConfig</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">local</span> <span style="color:#111">M</span> <span style="color:#f92672">=</span> <span style="color:#111">{}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Path to overriding theme and highlights files</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">local</span> <span style="color:#111">highlights</span> <span style="color:#f92672">=</span> <span style="color:#111">require</span> <span style="color:#d88200">&#34;custom.highlights&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">M.ui</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">theme</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;gruvbox&#34;</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">theme_toggle</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span> <span style="color:#d88200">&#34;gruvbox&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;one_light&#34;</span> <span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">hl_override</span> <span style="color:#f92672">=</span> <span style="color:#111">highlights.override</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">hl_add</span> <span style="color:#f92672">=</span> <span style="color:#111">highlights.add</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">M.plugins</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;custom.plugins&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- check core.mappings for table structure</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">M.mappings</span> <span style="color:#f92672">=</span> <span style="color:#111">require</span> <span style="color:#d88200">&#34;custom.mappings&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">return</span> <span style="color:#111">M</span>
+</span></span></code></pre></div><p>I customised my statusbar and nerdtree, which I would provide in a
+<a href="">github repository</a> for you to access. This is basically the plugins,
+otherwise LSPs I use currently if you&rsquo;re interested in having an overview:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#00a8c8">local</span> <span style="color:#111">on_attach</span> <span style="color:#f92672">=</span> <span style="color:#111">require</span><span style="color:#111">(</span><span style="color:#d88200">&#34;plugins.configs.lspconfig&#34;</span><span style="color:#111">).</span><span style="color:#111">on_attach</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">local</span> <span style="color:#111">capabilities</span> <span style="color:#f92672">=</span> <span style="color:#111">require</span><span style="color:#111">(</span><span style="color:#d88200">&#34;plugins.configs.lspconfig&#34;</span><span style="color:#111">).</span><span style="color:#111">capabilities</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">local</span> <span style="color:#111">lspconfig</span> <span style="color:#f92672">=</span> <span style="color:#111">require</span> <span style="color:#d88200">&#34;lspconfig&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- if you just want default config for the servers then put them in a table</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">local</span> <span style="color:#111">servers</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span> <span style="color:#d88200">&#34;html&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;cssls&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;tsserver&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;clangd&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;gopls&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;tailwindcss&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;rust_analyzer&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;marksman&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;jsonls&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;sqlls&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;pyright&#34;</span> <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">for</span> <span style="color:#111">_</span><span style="color:#111">,</span> <span style="color:#111">lsp</span> <span style="color:#00a8c8">in</span> <span style="color:#111">ipairs</span><span style="color:#111">(</span><span style="color:#111">servers</span><span style="color:#111">)</span> <span style="color:#00a8c8">do</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">lspconfig</span><span style="color:#111">[</span><span style="color:#111">lsp</span><span style="color:#111">].</span><span style="color:#111">setup</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">on_attach</span> <span style="color:#f92672">=</span> <span style="color:#111">on_attach</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">capabilities</span> <span style="color:#f92672">=</span> <span style="color:#111">capabilities</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">--</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- lspconfig.pyright.setup { blabla}</span>
+</span></span></code></pre></div><p>I use the above plugins for HTML, CSS, Typescript, C/C++, Go, Tailwind, Rust,
+Markdown, JSON, SQL and Python - basically. The tools I find myself using daily.
+I also have some formatters configured with prettier to improve my code
+readability and add automatic indentations to languages like Python - for
+example. Setting up Ncvhad solves your IDE problem.</p>
+<h3 id="tmux">Tmux</h3>
+<p><a href="https://github.com/tmux/tmux/wiki" target="_blank">Tmux is a multiplexer</a> that I find pretty
+cool. It enables you create sessions, windows and hop in between them through
+keybindings. My tmux configuration is quite straightforward and minimalistic
+too. All you have to do, is to create a <code>tmux.conf</code>. This is a sample
+configuration of mine:</p>
+<pre tabindex="0"><code class="language-conf" data-lang="conf">set -g @plugim &#39;tmux-plugins/tpm&#39;
+set -g @plugin &#39;tmux-plugins/tmux-sensible&#39;
+
+run &#39;~/.tmux/plugins/tpm/tpm&#39;
+</code></pre><p>Here I am using a tool called
+<a href="https://github.com/tmux-plugins/tpm" target="_blank">tpm (tmux package manager)</a> to install
+plugins for Tmux that I would use. As you can see, I do not really use so much
+plugins. Like I said, I keep it minimal and simple.</p>
+<h3 id="starshiprs">Starship.rs</h3>
+<p><a href="https://starship.rs" target="_blank">Starship is a customisable prompt for any shell</a> I just
+use this, because it&rsquo;s a pretty good prompt. You can install this via
+<a href="https://brew.sh" target="_blank">Homebrew</a> my favourite package manager for Unix/Linux systems.
+It&rsquo;s actually written in rust. Need I say, you&rsquo;d be quite concerned as we go
+along how many rust tooling I use in my workflow despite not being an avid Rust
+programmer myself. This is my starship configuration below in TOML, incase you
+want to use it:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-toml" data-lang="toml"><span style="display:flex;"><span><span style="color:#75af00">format</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;&#34;&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">$username\
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">$hostname\
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">$directory\
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">$git_branch\
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">$git_state\
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">$git_status\
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">$cmd_duration\
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">$line_break\
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">$python\
+</span></span></span><span style="display:flex;"><span><span style="color:#d88200">$character&#34;&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">[</span><span style="color:#75af00">directory</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">style</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;blue&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">[</span><span style="color:#75af00">character</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">success_symbol</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;[❯](purple)&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">error_symbol</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;[❯](red)&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">vimcmd_symbol</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;[❮](green)&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">[</span><span style="color:#75af00">git_branch</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">format</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;[$branch]($style)&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">style</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;bright-black&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">[</span><span style="color:#75af00">git_status</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">format</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;[[(*$conflicted$untracked$modified$staged$renamed$deleted)](218) ($ahead_behind$stashed)]($style)&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">style</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;cyan&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">conflicted</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;​&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">untracked</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;​&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">modified</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;​&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">staged</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;​&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">renamed</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;​&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">deleted</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;​&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">stashed</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;≡&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">[</span><span style="color:#75af00">git_state</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">format</span> <span style="color:#111">=</span> <span style="color:#d88200">&#39;\([$state( $progress_current/$progress_total)]($style)\) &#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">style</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;bright-black&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">[</span><span style="color:#75af00">cmd_duration</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">format</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;[$duration]($style) &#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">style</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;yellow&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">[</span><span style="color:#75af00">python</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">format</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;[$virtualenv]($style) &#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">style</span> <span style="color:#111">=</span> <span style="color:#d88200">&#34;bright-black&#34;</span>
+</span></span></code></pre></div><p>That&rsquo;s my starship configuration!</p>
+<h3 id="zsh-and-fish-shell-configurations">Zsh and Fish shell configurations</h3>
+<p>You should know what
+<a href="https://en.wikipedia.org/wiki/Z_shell#:~:text=The%20Z%20shell%20%28Zsh%29%20is,Z%20shell" target="_blank">zsh</a>
+is. The only new thing here is <a href="https://fishshell.com/" target="_blank">Fish Shell</a> which is
+pretty cool because it comes packed with autosuggestions. I find this extremely
+useful because: You cannot remember your folder directories all the time, it&rsquo;s
+fast and you do not have to punch <code>ls -la</code> to see your files. These are my fish
+variables:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-shell" data-lang="shell"><span style="display:flex;"><span><span style="color:#75715e"># This file contains fish universal variable definitions.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># VERSION: 3.0</span>
+</span></span><span style="display:flex;"><span>SETUVAR __fish_initialized:3400
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_autosuggestion:555<span style="color:#8045ff">\x</span>1ebrblack
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_cancel:<span style="color:#8045ff">\x</span>2dr
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_command:blue
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_comment:red
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_cwd:green
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_cwd_root:red
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_end:green
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_error:brred
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_escape:brcyan
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_history_current:<span style="color:#8045ff">\x</span>2d<span style="color:#8045ff">\x</span>2dbold
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_host:normal
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_host_remote:yellow
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_normal:normal
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_operator:brcyan
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_param:cyan
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_quote:yellow
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_redirection:cyan<span style="color:#8045ff">\x</span>1e<span style="color:#8045ff">\x</span>2d<span style="color:#8045ff">\x</span>2dbold
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_search_match:bryellow<span style="color:#8045ff">\x</span>1e<span style="color:#8045ff">\x</span>2d<span style="color:#8045ff">\x</span>2dbackground<span style="color:#8045ff">\x</span>3dbrblack
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_selection:white<span style="color:#8045ff">\x</span>1e<span style="color:#8045ff">\x</span>2d<span style="color:#8045ff">\x</span>2dbold<span style="color:#8045ff">\x</span>1e<span style="color:#8045ff">\x</span>2d<span style="color:#8045ff">\x</span>2dbackground<span style="color:#8045ff">\x</span>3dbrblack
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_status:red
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_user:brgreen
+</span></span><span style="display:flex;"><span>SETUVAR fish_color_valid_path:<span style="color:#8045ff">\x</span>2d<span style="color:#8045ff">\x</span>2dunderline
+</span></span><span style="display:flex;"><span>SETUVAR fish_key_bindings:fish_default_key_bindings
+</span></span><span style="display:flex;"><span>SETUVAR fish_pager_color_completion:normal
+</span></span><span style="display:flex;"><span>SETUVAR fish_pager_color_description:B3A06D<span style="color:#8045ff">\x</span>1eyellow<span style="color:#8045ff">\x</span>1e<span style="color:#8045ff">\x</span>2di
+</span></span><span style="display:flex;"><span>SETUVAR fish_pager_color_prefix:normal<span style="color:#8045ff">\x</span>1e<span style="color:#8045ff">\x</span>2d<span style="color:#8045ff">\x</span>2dbold<span style="color:#8045ff">\x</span>1e<span style="color:#8045ff">\x</span>2d<span style="color:#8045ff">\x</span>2dunderline
+</span></span><span style="display:flex;"><span>SETUVAR fish_pager_color_progress:brwhite<span style="color:#8045ff">\x</span>1e<span style="color:#8045ff">\x</span>2d<span style="color:#8045ff">\x</span>2dbackground<span style="color:#8045ff">\x</span>3dcyan
+</span></span><span style="display:flex;"><span>SETUVAR fish_pager_color_selected_background:<span style="color:#8045ff">\x</span>2dr
+</span></span></code></pre></div><p>This is my <code>fish.conf</code>, again minimalistic as possible:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#00a8c8">if</span> status is-interactive
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Commands to run in interactive sessions can go here</span>
+</span></span><span style="display:flex;"><span>end
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>starship init fish <span style="color:#111">|</span> <span style="color:#111">source</span>
+</span></span></code></pre></div><h3 id="alacritty-terminal">Alacritty Terminal</h3>
+<p>Alacritty is a rust based terminal - that can be configured using <code>Yaml</code>. It&rsquo;s
+pretty fast, and I do not code outside Alacritty except it&rsquo;s
+<a href="https://wezfurlong.org/wezterm/index.html" target="_blank">Wezterm</a> due to the efficiency and
+the performance. You can visit
+<a href="https://alacritty.org/" target="_blank">Alacritty&rsquo;s site here for installations</a>.</p>
+<p>This is my <code>Yaml</code>, which I used to configure my use. I borrowed the
+configuration anyways. I just use <strong>Grubvox</strong> as my theme, and the basics again:</p>
+<p>You can pick the preconfigured theme you want below.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span>-- <span style="color:#ae81ff">alacritty,yml</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">font</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">size</span><span style="color:#111">:</span> <span style="color:#ae81ff">14</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">normal</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># family: &#34;Cousine Nerd Font Mono&#34;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">family</span><span style="color:#111">:</span> <span style="color:#d88200">&#34;FiraCode Nerd Font Mono&#34;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">cursor</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">unfocused_hollow</span><span style="color:#111">:</span> <span style="color:#00a8c8">true</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">style</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">blinking</span><span style="color:#111">:</span> <span style="color:#ae81ff">Never</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">scrolling</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">history</span><span style="color:#111">:</span> <span style="color:#ae81ff">2000</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">auto_scroll</span><span style="color:#111">:</span> <span style="color:#00a8c8">true</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#######################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##      START OF COLOR SCHEMES       ##</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#######################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">schemes</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">### Doom One ###</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">doom-one</span><span style="color:#111">:</span> <span style="color:#75715e">&amp;doom-one</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">primary</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">background</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#282c34&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">foreground</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#bbc2cf&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cursor</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">text</span><span style="color:#111">:</span> <span style="color:#ae81ff">CellBackground</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cursor</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#528bff&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">selection</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">text</span><span style="color:#111">:</span> <span style="color:#ae81ff">CellForeground</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">background</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#3e4451&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">normal</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#1c1f24&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#ff6c6b&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#98be65&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#da8548&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#51afef&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#c678dd&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#5699af&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#202328&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">bright</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#5b6268&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#da8548&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#4db5bd&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#ecbe7b&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#3071db&#39;</span>   <span style="color:#75715e"># This is 2257a0 in Doom Emacs but I lightened it.</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#a9a1e1&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#46d9ff&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#dfdfdf&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">### Dracula ###</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">dracula</span><span style="color:#111">:</span> <span style="color:#75715e">&amp;dracula</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">primary</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">background</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#282a36&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">foreground</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#f8f8f2&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">vi_mode_cursor</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">text</span><span style="color:#111">:</span> <span style="color:#ae81ff">CellBackground</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cursor</span><span style="color:#111">:</span> <span style="color:#ae81ff">CellForeground</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">search</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">matches</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">foreground</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#44475a&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">background</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#50fa7b&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">focused_match</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">foreground</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#44475a&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">background</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#ffb86c&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">bar</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">background</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#282a36&#39;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">foreground</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#f8f8f2&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">line_indicator</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">foreground</span><span style="color:#111">:</span> <span style="color:#ae81ff">None</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">background</span><span style="color:#111">:</span> <span style="color:#ae81ff">None</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">selection</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">text</span><span style="color:#111">:</span> <span style="color:#ae81ff">CellForeground</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">background</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#44475a&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">normal</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#000000&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#ff5555&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#50fa7b&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#f1fa8c&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#bd93f9&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#ff79c6&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#8be9fd&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#bfbfbf&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">bright</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#4d4d4d&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#ff6e67&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#5af78e&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#f4f99d&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#caa9fa&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#ff92d0&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#9aedfe&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#e6e6e6&#39;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">dim</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#14151b&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#ff2222&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#1ef956&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#ebf85b&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#4d5b86&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#ff46b0&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#59dffc&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#e6e6d1&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">### Gruvbox dark ###</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">gruvbox-dark</span><span style="color:#111">:</span> <span style="color:#75715e">&amp;gruvbox-dark</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Default colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">primary</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># hard contrast: background = &#39;0x1d2021&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">background</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#1b1b1b&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#75715e"># soft contrast: background = &#39;0x32302f&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">foreground</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#ebdbb2&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Normal colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">normal</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#282828&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#cc241d&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#98971a&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#d79921&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#458588&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#b16286&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#689d6a&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#a89984&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Bright colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">bright</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#928374&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#fb4934&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#b8bb26&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#fabd2f&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#83a598&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#d3869b&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#8ec07c&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#ebdbb2&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">### Monokai ###</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">monokai-pro</span><span style="color:#111">:</span> <span style="color:#75715e">&amp;monokai-pro</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Default colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">primary</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">background</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#2D2A2E&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">foreground</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#FCFCFA&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Normal colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">normal</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#403E41&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#FF6188&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#A9DC76&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#FFD866&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#FC9867&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#AB9DF2&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#78DCE8&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#FCFCFA&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Bright colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">bright</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#727072&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#FF6188&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#A9DC76&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#FFD866&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#FC9867&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#AB9DF2&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#78DCE8&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#FCFCFA&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">### Nord ###</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">nord</span><span style="color:#111">:</span> <span style="color:#75715e">&amp;nord</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Default colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">primary</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">background</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#2E3440&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">foreground</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#D8DEE9&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Normal colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">normal</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#3B4252&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#BF616A&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#A3BE8C&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#EBCB8B&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#81A1C1&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#B48EAD&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#88C0D0&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#E5E9F0&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Bright colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">bright</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#4C566A&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#BF616A&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#A3BE8C&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#EBCB8B&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#81A1C1&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#B48EAD&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#8FBCBB&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#ECEFF4&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">### Oceanic Next ###</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">oceanic-next</span><span style="color:#111">:</span> <span style="color:#75715e">&amp;oceanic-next</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Default colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">primary</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">background</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#1b2b34&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">foreground</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#d8dee9&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Colors the cursor will use if `custom_cursor_colors` is true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cursor</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">text</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#1b2b34&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cursor</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#ffffff&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Normal colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">normal</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#343d46&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#EC5f67&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#99C794&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#FAC863&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#6699cc&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#c594c5&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#5fb3b3&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#d8dee9&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Bright colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">bright</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#343d46&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#EC5f67&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#99C794&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#FAC863&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#6699cc&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#c594c5&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#5fb3b3&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#d8dee9&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">### Solarized Light ###</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">solarized-light</span><span style="color:#111">:</span> <span style="color:#75715e">&amp;solarized-light</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Default colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">primary</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">background</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#fdf6e3&#39;</span> <span style="color:#75715e"># base3</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">foreground</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#657b83&#39;</span> <span style="color:#75715e"># base00</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Cursor colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cursor</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">text</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#fdf6e3&#39;</span> <span style="color:#75715e"># base3</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cursor</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#657b83&#39;</span> <span style="color:#75715e"># base00</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Normal colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">normal</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#073642&#39;</span> <span style="color:#75715e"># base02</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#dc322f&#39;</span> <span style="color:#75715e"># red</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#859900&#39;</span> <span style="color:#75715e"># green</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#b58900&#39;</span> <span style="color:#75715e"># yellow</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#268bd2&#39;</span> <span style="color:#75715e"># blue</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#d33682&#39;</span> <span style="color:#75715e"># magenta</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#2aa198&#39;</span> <span style="color:#75715e"># cyan</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#eee8d5&#39;</span> <span style="color:#75715e"># base2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Bright colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">bright</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#002b36&#39;</span> <span style="color:#75715e"># base03</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#cb4b16&#39;</span> <span style="color:#75715e"># orange</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#586e75&#39;</span> <span style="color:#75715e"># base01</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#657b83&#39;</span> <span style="color:#75715e"># base00</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#839496&#39;</span> <span style="color:#75715e"># base0</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#6c71c4&#39;</span> <span style="color:#75715e"># violet</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#93a1a1&#39;</span> <span style="color:#75715e"># base1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#fdf6e3&#39;</span> <span style="color:#75715e"># base3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">### Solarized Dark ###</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">solarized-dark</span><span style="color:#111">:</span> <span style="color:#75715e">&amp;solarized-dark</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Default colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">primary</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">background</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#002b36&#39;</span> <span style="color:#75715e"># base03</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">foreground</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#839496&#39;</span> <span style="color:#75715e"># base0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Cursor colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cursor</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">text</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#002b36&#39;</span> <span style="color:#75715e"># base03</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cursor</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#839496&#39;</span> <span style="color:#75715e"># base0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Normal colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">normal</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#073642&#39;</span> <span style="color:#75715e"># base02</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#dc322f&#39;</span> <span style="color:#75715e"># red</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#859900&#39;</span> <span style="color:#75715e"># green</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#b58900&#39;</span> <span style="color:#75715e"># yellow</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#268bd2&#39;</span> <span style="color:#75715e"># blue</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#d33682&#39;</span> <span style="color:#75715e"># magenta</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#2aa198&#39;</span> <span style="color:#75715e"># cyan</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#eee8d5&#39;</span> <span style="color:#75715e"># base2</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Bright colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">bright</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#002b36&#39;</span> <span style="color:#75715e"># base03</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#cb4b16&#39;</span> <span style="color:#75715e"># orange</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#586e75&#39;</span> <span style="color:#75715e"># base01</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#657b83&#39;</span> <span style="color:#75715e"># base00</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#839496&#39;</span> <span style="color:#75715e"># base0</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#6c71c4&#39;</span> <span style="color:#75715e"># violet</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#93a1a1&#39;</span> <span style="color:#75715e"># base1</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#fdf6e3&#39;</span> <span style="color:#75715e"># base3</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">### Tomorrow Night ###</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">tomorrow-night</span><span style="color:#111">:</span> <span style="color:#75715e">&amp;tomorrow-night</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#75715e"># Default colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">primary</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">background</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#1d1f21&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">foreground</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#c5c8c6&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Colors the cursor will use if `custom_cursor_colors` is true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cursor</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">text</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#1d1f21&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cursor</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#ffffff&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Normal colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">normal</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#1d1f21&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#cc6666&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#b5bd68&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#e6c547&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#81a2be&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#b294bb&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#70c0ba&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#373b41&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Bright colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">bright</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#666666&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#ff3334&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#9ec400&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#f0c674&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#81a2be&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#b77ee0&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#54ced6&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#282a2e&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">### moonfly ###</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">moonfly</span><span style="color:#111">:</span> <span style="color:#75715e">&amp;moonfly</span>
+</span></span><span style="display:flex;"><span>     <span style="color:#75715e"># Default colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">primary</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">background</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#080808&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">foreground</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#b2b2b2&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Colors the cursor will use if `custom_cursor_colors` is true</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cursor</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">text</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#080808&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cursor</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#b2b2b2&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Normal colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">normal</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#323437&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#ff5454&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#8cc85f&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#e3c78a&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#80a0ff&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#d183e8&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#79dac8&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#c6c6c6&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Bright colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">bright</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#949494&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;#ff5189&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#36c692&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;#bfbf97&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#74b2ff&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;#ae81ff&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;#85dc85&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;#e4e4e4&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Colors (PaperColor - Light)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">### papercolor ###</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#f92672">papercolor</span><span style="color:#111">:</span> <span style="color:#75715e">&amp;papercolor</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Default colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">primary</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">background</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;0xeeeeee&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">foreground</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;0x878787&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">cursor</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">text</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;0xeeeeee&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cursor</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;0x878787&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Normal colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">normal</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;0xeeeeee&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;0xaf0000&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;0x008700&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;0x5f8700&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;0x0087af&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;0x878787&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;0x005f87&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;0x444444&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e"># Bright colors</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">bright</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">black</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;0xbcbcbc&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">red</span><span style="color:#111">:</span>     <span style="color:#d88200">&#39;0xd70000&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">green</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;0xd70087&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">yellow</span><span style="color:#111">:</span>  <span style="color:#d88200">&#39;0x8700af&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">blue</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;0xd75f00&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">magenta</span><span style="color:#111">:</span> <span style="color:#d88200">&#39;0xd75f00&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">cyan</span><span style="color:#111">:</span>    <span style="color:#d88200">&#39;0x005faf&#39;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#f92672">white</span><span style="color:#111">:</span>   <span style="color:#d88200">&#39;0x005f87&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">colors</span><span style="color:#111">:</span> <span style="color:#75715e">*moonfly</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">######################################################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## SET THEME: Choose ONE color scheme from those in the above list. ##</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">## ###################################################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Available themes are:</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># *doom-one</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># *dracula</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># *gruvbox-dark</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># *monokai-pro</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># *nord</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># *oceanic-next</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># *solarized-light</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># *solarized-dark</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># *tomorrow-night</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">colors</span><span style="color:#111">:</span> <span style="color:#75715e">*gruvbox-dark</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#######################################</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">##       END OF COLOR SCHEMES        ##</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">#######################################</span>
+</span></span></code></pre></div><p>That&rsquo;s my alacritty configuration. Next is my Wezterm, which I am using now
+apparently and starting to like way too much.</p>
+<h3 id="wezterm">Wezterm</h3>
+<p><a href="https://wezfurlong.org/wezterm/index.html" target="_blank">Wezterm</a> is written in rust, again.
+Crazy I know. Rust is pretty much carrying the cool development tools at this
+point. Wezterm is very performant. It runs pretty smoothly and is configured via
+Lua just like neovim. Here is my dotfile for wezterm, incase you are interested:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-lua" data-lang="lua"><span style="display:flex;"><span><span style="color:#75715e">-- .wezterm.lua</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- Pull in the wezterm API</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">local</span> <span style="color:#111">wezterm</span> <span style="color:#f92672">=</span> <span style="color:#111">require</span><span style="color:#111">(</span><span style="color:#d88200">&#34;wezterm&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- This table will hold the configuration.</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">local</span> <span style="color:#111">config</span> <span style="color:#f92672">=</span> <span style="color:#111">{}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- In newer versions of wezterm, use the config_builder which will</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- help provide clearer error messages</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">if</span> <span style="color:#111">wezterm.config_builder</span> <span style="color:#00a8c8">then</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#111">config</span> <span style="color:#f92672">=</span> <span style="color:#111">wezterm.config_builder</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">end</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- This is where you actually apply your config choices</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- For example, changing the color scheme:</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">config.color_scheme</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;GruvboxDarkHard&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">config.font</span> <span style="color:#f92672">=</span> <span style="color:#111">wezterm.font</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Operator Mono SSm Lig&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- config.font = wezterm.font &#39;FiraCode Nerd Font Mono&#39;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">-- and finally, return the configuration to wezterm</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">return</span> <span style="color:#111">config</span>
+</span></span></code></pre></div><p>That&rsquo;s it. That is pretty much my configuration at this point, not such a
+complicated setup to implement and be productive with, right? If you have any
+suggestions to improving my workflow, any advice too - shoot me a
+<a href="https://mailto:geraldmokereke@gmail.com/" target="_blank">mail and I would surely get back</a>.</p>
+
+        </article>
+        
+            <div class="tags">
+                <span title="Tags">🏷</span>
+                <div class="horizontal-links links">
+                    <a href="/tags/programming/">Programming</a><a href="/tags/neovim/">Neovim</a><a href="/tags/setup/">Setup</a>
+                </div>
+            </div>
+        
+    </article>
+
+
+    </main>
+    <footer>
+  <div class="content-container">
+    <div class="content">I&rsquo;m Gerald Maduabuchi Okereke. Welcome to my thoughts, my journal and my little space on the web.
+
+
+  <p class="horizontal-links"><a href="https://github.com/grayoj"
+        target="_blank" 
+       
+      >Github</a><a href="https://twitter.com/geraldmokereke"
+        target="_blank" 
+       
+      >X</a><a href="mailto:geraldmokereke@gmail.com"
+        target="_blank" 
+       
+      >Email</a></p>
+
+</div>
+  </div>
+</footer>
+    
+    <script>
+      const emailId = atob("bWFpbEBleGFtcGxlLmNvbQ==");
+    </script>
+      <script src="/js/rocinante.min.js"></script></body>
+</html>

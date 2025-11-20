@@ -1,17 +1,33 @@
-<rss xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
-    <channel>
-        <title>React - Tag - Gray Matter</title>
-        <link>http://graysnotes.com/tags/react/</link>
-        <description>React - Tag - Gray Matter</description>
-        <generator>Hugo -- gohugo.io</generator><language>en</language><managingEditor>Mgeraldoj07@gmail.com (Gerald Maduabuchi)</managingEditor>
-            <webMaster>Mgeraldoj07@gmail.com (Gerald Maduabuchi)</webMaster><lastBuildDate>Fri, 20 Jan 2023 16:56:38 &#43;0100</lastBuildDate><atom:link href="http://graysnotes.com/tags/react/" rel="self" type="application/rss+xml" /><item>
-    <title>Set up Tailwind and Storybook with Next</title>
-    <link>http://graysnotes.com/posts/install-tailwind-storybook/</link>
-    <pubDate>Fri, 20 Jan 2023 16:56:38 &#43;0100</pubDate>
-    <author>Gerald Maduabuchi</author>
-    <guid>http://graysnotes.com/posts/install-tailwind-storybook/</guid>
-    <description><![CDATA[Introduction. In this article, you will learn how to install storybook and configure it with tailwindcss, in a Next JS project. I have used these tools to build several side projects of mine and even professional projects. I hope you find it interesting.
-Why Tailwind and Storybook? It boils down to your preference. Storybook is a pretty nice tool that could be used alongside several CSS in options. From utility first frameworks such as tailwindcss, to Chakra UI, CSS in JS (Styled Components) or plain styling in CSS.]]></description>
-</item>
-</channel>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>React on Gerald&#39;s Journal</title>
+    <link>https://geraldmokereke.xyz/tags/react/</link>
+    <description>Recent content in React on Gerald&#39;s Journal</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 17 Sep 2023 19:07:06 +0100</lastBuildDate>
+    <atom:link href="https://geraldmokereke.xyz/tags/react/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Optimising React Native Apps</title>
+      <link>https://geraldmokereke.xyz/posts/optimising-react-native-apps/</link>
+      <pubDate>Sun, 17 Sep 2023 19:07:06 +0100</pubDate>
+      <guid>https://geraldmokereke.xyz/posts/optimising-react-native-apps/</guid>
+      <description>&lt;p&gt;The performance of mobile applications is extremely important. Users want a seamless experience with almost no bugs or glitches — to save yourself the violent reviews your mobile app would get on the app stores. Or preferably reduce? Because haters will hate.&lt;/p&gt;&#xA;&lt;p&gt;JavaScript is arguably a performant language naturally. It&amp;rsquo;s the pinnacle of all web applications that run on the client. A modern day functioning app cannot exist without shipping JavaScript modules to the client. There are several &lt;a href=&#34;https://webtips.dev/webtips/javascript/benchmark-javascript&#34; target=&#34;_blank&#34;&gt;benchmarking tools to illustrate this&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>* Engineering Nicfosts Eservices Module</title>
+      <link>https://geraldmokereke.xyz/posts/engineering-nicfosts-eservices-module/</link>
+      <pubDate>Sun, 10 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://geraldmokereke.xyz/posts/engineering-nicfosts-eservices-module/</guid>
+      <description>&lt;p&gt;The &amp;ldquo;&lt;a href=&#34;https://nicfost.gov.ng/&#34; target=&#34;_blank&#34;&gt;Nigerian Council of Food Science and Technology&lt;/a&gt; is a professional body in Nigeria that is focused advancing the field of food science and technology in the country. It serves as an organization for professionals, researchers, educators, and practitioners who are involved in various aspects of food science and technology.&lt;/p&gt;&#xA;&lt;p&gt;They have a portal that is used by the adminstrative team at Nicfost. The client side is written entirely in JavaScript. I didn&amp;rsquo;t build the client, it was written by someone else. After all, I have expressed my distate severall on this blog for JavaScript as &lt;a href=&#34;https://news.ycombinator.com/item?id=4113458&#34; target=&#34;_blank&#34;&gt;a bad dynamic programming language for robust projects&lt;/a&gt;. I use Typescript instead. The backend is also written in Java, I didn&amp;rsquo;t write the initial Java backend though - which I wish I did. The refactoring and process wasn&amp;rsquo;t funny.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Set up Tailwind and Storybook with Next</title>
+      <link>https://geraldmokereke.xyz/posts/install-tailwind-storybook/</link>
+      <pubDate>Fri, 20 Jan 2023 16:56:38 +0100</pubDate>
+      <guid>https://geraldmokereke.xyz/posts/install-tailwind-storybook/</guid>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction.&lt;/h1&gt;&#xA;&lt;p&gt;In this article, you will learn how to install storybook and configure it with tailwindcss, in a Next JS project. I have used these tools to build several side projects of mine and even professional projects.&#xA;I hope you find it interesting.&lt;/p&gt;&#xA;&lt;h3 id=&#34;why-tailwind-and-storybook&#34;&gt;Why Tailwind and Storybook?&lt;/h3&gt;&#xA;&lt;p&gt;It boils down to your preference. Storybook is a pretty nice tool that could be used alongside several CSS in options. From utility first frameworks such as tailwindcss, to Chakra UI, CSS in JS (Styled Components) or plain styling in CSS.&lt;/p&gt;</description>
+    </item>
+  </channel>
 </rss>

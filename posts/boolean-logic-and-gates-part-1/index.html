@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Boolean Logic and Gates Part One · Gerald&#39;s Journal</title>
+
+
+
+<link rel="stylesheet" href="/css/rocinante.css" />
+<link rel="shortcut icon" href="https://i.ibb.co/YNRSK0Z/gerald-logo.png">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<body>
+    <header><h2>
+  
+    <a href="https://geraldmokereke.xyz/">‹ Gerald&#39;s Journal</a>
+  
+</h2>
+</header>
+    <main>
+
+    <div class="post">
+      
+        <div class="title-group">
+            <div class="title">
+                <h1>Boolean Logic and Gates Part One</h1>
+            </div>
+            <div class="date"><h5>Oct 08, 2023</h5></div>
+        </div>
+              
+            <div class="post-cover">
+                <img src="https://www.visitlincolnshire.com/wp-content/uploads/2022/11/George-Boole-Statue-1.png" alt="V" style="max-width:100%;height:auto;" />
+                <div class="cover-caption">A statue of George Boole</div>
+            </div>
+            
+        <article class="content">
+            <blockquote>
+<p>This is part one of the <a href="">Boolean Logic and Gates series</a>.</p>
+</blockquote>
+<p>Worthy to think George Boole may actually be the grandfather of the digital world.</p>
+<h2 id="brief-overview">Brief Overview</h2>
+<p>Boolean Logic is quintessential to the field of computer science and programming
+in general. It is an integral component and foundational cornerstone to the way
+digital circuits are constructed and data is manipulated.</p>
+<p><a href="https://www.youtube.com/watch?v=JQBRzsPhw2" target="_blank">I&rsquo;ve been revisting a lot of content concerning Boolean Logic</a>.
+Boolean Logic and Logic Gates, were among the topics I enjoyed while in high
+school in my computer science class.</p>
+<p>In this essay — I will be taking you down a nice path on Boolean Logic, the
+implementation and Gates. Let&rsquo;s get started.</p>
+<h2 id="what-is-boolean-logic">What is Boolean Logic?</h2>
+<p>Boolean Logic is a mathematical system used to represent values that can be
+manipulated, which is either 0 (FALSE) or 1 (TRUE)</p>
+<p>The number system implemented here, which is 0 and 1, is known as the
+<a href="https://en.wikipedia.org/wiki/Binary_number#:~:text=A%20binary%20number%20is%20a,a%20bit%2C%20or%20binary%20digit." target="_blank">binary system</a>.</p>
+<p>This is simply Boolean Logic in a nutshell. Let&rsquo;s review Logic Gates so you
+understand where these principles apply.</p>
+<h2 id="logical-operations">Logical Operations</h2>
+<p>Boolean logic defines a set of logical operations that can be performed on
+provided binary variables. The three primary logical operations in Boolean logic
+include:</p>
+<ul>
+<li>
+<p>Conjunction (AND): The AND operation always returns true (1) if and only if
+both of its inputs are true. In symbolic notation, it is represented as &ldquo;∧&rdquo; or
+simply by multiplication, such as A * B.</p>
+</li>
+<li>
+<p>Disjunction (OR): The OR operation returns true (1) if at least one of its
+inputs is true. In symbolic notation, it is represented as &ldquo;∨&rdquo; or by addition,
+such as A + B.</p>
+</li>
+<li>
+<p>Negation (NOT): The NOT operation is a unary logic operator that returns the
+opposite value of its input. If the input is true, it returns false, and if
+the input is false, it returns true. In symbolic notation, it is represented
+as &ldquo;¬&rdquo; or simply by a bar over the variable, such as ¬A.</p>
+</li>
+</ul>
+<p>Boolean Logic still includes other operations such as XOR, XNOR, NAND, and NOR
+which are combinations between the standard three operations as aforementioned
+above.</p>
+<p>These principles are applied every day to electronics and computer programming.
+It&rsquo;s common to set theory — which you did in your high-school mathematics or
+computer science class.</p>
+<h2 id="logic-gates">Logic Gates</h2>
+<p><a href="https://www.techtarget.com/whatis/definition/logic-gate-AND-OR-XOR-NOT-NAND-NOR-and-XNOR#:~:text=A%20logic%20gate%20is%20a,of%20logic%20gates%20in%20them" target="_blank">Logic Gates</a>
+are a building block in computer science and electronics which describe a
+digital circuit that takes in one or more inputs in binary and produces either a
+single or multiple outputs. They handle binary data.</p>
+<p>We have several types of logic gates — inheriting those concepts of Boolean
+Logic.</p>
+<ul>
+<li><strong>AND Gate</strong> The AND gate performs a logical &ldquo;and&rdquo; operation on two inputs, A
+and B. It mimics the logical &ldquo;and&rdquo; operation. We could describe the AND Gate
+above below using a logic table:</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center">A</th>
+          <th style="text-align: center">B</th>
+          <th style="text-align: center">Q</th>
+          <th style="text-align: center">Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">If A is 0 AND B is 0, Q is 0.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">If A is 0 AND B is 1, Q is 0.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">0</td>
+          <td style="text-align: center">If A is 1 AND B is 0, Q is 0.</td>
+      </tr>
+      <tr>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">1</td>
+          <td style="text-align: center">If A is 1 AND B is 1, Q is 1.</td>
+      </tr>
+  </tbody>
+</table>
+<p>We could express this logic gate in code using C++ below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">bool</span> <span style="color:#75af00">AND</span><span style="color:#111">(</span><span style="color:#00a8c8">bool</span> <span style="color:#111">a</span><span style="color:#111">,</span> <span style="color:#00a8c8">bool</span> <span style="color:#111">b</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#111">a</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">b</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">bool</span> <span style="color:#111">a</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">bool</span> <span style="color:#111">b</span> <span style="color:#f92672">=</span> <span style="color:#111">false</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">bool</span> <span style="color:#111">q</span> <span style="color:#f92672">=</span> <span style="color:#75af00">AND</span><span style="color:#111">(</span><span style="color:#111">a</span><span style="color:#111">,</span> <span style="color:#111">b</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">a</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34; AND &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">b</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34; = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">q</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><p>For the corresponding cases in the table, we can express it below as so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">bool</span> <span style="color:#75af00">AND</span><span style="color:#111">(</span><span style="color:#00a8c8">bool</span> <span style="color:#111">A</span><span style="color:#111">,</span> <span style="color:#00a8c8">bool</span> <span style="color:#111">B</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#111">A</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">B</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">bool</span> <span style="color:#111">A</span><span style="color:#111">,</span> <span style="color:#111">B</span><span style="color:#111">,</span> <span style="color:#111">Q</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Case 1: A = 0, B = 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">A</span> <span style="color:#f92672">=</span> <span style="color:#111">false</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">B</span> <span style="color:#f92672">=</span> <span style="color:#111">false</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">Q</span> <span style="color:#f92672">=</span> <span style="color:#75af00">AND</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#111">,</span> <span style="color:#111">B</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;If A is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">A</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34; AND B is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">B</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;, Q is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">Q</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Case 2: A = 0, B = 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">A</span> <span style="color:#f92672">=</span> <span style="color:#111">false</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">B</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">Q</span> <span style="color:#f92672">=</span> <span style="color:#75af00">AND</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#111">,</span> <span style="color:#111">B</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;If A is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">A</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34; AND B is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">B</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;, Q is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">Q</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Case 3: A = 1, B = 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">A</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">B</span> <span style="color:#f92672">=</span> <span style="color:#111">false</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">Q</span> <span style="color:#f92672">=</span> <span style="color:#75af00">AND</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#111">,</span> <span style="color:#111">B</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;If A is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">A</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34; AND B is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">B</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;, Q is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">Q</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Case 4: A = 1, B = 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">A</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">B</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">Q</span> <span style="color:#f92672">=</span> <span style="color:#75af00">AND</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#111">,</span> <span style="color:#111">B</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;If A is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">A</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34; AND B is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">B</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;, Q is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">Q</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><ul>
+<li><strong>OR Gate</strong> The OR Gate performs a logical &ldquo;OR&rdquo; operation on two inputs, A and
+B. It mimics the logical &ldquo;OR&rdquo; operation. We could describe the output signals
+of the OR Gate using the table below:</li>
+</ul>
+<table>
+  <thead>
+      <tr>
+          <th>A</th>
+          <th>B</th>
+          <th>Q</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>0</td>
+          <td>0</td>
+          <td>If A is 0 OR B is 0, Q is 0.</td>
+      </tr>
+      <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>1</td>
+          <td>If A is 0 OR B is 1, Q is 1.</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>1</td>
+          <td>If A is 1 OR B is 0, Q is 1.</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>If A is 1 OR B is 1, Q is 1.</td>
+      </tr>
+  </tbody>
+</table>
+<p>We could express this in Code using C++ below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">bool</span> <span style="color:#75af00">OR</span><span style="color:#111">(</span><span style="color:#00a8c8">bool</span> <span style="color:#111">a</span><span style="color:#111">,</span> <span style="color:#00a8c8">bool</span> <span style="color:#111">b</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#111">a</span> <span style="color:#f92672">||</span> <span style="color:#111">b</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">bool</span> <span style="color:#111">a</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">bool</span> <span style="color:#111">b</span> <span style="color:#f92672">=</span> <span style="color:#111">false</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">bool</span> <span style="color:#111">q</span> <span style="color:#f92672">=</span> <span style="color:#75af00">OR</span><span style="color:#111">(</span><span style="color:#111">a</span><span style="color:#111">,</span> <span style="color:#111">b</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">a</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34; OR &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">b</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34; = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">q</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><p>For the corresponding cases in the table, we can express it below as so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">bool</span> <span style="color:#75af00">OR</span><span style="color:#111">(</span><span style="color:#00a8c8">bool</span> <span style="color:#111">A</span><span style="color:#111">,</span> <span style="color:#00a8c8">bool</span> <span style="color:#111">B</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#111">A</span> <span style="color:#f92672">||</span> <span style="color:#111">B</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">bool</span> <span style="color:#111">A</span><span style="color:#111">,</span> <span style="color:#111">B</span><span style="color:#111">,</span> <span style="color:#111">Q</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Case 1: A = 0, B = 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">A</span> <span style="color:#f92672">=</span> <span style="color:#111">false</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">B</span> <span style="color:#f92672">=</span> <span style="color:#111">false</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">Q</span> <span style="color:#f92672">=</span> <span style="color:#75af00">OR</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#111">,</span> <span style="color:#111">B</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;If A is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">A</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34; OR B is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">B</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;, Q is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">Q</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Case 2: A = 0, B = 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">A</span> <span style="color:#f92672">=</span> <span style="color:#111">false</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">B</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">Q</span> <span style="color:#f92672">=</span> <span style="color:#75af00">OR</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#111">,</span> <span style="color:#111">B</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;If A is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">A</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34; OR B is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">B</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;, Q is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">Q</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Case 3: A = 1, B = 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">A</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">B</span> <span style="color:#f92672">=</span> <span style="color:#111">false</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">Q</span> <span style="color:#f92672">=</span> <span style="color:#75af00">OR</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#111">,</span> <span style="color:#111">B</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;If A is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">A</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34; OR B is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">B</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;, Q is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">Q</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Case 4: A = 1, B = 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">A</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">B</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">Q</span> <span style="color:#f92672">=</span> <span style="color:#75af00">OR</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#111">,</span> <span style="color:#111">B</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;If A is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">A</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34; OR B is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">B</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;, Q is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">Q</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><ul>
+<li><strong>NOT Gate</strong></li>
+</ul>
+<p>The NOT Gate performs a logical &ldquo;NOT&rdquo; operation. It is the simplest Gate. It
+takes one bit as input and produces an output signal which is the reverse or
+opposite of the received input. We can illustrate this below with the logic
+table:</p>
+<table>
+  <thead>
+      <tr>
+          <th>A</th>
+          <th>Q</th>
+          <th>Description</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>0</td>
+          <td>1</td>
+          <td>If A is 0, Q is 1 (NOT 0).</td>
+      </tr>
+      <tr>
+          <td>1</td>
+          <td>0</td>
+          <td>If A is 1, Q is 0 (NOT 1).</td>
+      </tr>
+  </tbody>
+</table>
+<p>We can express the NOT gate also in C++ likewise for clarity:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">bool</span> <span style="color:#75af00">NOT</span><span style="color:#111">(</span><span style="color:#00a8c8">bool</span> <span style="color:#111">a</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#f92672">!</span><span style="color:#111">a</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">bool</span> <span style="color:#111">a</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">bool</span> <span style="color:#111">q</span> <span style="color:#f92672">=</span> <span style="color:#75af00">NOT</span><span style="color:#111">(</span><span style="color:#111">a</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;NOT &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">a</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34; = &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">q</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><p>Then we can derive the case in code too:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">bool</span> <span style="color:#75af00">NOT</span><span style="color:#111">(</span><span style="color:#00a8c8">bool</span> <span style="color:#111">A</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#f92672">!</span><span style="color:#111">A</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">bool</span> <span style="color:#111">A</span><span style="color:#111">,</span> <span style="color:#111">Q</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Case 1: A = 0
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">A</span> <span style="color:#f92672">=</span> <span style="color:#111">false</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">Q</span> <span style="color:#f92672">=</span> <span style="color:#75af00">NOT</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;If A is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">A</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;, Q is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">Q</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Case 2: A = 1
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">A</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">Q</span> <span style="color:#f92672">=</span> <span style="color:#75af00">NOT</span><span style="color:#111">(</span><span style="color:#111">A</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;If A is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">A</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;, Q is &#34;</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">Q</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><p>This brings an end to the first part of the series. If you want to see the next,
+stay tuned.</p>
+
+        </article>
+        
+    </article>
+
+
+    </main>
+    <footer>
+  <div class="content-container">
+    <div class="content">I&rsquo;m Gerald Maduabuchi Okereke. Welcome to my thoughts, my journal and my little space on the web.
+
+
+  <p class="horizontal-links"><a href="https://github.com/grayoj"
+        target="_blank" 
+       
+      >Github</a><a href="https://twitter.com/geraldmokereke"
+        target="_blank" 
+       
+      >X</a><a href="mailto:geraldmokereke@gmail.com"
+        target="_blank" 
+       
+      >Email</a></p>
+
+</div>
+  </div>
+</footer>
+    
+    <script>
+      const emailId = atob("bWFpbEBleGFtcGxlLmNvbQ==");
+    </script>
+      <script src="/js/rocinante.min.js"></script></body>
+</html>

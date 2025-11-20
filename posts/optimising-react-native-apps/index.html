@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Optimising React Native Apps · Gerald&#39;s Journal</title>
+
+
+
+<link rel="stylesheet" href="/css/rocinante.css" />
+<link rel="shortcut icon" href="https://i.ibb.co/YNRSK0Z/gerald-logo.png">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<body>
+    <header><h2>
+  
+    <a href="https://geraldmokereke.xyz/">‹ Gerald&#39;s Journal</a>
+  
+</h2>
+</header>
+    <main>
+
+    <div class="post">
+      
+        <div class="title-group">
+            <div class="title">
+                <h1>Optimising React Native Apps</h1>
+            </div>
+            <div class="date"><h5>Sep 17, 2023</h5></div>
+        </div>
+              
+        <article class="content">
+            <p>The performance of mobile applications is extremely important. Users want a seamless experience with almost no bugs or glitches — to save yourself the violent reviews your mobile app would get on the app stores. Or preferably reduce? Because haters will hate.</p>
+<p>JavaScript is arguably a performant language naturally. It&rsquo;s the pinnacle of all web applications that run on the client. A modern day functioning app cannot exist without shipping JavaScript modules to the client. There are several <a href="https://webtips.dev/webtips/javascript/benchmark-javascript" target="_blank">benchmarking tools to illustrate this</a>.</p>
+<p>React Native is built on top JavaScript, so it should be naturally fast — right? Unfortunately that&rsquo;s not the case in many scenarios. To understand why, we must first start off with understanding React Native&rsquo;s build process or architecture in a nutshell.</p>
+<h2 id="react-natives-architecture">React Native&rsquo;s architecture</h2>
+<blockquote>
+<p>It&rsquo;s worthy to note that I would be using React Native CLI in this case to describe the architecture, as it gives one more control over the project and we can review the components ourselves.</p>
+</blockquote>
+<p>I think the only downside to Expo — is well, me having to constantly export my application to <a href="https://expo.dev/signup" target="_blank">Expo&rsquo;s registry, otherwise EAS platform</a> in order to build a simple, useful application file for example on Android for distribution that I would normally execute via Gradle&rsquo;s AssembleDebug or AssembleRelease toolchain on my local machine.</p>
+<p>Nevermind that, the React Native architecture is composed of three components.</p>
+<p><img src="https://i.ibb.co/Br9PQWr/architecture.png" alt="React Native&rsquo;s architecture"></p>
+<ul>
+<li>The native core modules:
+<ul>
+<li>Swift, Cocoa native Modules for iOS.</li>
+<li>Java, Kotlin native Modules for Android.</li>
+</ul>
+</li>
+<li>The JavaScript VM:
+<ul>
+<li>The VM that runs all JavaScript code on the device.</li>
+<li>Uses JavaScript core, the engine powering Safari.</li>
+</ul>
+</li>
+<li>The Bridge:
+<ul>
+<li>A communication layer for React Native written in C++ and Java.</li>
+<li>Uses a special protocol for communicating between both the JavaScript VM and Native Modules.</li>
+</ul>
+</li>
+</ul>
+<p>A whole lot of this is facilitated by a bundler known as <a href="https://github.com/facebook/metro" target="_blank">Metro</a> which is essentially a JavaScript bundler like Webpack but for React Native applications. It performs a three step cycle which you can <a href="https://facebook.github.io/metro/docs/concepts/#:~:text=Metro%20is%20a%20JavaScript%20bundler,Resolution" target="_blank">read up on here</a>.</p>
+<h2 id="what-makes-react-native-slow">What makes React Native slow?</h2>
+<p>A slow react native application can be attributed to so many factors. Many times, it could be as a result of the assets being included in the application, to excess pre-rendering. I have experimented and recorded a benchmark once between two React Native applications, practically the same but one with more assets - and I wasn&rsquo;t surprised with the huge contrast in performance due to the amount of images and assets bundled within one of the applications.</p>
+<ul>
+<li>Bloated third-party libraries: Bloated external third party libraries contribute to the slow performance of React Native applications. Ny work around for this is usually implementing a tool such as <a href="https://github.com/IjzerenHein/react-native-bundle-visualizer" target="_blank">react-native-bundle-visualizer</a>, to visualis bundle size, carrying out profiling and in many cases lazy loading the libraries so they do not start up on initial app load.</li>
+<li>Excessive Re-rendering of components. Common causes of re-rendering include Component State Changes, Inline functions and then functional components as well, which could be supressed via React&rsquo;s <code>useMemo</code> hook.</li>
+<li>Using in-line functions in React Native, which is passing in-line props can cause re-rendering of components and slow down performance.
+Here is an example:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#00a8c8">import</span> <span style="color:#75af00">React</span><span style="color:#111">,</span> <span style="color:#111">{</span> <span style="color:#75af00">useState</span> <span style="color:#111">}</span> <span style="color:#00a8c8">from</span> <span style="color:#d88200">&#39;react&#39;</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">import</span> <span style="color:#111">{</span> <span style="color:#75af00">View</span><span style="color:#111">,</span> <span style="color:#75af00">Text</span><span style="color:#111">,</span> <span style="color:#75af00">TouchableOpacity</span> <span style="color:#111">}</span> <span style="color:#00a8c8">from</span> <span style="color:#d88200">&#39;react-native&#39;</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">const</span> <span style="color:#75af00">App</span> <span style="color:#f92672">=</span> <span style="color:#111">()</span> <span style="color:#f92672">=&gt;</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">const</span> <span style="color:#111">[</span><span style="color:#75af00">count</span><span style="color:#111">,</span> <span style="color:#75af00">setCount</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#75af00">useState</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">const</span> <span style="color:#75af00">handleClick</span> <span style="color:#f92672">=</span> <span style="color:#111">()</span> <span style="color:#f92672">=&gt;</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">setCount</span><span style="color:#111">(</span><span style="color:#75af00">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">return</span> <span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">&lt;</span><span style="color:#f92672">View</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#111">&lt;</span><span style="color:#f92672">Text</span><span style="color:#111">&gt;</span><span style="color:#75af00">Count</span><span style="color:#f92672">:</span> <span style="color:#111">{</span><span style="color:#75af00">count</span><span style="color:#111">}&lt;/</span><span style="color:#f92672">Text</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#111">&lt;</span><span style="color:#f92672">ChildComponent</span> <span style="color:#75af00">onClick</span><span style="color:#f92672">=</span><span style="color:#111">{</span><span style="color:#75af00">handleClick</span><span style="color:#111">}</span> <span style="color:#111">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">&lt;/</span><span style="color:#f92672">View</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">const</span> <span style="color:#75af00">ChildComponent</span> <span style="color:#f92672">=</span> <span style="color:#111">({</span> <span style="color:#75af00">onClick</span> <span style="color:#111">}</span><span style="color:#f92672">:</span> <span style="color:#111">{</span> <span style="color:#75af00">onClick</span><span style="color:#f92672">:</span> <span style="color:#111">()</span> <span style="color:#f92672">=&gt;</span> <span style="color:#00a8c8">void</span> <span style="color:#111">})</span> <span style="color:#f92672">=&gt;</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#75715e">// Log re-renders for demonstration
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>  <span style="color:#75af00">console</span><span style="color:#111">.</span><span style="color:#75af00">log</span><span style="color:#111">(</span><span style="color:#d88200">&#39;ChildComponent is re-rendering&#39;</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">return</span> <span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">&lt;</span><span style="color:#f92672">TouchableOpacity</span> <span style="color:#75af00">onPress</span><span style="color:#f92672">=</span><span style="color:#111">{</span><span style="color:#75af00">onClick</span><span style="color:#111">}&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#111">&lt;</span><span style="color:#f92672">Text</span><span style="color:#111">&gt;</span><span style="color:#75af00">Increment</span> <span style="color:#75af00">Count</span><span style="color:#111">&lt;/</span><span style="color:#f92672">Text</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">&lt;/</span><span style="color:#f92672">TouchableOpacity</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">};</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">export</span> <span style="color:#00a8c8">default</span> <span style="color:#75af00">App</span><span style="color:#111">;</span>
+</span></span></code></pre></div><p>In the above exaple example, the ChildComponent will re-render every time the parent App component renders, even though its props haven&rsquo;t changed. This is because the onClick function is recreated on each render of the App component.</p>
+<p>To prevent unnecessary re-renders in such cases, you can use the the React <code>useCallback</code> hook to memoize the onClick function, as below: (It&rsquo;s the same code)</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-typescript" data-lang="typescript"><span style="display:flex;"><span><span style="color:#00a8c8">import</span> <span style="color:#75af00">React</span><span style="color:#111">,</span> <span style="color:#111">{</span> <span style="color:#75af00">useState</span><span style="color:#111">,</span> <span style="color:#75af00">useCallback</span> <span style="color:#111">}</span> <span style="color:#00a8c8">from</span> <span style="color:#d88200">&#39;react&#39;</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">const</span> <span style="color:#75af00">App</span> <span style="color:#f92672">=</span> <span style="color:#111">()</span> <span style="color:#f92672">=&gt;</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">const</span> <span style="color:#111">[</span><span style="color:#75af00">count</span><span style="color:#111">,</span> <span style="color:#75af00">setCount</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#75af00">useState</span><span style="color:#111">(</span><span style="color:#ae81ff">0</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">const</span> <span style="color:#75af00">handleClick</span> <span style="color:#f92672">=</span> <span style="color:#75af00">useCallback</span><span style="color:#111">(()</span> <span style="color:#f92672">=&gt;</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">setCount</span><span style="color:#111">(</span><span style="color:#75af00">count</span> <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">},</span> <span style="color:#111">[</span><span style="color:#75af00">count</span><span style="color:#111">]);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>  <span style="color:#00a8c8">return</span> <span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">&lt;</span><span style="color:#f92672">View</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#111">&lt;</span><span style="color:#f92672">Text</span><span style="color:#111">&gt;</span><span style="color:#75af00">Count</span><span style="color:#f92672">:</span> <span style="color:#111">{</span><span style="color:#75af00">count</span><span style="color:#111">}&lt;/</span><span style="color:#f92672">Text</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>      <span style="color:#111">&lt;</span><span style="color:#f92672">ChildComponent</span> <span style="color:#75af00">onClick</span><span style="color:#f92672">=</span><span style="color:#111">{</span><span style="color:#75af00">handleClick</span><span style="color:#111">}</span> <span style="color:#111">/&gt;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">&lt;/</span><span style="color:#f92672">View</span><span style="color:#111">&gt;</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">};</span>
+</span></span></code></pre></div><p>That&rsquo;s it. We sucessfully optimised the component via the React <code>useCallback</code> hook.</p>
+<ul>
+<li>The flatlist, a pretty useful component which I find myself using all the time. I end up migitating the effects of the flatlist component slowing down my application via the React <code>useMemo</code> hook as well.</li>
+</ul>
+<p>The above are three key factors that slow down any general react native applications, even though there are other factors.</p>
+<h2 id="optimising-your-application">Optimising your application.</h2>
+<p>These are the approaches I take towards optimising my react native application — hopefully you could attempt to implement these methods as well to speed up your performance.</p>
+<ul>
+<li>If your application makes API calls, implementing caching through the available standard <a href="https://reactnative.dev/docs/asyncstorage" target="_blank">Asyncstorage, a persistent, key-value storage</a> in React native reduces the amount of calls you would need to make, therefore speeding it up.</li>
+<li>Optimising images
+<ul>
+<li>Compress the images.</li>
+<li>Utilise a format such as .webp as a better approach to optimisation.</li>
+<li>Avoid heavy image sizes, please — at the basic level.</li>
+</ul>
+</li>
+<li>Implement code splitting as an approach to minify JavaScript bundle size. Like we disucussed the architecture previoulsy above — the less JavaScript bundle size shipped, the better for yout app.</li>
+<li>Evade complex layouts using the <code>Flex</code>.</li>
+<li>Update dependencies.</li>
+<li>Ensure device compatibility by testing the application on several devices. Sometimes — it&rsquo;s likely the device.</li>
+</ul>
+<p>With these measures taken, you should see a performance bump in your application, but upwards. Don&rsquo;t forget to benchmark before optimsations and after to be sure.</p>
+
+        </article>
+        
+            <div class="tags">
+                <span title="Tags">🏷</span>
+                <div class="horizontal-links links">
+                    <a href="/tags/programming/">Programming</a><a href="/tags/react/">React</a>
+                </div>
+            </div>
+        
+    </article>
+
+
+    </main>
+    <footer>
+  <div class="content-container">
+    <div class="content">I&rsquo;m Gerald Maduabuchi Okereke. Welcome to my thoughts, my journal and my little space on the web.
+
+
+  <p class="horizontal-links"><a href="https://github.com/grayoj"
+        target="_blank" 
+       
+      >Github</a><a href="https://twitter.com/geraldmokereke"
+        target="_blank" 
+       
+      >X</a><a href="mailto:geraldmokereke@gmail.com"
+        target="_blank" 
+       
+      >Email</a></p>
+
+</div>
+  </div>
+</footer>
+    
+    <script>
+      const emailId = atob("bWFpbEBleGFtcGxlLmNvbQ==");
+    </script>
+      <script src="/js/rocinante.min.js"></script></body>
+</html>

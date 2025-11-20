@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Dijkstra&#39;s Algorithm: Solving the shortest path problem · Gerald&#39;s Journal</title>
+
+
+
+<link rel="stylesheet" href="/css/rocinante.css" />
+<link rel="shortcut icon" href="https://i.ibb.co/YNRSK0Z/gerald-logo.png">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<body>
+    <header><h2>
+  
+    <a href="https://geraldmokereke.xyz/">‹ Gerald&#39;s Journal</a>
+  
+</h2>
+</header>
+    <main>
+
+    <div class="post">
+      
+        <div class="title-group">
+            <div class="title">
+                <h1>Dijkstra&#39;s Algorithm: Solving the shortest path problem</h1>
+            </div>
+            <div class="date"><h5>Sep 09, 2023</h5></div>
+        </div>
+              
+            <div class="post-cover">
+                <img src="https://codeberg.org/Sheikyon/shortest-path-algorithm/media/branch/main/img/dijkstra-algorithm.png" alt="A graph" style="max-width:100%;height:auto;" />
+                <div class="cover-caption">The shortest path problem</div>
+            </div>
+            
+        <article class="content">
+            <p>Let&rsquo;s solve the shortest path problem</p>
+<p>Today we&rsquo;re going to be solving the shortest path problem by implementing <a href="https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm" target="_blank">Dijkstra&rsquo;s algorithm</a> with some Python. So get a cup of coffee and a neovim buffer opened, it&rsquo;s going to be a ride.</p>
+<h2 id="what-is-the-shortest-path-problem">What is the shortest path problem?</h2>
+<p>Before we begin, we must first understand what is the shortest path problem. The shortest path problem is a fundamental optimization problem in computer science, speficifically graph theory under discrete mathematics or data structures and algorithms. It involves finding the shortest path or the minimum distance between two nodes (vertices) in a weighted graph. The &ldquo;shortest path&rdquo; is defined as the path with the smallest total sum of edge weights or distances. From this, we can tell that we would be working with a non-linear data structure throughout this article, The <a href="https://www.google.com/url?sa=i&amp;url=https%3A%2F%2Fwww.simplilearn.com%2Ftutorials%2Fdata-structure-tutorial%2Fgraphs-in-data-structure&amp;psig=AOvVaw1b4ReK_eZpIpF0QyT36lVf&amp;ust=1694343143651000&amp;source=images&amp;cd=vfe&amp;opi=89978449&amp;ved=2ahUKEwi2sPSarp2BAxXDpycCHfeZAt4Qr4kDegQIARBx" target="_blank">&ldquo;graph.&rdquo;</a></p>
+<p>Don&rsquo;t get scared, I will try my best to simplify the concepts. The graph to many and I myself, is one of the hardest data structures to deal with. I&rsquo;d say your interviewer may have an agenda against you, if he gives you a question on graph to solve.</p>
+<h3 id="what-is-a-graph">What is a graph?</h3>
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: center"><img src="https://cdn-media-1.freecodecamp.org/images/vQ77VuGVlTR95GgMxzyKqydIqoRJcPcWrigy" alt="Graph"></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: center">This is a simple illustration of a graph</td>
+      </tr>
+  </tbody>
+</table>
+<p>A graph is a data structure that represents relationships between objects. It consists of two main components: nodes (also called vertices) and edges. Nodes or Vertices are like data points or entities in the graph. Nodes can represent things like cities, people, web pages, or any object you want to model. Edges or Links represent the connections or relationships between nodes. Edges show how nodes are related to each other. For example, in a social network, edges might represent friendships between people.</p>
+<h3 id="how-are-graphs-used">How are Graphs used?</h3>
+<p>Graphs are used in real-life applications to model relationships between several components. They are used from small-scale to large-scale distributed systems at large. Here are examples of platforms, systems or applications that graphs are used.</p>
+<ul>
+<li>Social Networks: Social media platforms use graphs to represent friendships and connections between users.</li>
+<li>Navigation Systems: GPS and map apps use graphs to find the shortest routes between locations.</li>
+<li>Web Page Ranking: Search engines like Google use graphs to determine the importance of web pages and their connections.</li>
+<li>Recommendation Systems: Websites like Netflix or Amazon use graphs to suggest products or movies based on your past interactions.</li>
+<li>Network Routing: Telecommunication networks use graphs to route data efficiently from one place to another.</li>
+<li>Airline Scheduling: Airlines use graphs to plan flight routes and schedules.</li>
+<li>Computer Networks: Graphs help in modeling and analyzing the structure of computer networks.</li>
+</ul>
+<h3 id="simple-implementation-of-a-graph">Simple implementation of a graph.</h3>
+<p>The below is a Graph class that allows you to add vertices, add edges between vertices, and get neighbors of a vertex. It ensures that there are no duplicate vertices, making it unique.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#00a8c8">class</span> <span style="color:#75af00">Graph</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#75af00">__init__</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">graph</span> <span style="color:#f92672">=</span> <span style="color:#111">{}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#75af00">add_vertex</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">vertex</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">vertex</span> <span style="color:#f92672">not</span> <span style="color:#f92672">in</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">graph</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">graph</span><span style="color:#111">[</span><span style="color:#111">vertex</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#111">[]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#75af00">add_edge</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">vertex1</span><span style="color:#111">,</span> <span style="color:#111">vertex2</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">vertex1</span> <span style="color:#f92672">in</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">graph</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">graph</span><span style="color:#111">[</span><span style="color:#111">vertex1</span><span style="color:#111">]</span><span style="color:#f92672">.</span><span style="color:#111">append</span><span style="color:#111">(</span><span style="color:#111">vertex2</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">else</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">graph</span><span style="color:#111">[</span><span style="color:#111">vertex1</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#111">[</span><span style="color:#111">vertex2</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#75af00">get_neighbors</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">,</span> <span style="color:#111">vertex</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">vertex</span> <span style="color:#f92672">in</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">graph</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">return</span> <span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">graph</span><span style="color:#111">[</span><span style="color:#111">vertex</span><span style="color:#111">]</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">else</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">return</span> <span style="color:#111">[]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">def</span> <span style="color:#75af00">__str__</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">str</span><span style="color:#111">(</span><span style="color:#111">self</span><span style="color:#f92672">.</span><span style="color:#111">graph</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># A simple implementation</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">unique_graph</span> <span style="color:#f92672">=</span> <span style="color:#111">UniqueGraph</span><span style="color:#111">()</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">unique_graph</span><span style="color:#f92672">.</span><span style="color:#111">add_vertex</span><span style="color:#111">(</span><span style="color:#d88200">&#34;A&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">unique_graph</span><span style="color:#f92672">.</span><span style="color:#111">add_vertex</span><span style="color:#111">(</span><span style="color:#d88200">&#34;B&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">unique_graph</span><span style="color:#f92672">.</span><span style="color:#111">add_vertex</span><span style="color:#111">(</span><span style="color:#d88200">&#34;C&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">unique_graph</span><span style="color:#f92672">.</span><span style="color:#111">add_edge</span><span style="color:#111">(</span><span style="color:#d88200">&#34;A&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;B&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">unique_graph</span><span style="color:#f92672">.</span><span style="color:#111">add_edge</span><span style="color:#111">(</span><span style="color:#d88200">&#34;A&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;C&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">unique_graph</span><span style="color:#f92672">.</span><span style="color:#111">add_edge</span><span style="color:#111">(</span><span style="color:#d88200">&#34;B&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;C&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#111">unique_graph</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>You can experiment with the above in any version of Python you wish, either version two or three.</p>
+<h2 id="the-shortest-path-problem-again">The shortest path problem, again.</h2>
+<p>Ever wondered how Google Maps is able to suggest the shortest direction for you to take to reach your office, workplace or school? Well underneath that robotic speech reading out addresses and directions, is some engineering marvel. Google Map does this by implementing the shortest path problem to find the quickest route between two locations. It uses various algorithms and data structures but prominently Dijkstra&rsquo;s algorithm and A* (A-star) search algorithm, to calculate the shortest path and provide users with directions, estimated travel time, and alternative routes. Guess what? That&rsquo;s what we are using today.</p>
+<h2 id="dijsktras-algorithm">Dijsktra&rsquo;s Algorithm</h2>
+<p>Dijkstra&rsquo;s algorithm is a method for finding the shortest path between two points on a map or in a network. Imagine you want to drive from your house to a friend&rsquo;s house, but there are multiple possible routes. Dijkstra&rsquo;s algorithm helps you figure out the quickest way to get there.
+Here&rsquo;s a simple flow:</p>
+<ul>
+<li>Start at your house.</li>
+<li>Consider all the nearby roads you can take to reach your friend&rsquo;s house. Look at the distance or time it takes to travel each road.</li>
+<li>Pick the shortest road and follow it.</li>
+<li>Keep doing this, always choosing the shortest road from your current location, until you arrive at your friend&rsquo;s house.</li>
+<li>Along the way, keep track of the total distance or time you&rsquo;ve traveled. This will be the shortest path.</li>
+<li>You&rsquo;ve made it using the shortest path.</li>
+</ul>
+<p>Dijkstra&rsquo;s algorithm is like a step-by-step GPS for finding the shortest route in a network, whether it&rsquo;s for driving, walking, or any other type of travel.</p>
+<h3 id="implementing-the-aglorithm">Implementing the aglorithm</h3>
+<p>Let&rsquo;s implement the algorithm to find the shortest path.</p>
+<ul>
+<li>First we are going to import the <a href="https://docs.python.org/3/library/heapq.html" target="_blank">heapq module, used to implement the heap algorithm</a>. Then create an adjacency list.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> <span style="color:#111">heapq</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">graph</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d88200">&#39;A&#39;</span><span style="color:#111">:</span> <span style="color:#111">{</span><span style="color:#d88200">&#39;B&#39;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;C&#39;</span><span style="color:#111">:</span> <span style="color:#ae81ff">4</span><span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d88200">&#39;B&#39;</span><span style="color:#111">:</span> <span style="color:#111">{</span><span style="color:#d88200">&#39;A&#39;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;C&#39;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;D&#39;</span><span style="color:#111">:</span> <span style="color:#ae81ff">5</span><span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d88200">&#39;C&#39;</span><span style="color:#111">:</span> <span style="color:#111">{</span><span style="color:#d88200">&#39;A&#39;</span><span style="color:#111">:</span> <span style="color:#ae81ff">4</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;B&#39;</span><span style="color:#111">:</span> <span style="color:#ae81ff">2</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;D&#39;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">},</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#d88200">&#39;D&#39;</span><span style="color:#111">:</span> <span style="color:#111">{</span><span style="color:#d88200">&#39;B&#39;</span><span style="color:#111">:</span> <span style="color:#ae81ff">5</span><span style="color:#111">,</span> <span style="color:#d88200">&#39;C&#39;</span><span style="color:#111">:</span> <span style="color:#ae81ff">1</span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><ul>
+<li>Next we create a function to find the shortest path.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Create a function to find the shortest path.</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">def</span> <span style="color:#75af00">dijkstra</span><span style="color:#111">(</span><span style="color:#111">graph</span><span style="color:#111">,</span> <span style="color:#111">start</span><span style="color:#111">):</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Initialize distances to infinity for all nodes except the start node</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">distances</span> <span style="color:#f92672">=</span> <span style="color:#111">{</span><span style="color:#111">node</span><span style="color:#111">:</span> <span style="color:#111">float</span><span style="color:#111">(</span><span style="color:#d88200">&#39;inf&#39;</span><span style="color:#111">)</span> <span style="color:#00a8c8">for</span> <span style="color:#111">node</span> <span style="color:#f92672">in</span> <span style="color:#111">graph</span><span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">distances</span><span style="color:#111">[</span><span style="color:#111">start</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Priority queue to store the nodes with distances</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">priority_queue</span> <span style="color:#f92672">=</span> <span style="color:#111">[(</span><span style="color:#ae81ff">0</span><span style="color:#111">,</span> <span style="color:#111">start</span><span style="color:#111">)]</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">while</span> <span style="color:#111">priority_queue</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">current_distance</span><span style="color:#111">,</span> <span style="color:#111">current_node</span> <span style="color:#f92672">=</span> <span style="color:#111">heapq</span><span style="color:#f92672">.</span><span style="color:#111">heappop</span><span style="color:#111">(</span><span style="color:#111">priority_queue</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Skip if we&#39;ve already found a shorter path.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">current_distance</span> <span style="color:#f92672">&gt;</span> <span style="color:#111">distances</span><span style="color:#111">[</span><span style="color:#111">current_node</span><span style="color:#111">]:</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">continue</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Explore other neighbors (nodes)</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span> <span style="color:#111">neighbor</span><span style="color:#111">,</span> <span style="color:#111">weight</span> <span style="color:#f92672">in</span> <span style="color:#111">graph</span><span style="color:#111">[</span><span style="color:#111">current_node</span><span style="color:#111">]</span><span style="color:#f92672">.</span><span style="color:#111">items</span><span style="color:#111">():</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">distance</span> <span style="color:#f92672">=</span> <span style="color:#111">current_distance</span> <span style="color:#f92672">+</span> <span style="color:#111">weight</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>            <span style="color:#75715e"># If this path is shorter, then update the distance.</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span> <span style="color:#111">distance</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">distances</span><span style="color:#111">[</span><span style="color:#111">neighbor</span><span style="color:#111">]:</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">distances</span><span style="color:#111">[</span><span style="color:#111">neighbor</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#111">distance</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">heapq</span><span style="color:#f92672">.</span><span style="color:#111">heappush</span><span style="color:#111">(</span><span style="color:#111">priority_queue</span><span style="color:#111">,</span> <span style="color:#111">(</span><span style="color:#111">distance</span><span style="color:#111">,</span> <span style="color:#111">neighbor</span><span style="color:#111">))</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Return distances</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#111">distances</span>
+</span></span></code></pre></div><ul>
+<li>Let&rsquo;s implement use the function.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#75715e"># Find the shortest path from &#39;A&#39; to all other nodes</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">start_node</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#39;A&#39;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">shortest_distances</span> <span style="color:#f92672">=</span> <span style="color:#111">dijkstra</span><span style="color:#111">(</span><span style="color:#111">graph</span><span style="color:#111">,</span> <span style="color:#111">start_node</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Print the shortest distances</span>
+</span></span><span style="display:flex;"><span><span style="color:#00a8c8">for</span> <span style="color:#111">node</span><span style="color:#111">,</span> <span style="color:#111">distance</span> <span style="color:#f92672">in</span> <span style="color:#111">shortest_distances</span><span style="color:#f92672">.</span><span style="color:#111">items</span><span style="color:#111">():</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">print</span><span style="color:#111">(</span><span style="color:#d88200">f</span><span style="color:#d88200">&#39;Shortest distance from </span><span style="color:#d88200">{</span><span style="color:#111">start_node</span><span style="color:#d88200">}</span><span style="color:#d88200"> to </span><span style="color:#d88200">{</span><span style="color:#111">node</span><span style="color:#d88200">}</span><span style="color:#d88200"> is </span><span style="color:#d88200">{</span><span style="color:#111">distance</span><span style="color:#d88200">}</span><span style="color:#d88200">&#39;</span><span style="color:#111">)</span>
+</span></span></code></pre></div><p>As you can see, we have successfully implemented the graph to find the shortest path between a node &ldquo;A&rdquo; and other nodes accross the graph. It utilizes a <a href="https://www.geeksforgeeks.org/heap-queue-or-heapq-in-python/#:~:text=Heap%20data%20structure%20is%20mainly,popped%28min%2Dheap%29." target="_blank"><strong>priority queue</strong></a> (implemented as a min-heap) to efficiently explore nodes with shorter distances first.</p>
+<p>Hope you enjoyed the tutorial</p>
+
+        </article>
+        
+            <div class="tags">
+                <span title="Tags">🏷</span>
+                <div class="horizontal-links links">
+                    <a href="/tags/programming/">Programming</a>
+                </div>
+            </div>
+        
+    </article>
+
+
+    </main>
+    <footer>
+  <div class="content-container">
+    <div class="content">I&rsquo;m Gerald Maduabuchi Okereke. Welcome to my thoughts, my journal and my little space on the web.
+
+
+  <p class="horizontal-links"><a href="https://github.com/grayoj"
+        target="_blank" 
+       
+      >Github</a><a href="https://twitter.com/geraldmokereke"
+        target="_blank" 
+       
+      >X</a><a href="mailto:geraldmokereke@gmail.com"
+        target="_blank" 
+       
+      >Email</a></p>
+
+</div>
+  </div>
+</footer>
+    
+    <script>
+      const emailId = atob("bWFpbEBleGFtcGxlLmNvbQ==");
+    </script>
+      <script src="/js/rocinante.min.js"></script></body>
+</html>

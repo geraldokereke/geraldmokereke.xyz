@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>* Engineering Nicfosts Eservices Module · Gerald&#39;s Journal</title>
+
+
+
+<link rel="stylesheet" href="/css/rocinante.css" />
+<link rel="shortcut icon" href="https://i.ibb.co/YNRSK0Z/gerald-logo.png">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<body>
+    <header><h2>
+  
+    <a href="https://geraldmokereke.xyz/">‹ Gerald&#39;s Journal</a>
+  
+</h2>
+</header>
+    <main>
+
+    <div class="post">
+      
+        <div class="title-group">
+            <div class="title">
+                <h1>* Engineering Nicfosts Eservices Module</h1>
+            </div>
+            <div class="date"><h5>Sep 10, 2023</h5></div>
+        </div>
+              
+            <div class="post-cover">
+                <img src="https://i.ibb.co/kGByd3B/20230817-184826.jpg" alt="V" style="max-width:100%;height:auto;" />
+                <div class="cover-caption">The document. You may want to flip your phone sideways</div>
+            </div>
+            
+        <article class="content">
+            <p>The &ldquo;<a href="https://nicfost.gov.ng/" target="_blank">Nigerian Council of Food Science and Technology</a> is a professional body in Nigeria that is focused advancing the field of food science and technology in the country. It serves as an organization for professionals, researchers, educators, and practitioners who are involved in various aspects of food science and technology.</p>
+<p>They have a portal that is used by the adminstrative team at Nicfost. The client side is written entirely in JavaScript. I didn&rsquo;t build the client, it was written by someone else. After all, I have expressed my distate severall on this blog for JavaScript as <a href="https://news.ycombinator.com/item?id=4113458" target="_blank">a bad dynamic programming language for robust projects</a>. I use Typescript instead. The backend is also written in Java, I didn&rsquo;t write the initial Java backend though - which I wish I did. The refactoring and process wasn&rsquo;t funny.</p>
+<h2 id="the-task">The Task</h2>
+<p>Nicfost had contracted a company called Encentral solutions to facilitate the printing of hard-copy certificates. They were to design a RESTful API endpoint to facilitate the generation of the certificate off a license number, registration number or serial provided from our end, and return it in PDF format. After the delays, eventually encentral were able to deliver. I went ahead to test the endpoint by sending a payload in the request body (As me and my manager convinced them to go with the request body over parameters) which then returned the file in my postman client, with the header <code>application/pdf</code>.</p>
+<h3 id="what-was-my-job">What was my job?</h3>
+<p>Build the <strong>Eservices Module</strong>!</p>
+<ul>
+<li>Create a wrapper around ecentral&rsquo;s URL endpoint to perform the following actions:
+<ul>
+<li>Initiate the call.</li>
+<li>This would be done by picking the serial number or license number from the client, checking if it was in our database — before then passing the request to Ecentral&rsquo;s URL via a <a href="https://www.baeldung.com/rest-template" target="_blank">REST Template in spring boot.</a></li>
+</ul>
+</li>
+<li>Update and create the swagger to document the freshly created endpoint under the module name &ldquo;Eservices.&rdquo;</li>
+<li>Return the response from Ecentral to the client.</li>
+<li>Implement an authentication mechanism involved by sending headers with the request, this was to be done Via JWT — but we approached this another way.</li>
+<li>Employ a caching mechanism, or store the files in <a href="https://en.wikipedia.org/wiki/Base64" target="_blank">Base64 format</a> to prevent excess calls to Ecentral solutions.</li>
+<li>Package and distribute the Java executable to be deployed by Nicfost&rsquo;s systems engineer. They use a Windows Server — I can&rsquo;t vomit enough</li>
+</ul>
+<h3 id="the-bottlenecks">The bottlenecks</h3>
+<p>I was introduced to the codebase and existing technology stack of the platform — within a week. I had to walk myself through the codebase and frequently call up the previous engineer who worked on it for clarififications. I had to be careful, one bug or mistep, and I would push a bug into production that could maybe lead to the application&rsquo;s unfortunate downtime.</p>
+<p>The bottlenecks were:</p>
+<ul>
+<li>No <a href="https://www.freecodecamp.org/news/what-is-an-orm-the-meaning-of-object-relational-mapping-database-tools/#:~:text=Object%20Relational%20Mapping%20%28ORM%29%20is,%28OOP%29%20to%20relational%20databases." target="_blank">ORM</a> available. ORMs help by creating a layer of abstraction between your code and SQL. It communicates with your database via Object Oriented Code to run SQL instructions. There was no ORM - I don&rsquo;t know who made the decision, but I was surprised. I know ORMs should be avoided in certain usecases, but not this one. The next case explains why.</li>
+<li>No direct access to the production server, but just the production database. The workaround was the previous engineer had an SQL script of basically the entire structure in production.</li>
+<li>No ORM meant crafting raw SQL queries and writing directly into the database console, bad news. The database was Postgres anyways.</li>
+<li>The code was written with a C# based approach, relying on so much DAOs, and SQL query builders for the simplest tasks, since there was NO ORM.</li>
+<li>Ecentral was returning their own CORS header, which later led to a big conflict on the client before I resolved the issue.</li>
+<li>The code was overall, poorly written, not well commented with a poor authentication mechanism. It used JWT authentication, which was somewhat scrappy hence we left it that way to speed up time.</li>
+<li>Outdated spring boot version. Running version two and not three.</li>
+</ul>
+<h3 id="the-workarounds">The workarounds</h3>
+<p>Since there was no ORM and no direct access to the production sever as aforementioned previously above — the first step I took was to call the other engineer up who generated an SQL script of how the tables were structured on the production server. Luckily, he had created some Models in a folder, although not being used by the JPA or any significant ORM which served as a guideline.</p>
+<p>After some extensive evaluation, the clever workaround to have the client send in the headers as requested for the call, was to create a table with the fields <code>app_id</code> and <code>app_key.</code> Like so:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sql" data-lang="sql"><span style="display:flex;"><span><span style="color:#00a8c8">CREATE</span> <span style="color:#00a8c8">TABLE</span> <span style="color:#111">Credentials</span> <span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">id</span> <span style="color:#111">INT</span> <span style="color:#111">AUTO_INCREMENT</span> <span style="color:#00a8c8">PRIMARY</span> <span style="color:#00a8c8">KEY</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">appId</span> <span style="color:#111">VARCHAR</span><span style="color:#111">(</span><span style="color:#ae81ff">255</span><span style="color:#111">)</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>  <span style="color:#111">appKey</span> <span style="color:#111">VARCHAR</span><span style="color:#111">(</span><span style="color:#ae81ff">255</span><span style="color:#111">)</span> <span style="color:#00a8c8">NOT</span> <span style="color:#00a8c8">NULL</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">);</span>
+</span></span></code></pre></div><p>We generated two random keys, long. About 32 characters long for each <code> appId</code> and <code>appKey</code>, then I wrote a query to insert into the tables. The purpose was to simulate an authentication like system, so no one could make a call without authorised keys we could delete or update. I was to create three endpoints. Endpoints for getting the License Certificate, Certificate of Registration and the Premises Certificate.</p>
+<p>Here, I will illustrate my thought process and flow while I wrote the code to execute the request. I have tried my best to make the below code self explanatory:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#75715e">// Here in API Operation, I define the value which would be visible in the Swagger.</span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">@ApiOperation</span><span style="color:#111">(</span><span style="color:#111">value</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;This is used to get Certificate File from Ecentral solutions.&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// It&#39;s a post request because we are sending a request payload from the client.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">@PostMapping</span><span style="color:#111">(</span><span style="color:#d88200">&#34;/GetCertificateFile&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// I configured the response entity to &lt;byte[]&gt; since I am expecting a binary file.</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#111">ResponseEntity</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">byte</span><span style="color:#f92672">[]&gt;</span> <span style="color:#75af00">GetCertificateFile</span><span style="color:#111">(</span><span style="color:#75af00">@RequestBody</span> <span style="color:#111">CertificateFileRequest</span> <span style="color:#111">requestPayload</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// The URL where I make the call to.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">String</span> <span style="color:#111">externalUrl</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;certificate/registration&#34;</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Setting the headers for the request</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">HttpHeaders</span> <span style="color:#111">headers</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">HttpHeaders</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">headers</span><span style="color:#111">.</span><span style="color:#75af00">setContentType</span><span style="color:#111">(</span><span style="color:#111">MediaType</span><span style="color:#111">.</span><span style="color:#75af00">APPLICATION_JSON</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// The entity request is facilitated via CertificateFilerequest.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">HttpEntity</span><span style="color:#f92672">&lt;</span><span style="color:#111">CertificateFileRequest</span><span style="color:#f92672">&gt;</span> <span style="color:#111">requestEntity</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">HttpEntity</span><span style="color:#f92672">&lt;&gt;</span><span style="color:#111">(</span><span style="color:#111">requestPayload</span><span style="color:#111">,</span> <span style="color:#111">headers</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Initiate an instance of REST Template</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">RestTemplate</span> <span style="color:#111">restTemplate</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">RestTemplate</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Return the response entity.</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">ResponseEntity</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">byte</span><span style="color:#f92672">[]&gt;</span> <span style="color:#111">responseEntity</span> <span style="color:#f92672">=</span> <span style="color:#111">restTemplate</span><span style="color:#111">.</span><span style="color:#75af00">exchange</span><span style="color:#111">(</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">externalUrl</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">HttpMethod</span><span style="color:#111">.</span><span style="color:#75af00">POST</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">requestEntity</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#00a8c8">byte</span><span style="color:#f92672">[]</span><span style="color:#111">.</span><span style="color:#75af00">class</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">);</span>
+</span></span></code></pre></div><p>The CertificateRequest, looked like the below so you can visualise the payload data being requested from the client:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#00a8c8">public</span> <span style="color:#00a8c8">class</span> <span style="color:#75af00">CertificateFileRequest</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">private</span> <span style="color:#111">String</span> <span style="color:#111">id</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">private</span> <span style="color:#111">String</span> <span style="color:#111">nameOfCompany</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">private</span> <span style="color:#111">String</span> <span style="color:#111">cfsnNo</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">private</span> <span style="color:#111">String</span> <span style="color:#111">dateOfRegistration</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#111">String</span> <span style="color:#75af00">getId</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">id</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">setId</span><span style="color:#111">(</span><span style="color:#111">String</span> <span style="color:#111">id</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">this</span><span style="color:#111">.</span><span style="color:#75af00">id</span> <span style="color:#f92672">=</span> <span style="color:#111">id</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#111">String</span> <span style="color:#75af00">getNameOfCompany</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">nameOfCompany</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">setNameOfCompany</span><span style="color:#111">(</span><span style="color:#111">String</span> <span style="color:#111">nameOfCompany</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">this</span><span style="color:#111">.</span><span style="color:#75af00">nameOfCompany</span> <span style="color:#f92672">=</span> <span style="color:#111">nameOfCompany</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#111">String</span> <span style="color:#75af00">getCfsnNo</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">cfsnNo</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">setCfsnNo</span><span style="color:#111">(</span><span style="color:#111">String</span> <span style="color:#111">cfsnNo</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">this</span><span style="color:#111">.</span><span style="color:#75af00">cfsnNo</span> <span style="color:#f92672">=</span> <span style="color:#111">cfsnNo</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#111">String</span> <span style="color:#75af00">getDateOfRegistration</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">dateOfRegistration</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#00a8c8">void</span> <span style="color:#75af00">setDateOfRegistration</span><span style="color:#111">(</span><span style="color:#111">String</span> <span style="color:#111">dateOfRegistration</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">this</span><span style="color:#111">.</span><span style="color:#75af00">dateOfRegistration</span> <span style="color:#f92672">=</span> <span style="color:#111">dateOfRegistration</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><p>The problem was:</p>
+<pre tabindex="0"><code>Multiple cors headers were sent in your request. The server should only return a single CORS header.
+</code></pre><p>So to walk around this was relatively simple. Extract the headers being received from ecentral&rsquo;s response and explicitly filter out <a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Access-Control-Allow-Origin" target="_blank"><code>Access-Control-Allow-Origin</code></a> which contained the CORS header. I approached the problem this way.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>        <span style="color:#111">HttpHeaders</span> <span style="color:#111">modifiedHeaders</span> <span style="color:#f92672">=</span> <span style="color:#00a8c8">new</span> <span style="color:#111">HttpHeaders</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">responseHeaders</span><span style="color:#111">.</span><span style="color:#75af00">forEach</span><span style="color:#111">((</span><span style="color:#111">key</span><span style="color:#111">,</span> <span style="color:#111">value</span><span style="color:#111">)</span> <span style="color:#f92672">-&gt;</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// extract and ignore the header</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">key</span><span style="color:#111">.</span><span style="color:#75af00">equalsIgnoreCase</span><span style="color:#111">(</span><span style="color:#d88200">&#34;Access-Control-Allow-Origin&#34;</span><span style="color:#111">))</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">modifiedHeaders</span><span style="color:#111">.</span><span style="color:#75af00">addAll</span><span style="color:#111">(</span><span style="color:#111">key</span><span style="color:#111">,</span> <span style="color:#111">value</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">});</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">ResponseEntity</span><span style="color:#111">.</span><span style="color:#75af00">status</span><span style="color:#111">(</span><span style="color:#111">responseEntity</span><span style="color:#111">.</span><span style="color:#75af00">getStatusCode</span><span style="color:#111">())</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">.</span><span style="color:#75af00">headers</span><span style="color:#111">(</span><span style="color:#111">modifiedHeaders</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                <span style="color:#111">.</span><span style="color:#75af00">body</span><span style="color:#111">(</span><span style="color:#111">responseEntity</span><span style="color:#111">.</span><span style="color:#75af00">getBody</span><span style="color:#111">());</span>
+</span></span></code></pre></div><p>That way, I was able to kill the error, and the response was successful. Ecentral were also using PHP so that was why I implemented the caching mechanism as stated earlier, to reduce the calls. Also I benchmarked their server to return a certificate within <strong>6-7</strong> seconds on an average.</p>
+<h2 id="what-about-the-authentication">What about the authentication?</h2>
+<p>I know I didn&rsquo;t mention, but apparently the model changed. You see the process was meant to work like this:</p>
+<ul>
+<li>Three endpoints, that would be called by the client. This would initialise. No authentication here.</li>
+<li>Depending on which endpoint was called, I would pick the ID sent by the client and make a request to Ecentral.</li>
+<li>Ecentral receives the ID and then sends a post request to our server with the data.</li>
+<li>Another endpoint, which now requires the <code>appId</code> and <code>app_Key</code> as below is expected to be sent as headers to retrieve the certificate.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#75af00">@ApiOperation</span><span style="color:#111">(</span><span style="color:#111">value</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;This is used to get registration certificate by licensenumber.&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">@PostMapping</span><span style="color:#111">(</span><span style="color:#d88200">&#34;/GetCertificateData&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">public</span> <span style="color:#111">ResponseEntity</span><span style="color:#f92672">&lt;</span><span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">RegistrationResponse</span><span style="color:#f92672">&gt;&gt;</span> <span style="color:#75af00">getCertificateByLicenseNumber</span><span style="color:#111">(</span><span style="color:#75af00">@RequestBody</span> <span style="color:#111">CertificateIdRequest</span> <span style="color:#111">id</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// send the appId and appKey in the request</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">@RequestHeader</span><span style="color:#111">(</span><span style="color:#d88200">&#34;appId&#34;</span><span style="color:#111">)</span> <span style="color:#111">String</span> <span style="color:#111">appId</span><span style="color:#111">,</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">@RequestHeader</span><span style="color:#111">(</span><span style="color:#d88200">&#34;appKey&#34;</span><span style="color:#111">)</span> <span style="color:#111">String</span> <span style="color:#111">appKey</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#f92672">!</span><span style="color:#111">validateAppCredentials</span><span style="color:#111">(</span><span style="color:#111">appId</span><span style="color:#111">,</span> <span style="color:#111">appKey</span><span style="color:#111">))</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#00a8c8">return</span> <span style="color:#111">ResponseEntity</span><span style="color:#111">.</span><span style="color:#75af00">status</span><span style="color:#111">(</span><span style="color:#111">HttpStatus</span><span style="color:#111">.</span><span style="color:#75af00">UNAUTHORIZED</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>                    <span style="color:#111">.</span><span style="color:#75af00">body</span><span style="color:#111">(</span><span style="color:#111">Collections</span><span style="color:#111">.</span><span style="color:#75af00">emptyList</span><span style="color:#111">());</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">List</span><span style="color:#f92672">&lt;</span><span style="color:#111">RegistrationResponse</span><span style="color:#f92672">&gt;</span> <span style="color:#111">certificateResponses</span> <span style="color:#f92672">=</span> <span style="color:#111">registrationdao</span><span style="color:#111">.</span><span style="color:#75af00">getRegistrationResponsesByLicenseNumber</span><span style="color:#111">(</span><span style="color:#111">id</span><span style="color:#111">.</span><span style="color:#75af00">id</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">ResponseEntity</span><span style="color:#111">.</span><span style="color:#75af00">ok</span><span style="color:#111">(</span><span style="color:#111">certificateResponses</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span></code></pre></div><p>Then I designed a simple function to query the database to check if the headers match the data in the database:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span> <span style="color:#00a8c8">private</span> <span style="color:#00a8c8">boolean</span> <span style="color:#75af00">validateAppCredentials</span><span style="color:#111">(</span><span style="color:#111">String</span> <span style="color:#111">appId</span><span style="color:#111">,</span> <span style="color:#111">String</span> <span style="color:#111">appKey</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">String</span> <span style="color:#111">sql</span> <span style="color:#f92672">=</span> <span style="color:#d88200">&#34;SELECT COUNT(*) FROM collaborator WHERE appId = ? AND appKey = ?&#34;</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">int</span> <span style="color:#111">count</span> <span style="color:#f92672">=</span> <span style="color:#111">jdbcTemplate</span><span style="color:#111">.</span><span style="color:#75af00">queryForObject</span><span style="color:#111">(</span><span style="color:#111">sql</span><span style="color:#111">,</span> <span style="color:#111">Integer</span><span style="color:#111">.</span><span style="color:#75af00">class</span><span style="color:#111">,</span> <span style="color:#111">appId</span><span style="color:#111">,</span> <span style="color:#111">appKey</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">return</span> <span style="color:#111">count</span> <span style="color:#f92672">&gt;</span> <span style="color:#111">0</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span></code></pre></div><h2 id="the-architecture">The architecture</h2>
+<p>So eventually this was the structure:</p>
+<p><img src="https://i.ibb.co/TK4vkB2/nicfost-structure-1-1.png" alt="The first architecture"></p>
+<p>So like we said, the client sends a post request to a server that returns it back to the database that is fetched and returned from Nicfost&rsquo;s server and retrieved by the client via a GET Request. We later opted out of this system and went for something much more direct, like so:</p>
+<p><img src="https://i.ibb.co/mrjn6X9/nicfost-structure-2.png%22" alt="The second architecture"></p>
+<p>The second architecture as demonstrated above is far much easier, and has effectively cut us a lot of slack. As you can see we return the response virtually direct. I think the other engineers attempted to avoid conflicting headers being served, whicn I resolved anyways.</p>
+<p>They were so many bottlenecks, but as usual I was able to eventually wriggle away and sort things out.</p>
+
+        </article>
+        
+            <div class="tags">
+                <span title="Tags">🏷</span>
+                <div class="horizontal-links links">
+                    <a href="/tags/programming/">Programming</a><a href="/tags/react/">React</a>
+                </div>
+            </div>
+        
+    </article>
+
+
+    </main>
+    <footer>
+  <div class="content-container">
+    <div class="content">I&rsquo;m Gerald Maduabuchi Okereke. Welcome to my thoughts, my journal and my little space on the web.
+
+
+  <p class="horizontal-links"><a href="https://github.com/grayoj"
+        target="_blank" 
+       
+      >Github</a><a href="https://twitter.com/geraldmokereke"
+        target="_blank" 
+       
+      >X</a><a href="mailto:geraldmokereke@gmail.com"
+        target="_blank" 
+       
+      >Email</a></p>
+
+</div>
+  </div>
+</footer>
+    
+    <script>
+      const emailId = atob("bWFpbEBleGFtcGxlLmNvbQ==");
+    </script>
+      <script src="/js/rocinante.min.js"></script></body>
+</html>

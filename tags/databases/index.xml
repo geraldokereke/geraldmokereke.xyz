@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Databases on Gerald&#39;s Journal</title>
+    <link>https://geraldmokereke.xyz/tags/databases/</link>
+    <description>Recent content in Databases on Gerald&#39;s Journal</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 18 Jan 2024 10:17:51 +0100</lastBuildDate>
+    <atom:link href="https://geraldmokereke.xyz/tags/databases/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Why I don&#39;t like Mongo DB</title>
+      <link>https://geraldmokereke.xyz/posts/mongodb-slander/</link>
+      <pubDate>Thu, 18 Jan 2024 10:17:51 +0100</pubDate>
+      <guid>https://geraldmokereke.xyz/posts/mongodb-slander/</guid>
+      <description>&lt;p&gt;Gerald, why so much hate for Mongo DB? You don&amp;rsquo;t understand &lt;strong&gt;SCALE!&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;img src=&#34;https://i.ibb.co/s3TNdNB/mongodb.png&#34; alt=&#34;Mongo DB, A Joke&#34;&gt;&lt;/p&gt;&#xA;&lt;p&gt;Yes, I like boring relational databases. I love SQL, SQLite. Except it&amp;rsquo;s Oracle owned.&lt;/p&gt;&#xA;&lt;p&gt;Before anything else, once Mongo DB comes up — the first thing that comes to my mind is &lt;em&gt;data integrity&lt;/em&gt; as it should be. Mongo DB as we all know is a NoSQL database that has gained popularity over the years. Ah, partly because it’s being used in maybe — &lt;em&gt;every single Node JS beginner tutorial on the internet?&lt;/em&gt; Maybe that, or because in standard industries such as banking/finance, education, we tend to lean towards structured data which Mongo DB is a train-wreck for such use cases.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

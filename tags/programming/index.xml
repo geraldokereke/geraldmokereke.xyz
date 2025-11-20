@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Programming on Gerald&#39;s Journal</title>
+    <link>https://geraldmokereke.xyz/tags/programming/</link>
+    <description>Recent content in Programming on Gerald&#39;s Journal</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 21 Sep 2023 10:46:46 +0100</lastBuildDate>
+    <atom:link href="https://geraldmokereke.xyz/tags/programming/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Development Setup</title>
+      <link>https://geraldmokereke.xyz/posts/my-development-setup/</link>
+      <pubDate>Thu, 21 Sep 2023 10:46:46 +0100</pubDate>
+      <guid>https://geraldmokereke.xyz/posts/my-development-setup/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;This article was created because of my guy,&#xA;&lt;a href=&#34;https://ng.linkedin.com/in/collins-ikotun-0a11a11b6&#34; target=&#34;_blank&#34;&gt;Collins Ikotun&lt;/a&gt;, my vim&#xA;convert! Also,&#xA;&lt;a href=&#34;https://www.reddit.com/r/linuxmemes/comments/pfv8hq/i_use_vim_btw/&#34; target=&#34;_blank&#34;&gt;I use vim btw&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;/blockquote&gt;&#xA;&lt;p&gt;When I started off programming I really had a very wrong perception of a&#xA;&amp;ldquo;development environment&amp;rdquo; or &amp;ldquo;development setup.&amp;rdquo; This led to me, eventually&#xA;wanting to do the most. Effectively creating an amazing workflow to most people&#xA;with very much reduced productivity. Now, I&amp;rsquo;ve come to realise that a&#xA;development setup isn&amp;rsquo;t necessarily spawning an ultra wide $5,000 monitor. But&#xA;creating a very productive environment that maximises your experience and gets&#xA;the best out of your abilities.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Optimising React Native Apps</title>
+      <link>https://geraldmokereke.xyz/posts/optimising-react-native-apps/</link>
+      <pubDate>Sun, 17 Sep 2023 19:07:06 +0100</pubDate>
+      <guid>https://geraldmokereke.xyz/posts/optimising-react-native-apps/</guid>
+      <description>&lt;p&gt;The performance of mobile applications is extremely important. Users want a seamless experience with almost no bugs or glitches — to save yourself the violent reviews your mobile app would get on the app stores. Or preferably reduce? Because haters will hate.&lt;/p&gt;&#xA;&lt;p&gt;JavaScript is arguably a performant language naturally. It&amp;rsquo;s the pinnacle of all web applications that run on the client. A modern day functioning app cannot exist without shipping JavaScript modules to the client. There are several &lt;a href=&#34;https://webtips.dev/webtips/javascript/benchmark-javascript&#34; target=&#34;_blank&#34;&gt;benchmarking tools to illustrate this&lt;/a&gt;.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>* Engineering Nicfosts Eservices Module</title>
+      <link>https://geraldmokereke.xyz/posts/engineering-nicfosts-eservices-module/</link>
+      <pubDate>Sun, 10 Sep 2023 00:00:00 +0000</pubDate>
+      <guid>https://geraldmokereke.xyz/posts/engineering-nicfosts-eservices-module/</guid>
+      <description>&lt;p&gt;The &amp;ldquo;&lt;a href=&#34;https://nicfost.gov.ng/&#34; target=&#34;_blank&#34;&gt;Nigerian Council of Food Science and Technology&lt;/a&gt; is a professional body in Nigeria that is focused advancing the field of food science and technology in the country. It serves as an organization for professionals, researchers, educators, and practitioners who are involved in various aspects of food science and technology.&lt;/p&gt;&#xA;&lt;p&gt;They have a portal that is used by the adminstrative team at Nicfost. The client side is written entirely in JavaScript. I didn&amp;rsquo;t build the client, it was written by someone else. After all, I have expressed my distate severall on this blog for JavaScript as &lt;a href=&#34;https://news.ycombinator.com/item?id=4113458&#34; target=&#34;_blank&#34;&gt;a bad dynamic programming language for robust projects&lt;/a&gt;. I use Typescript instead. The backend is also written in Java, I didn&amp;rsquo;t write the initial Java backend though - which I wish I did. The refactoring and process wasn&amp;rsquo;t funny.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Dijkstra&#39;s Algorithm: Solving the shortest path problem</title>
+      <link>https://geraldmokereke.xyz/posts/shortest-path-problem/</link>
+      <pubDate>Sat, 09 Sep 2023 12:39:50 +0100</pubDate>
+      <guid>https://geraldmokereke.xyz/posts/shortest-path-problem/</guid>
+      <description>&lt;p&gt;Let&amp;rsquo;s solve the shortest path problem&lt;/p&gt;&#xA;&lt;p&gt;Today we&amp;rsquo;re going to be solving the shortest path problem by implementing &lt;a href=&#34;https://en.wikipedia.org/wiki/Dijkstra%27s_algorithm&#34; target=&#34;_blank&#34;&gt;Dijkstra&amp;rsquo;s algorithm&lt;/a&gt; with some Python. So get a cup of coffee and a neovim buffer opened, it&amp;rsquo;s going to be a ride.&lt;/p&gt;&#xA;&lt;h2 id=&#34;what-is-the-shortest-path-problem&#34;&gt;What is the shortest path problem?&lt;/h2&gt;&#xA;&lt;p&gt;Before we begin, we must first understand what is the shortest path problem. The shortest path problem is a fundamental optimization problem in computer science, speficifically graph theory under discrete mathematics or data structures and algorithms. It involves finding the shortest path or the minimum distance between two nodes (vertices) in a weighted graph. The &amp;ldquo;shortest path&amp;rdquo; is defined as the path with the smallest total sum of edge weights or distances. From this, we can tell that we would be working with a non-linear data structure throughout this article, The &lt;a href=&#34;https://www.google.com/url?sa=i&amp;amp;url=https%3A%2F%2Fwww.simplilearn.com%2Ftutorials%2Fdata-structure-tutorial%2Fgraphs-in-data-structure&amp;amp;psig=AOvVaw1b4ReK_eZpIpF0QyT36lVf&amp;amp;ust=1694343143651000&amp;amp;source=images&amp;amp;cd=vfe&amp;amp;opi=89978449&amp;amp;ved=2ahUKEwi2sPSarp2BAxXDpycCHfeZAt4Qr4kDegQIARBx&#34; target=&#34;_blank&#34;&gt;&amp;ldquo;graph.&amp;rdquo;&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Neovim Is Overrated</title>
+      <link>https://geraldmokereke.xyz/posts/neovim-is-overrated/</link>
+      <pubDate>Sun, 18 Jun 2023 00:00:00 +0000</pubDate>
+      <guid>https://geraldmokereke.xyz/posts/neovim-is-overrated/</guid>
+      <description>&lt;p&gt;Neovim is actually overrated. I don&amp;rsquo;t really understand the buzz with some lua scripted, terminal based editor, which is a Vim rip-off. Which same human being hits &amp;ldquo;gg&amp;rdquo; to go to the top of a line, and &amp;ldquo;ggVG&amp;rdquo; with case sensitivity in mind to select all content?&lt;/p&gt;&#xA;&lt;p&gt;Hold up. I got you in the first paragraph, didn&amp;rsquo;t I? Neovim is a pretty cool Vim based editor that I still can not understand why people may hate on or have misgivings about it.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

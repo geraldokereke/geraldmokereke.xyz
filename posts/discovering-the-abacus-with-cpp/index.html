@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Discovering the Binary Abacus With C&#43;&#43; · Gerald&#39;s Journal</title>
+
+
+
+<link rel="stylesheet" href="/css/rocinante.css" />
+<link rel="shortcut icon" href="https://i.ibb.co/YNRSK0Z/gerald-logo.png">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<body>
+    <header><h2>
+  
+    <a href="https://geraldmokereke.xyz/">‹ Gerald&#39;s Journal</a>
+  
+</h2>
+</header>
+    <main>
+
+    <div class="post">
+      
+        <div class="title-group">
+            <div class="title">
+                <h1>Discovering the Binary Abacus With C&#43;&#43;</h1>
+            </div>
+            <div class="date"><h5>Sep 23, 2023</h5></div>
+        </div>
+              
+            <div class="post-cover">
+                <img src="https://static.vecteezy.com/system/resources/previews/021/875/452/original/wooden-abacus-outline-drawing-illustration-isometric-style-3d-colored-abacus-ancient-calculator-calculating-tool-with-wooden-beads-sliding-on-wires-chinese-abacus-line-art-vector.jpg" alt="V" style="max-width:100%;height:auto;" />
+                <div class="cover-caption">A standard abacus</div>
+            </div>
+            
+        <article class="content">
+            <h2 id="the-binary-abacus">The Binary Abacus</h2>
+<p>An abacus was one of the earliest computing devices created that was used to
+perform the four basic operations in mathematics — addition, subtraction,
+multiplication, and division.</p>
+<blockquote>
+<p>In this article, we are going to be designing a binary abacus from scratch
+using C++</p>
+</blockquote>
+<p>This program will be CLI/Terminal based. We would not need any GUI software
+necessary to begin. I got interested by stumbling across the video below:</p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+      <iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube.com/embed/okF9_LzkMi4?autoplay=0&amp;controls=1&amp;end=0&amp;loop=0&amp;mute=0&amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="YouTube video"></iframe>
+    </div>
+
+<p>Firstly we must understand what an abacus does, and how it works.
+<a href="https://www.youtube.com/watch?v=A1eItdu85hM" target="_blank">Here&rsquo;s a video
+explaining in depth how an Abacus works</a>
+— available operations — and how to use it in general. A binary abacus is
+different and it is what we will be building. However, it is pertinent that you
+understand the functionality of the standard abacus.</p>
+<p>A binary abacus is merely an abacus that operates the binary system. While the
+binary abacus works with base two, the standard abacus works with base ten.</p>
+<p>The normal abacus allows values from 0 - 9 to be manipulated and worked with,
+but with the binary abacus you&rsquo;re constrained to 1 and 0. The binary abacus can
+perform operations available in the binary system, which you would see as you
+follow this article.</p>
+<h2 id="structure-of-the-binary-abacus">Structure of the Binary Abacus</h2>
+<p>The binary abacus has the following components which make up its Structure:</p>
+<ul>
+<li><strong>Frame</strong>: This is the structure of the abacus.</li>
+<li><strong>Rod</strong>: These are the stick, slender-like structures each containing a bead
+(called node in the project implementation) We will also be using two rods to
+keep this implementation as simple as possible.</li>
+<li><strong>Beads</strong>: The beads are called nodes and are used to perform the
+calculations.</li>
+</ul>
+<p>The frame is the body of the abacus, where the rods are fixed. The beads are on
+each rod and can be moved vertically — at least in this visual structure I am
+attempting to illustrate.</p>
+<p>So, let&rsquo;s start building already:</p>
+<blockquote>
+<p>Things to note: I referred to <strong>beads</strong> as nodes. That&rsquo;s the only significant
+change.</p>
+</blockquote>
+<h2 id="the-implementation">The Implementation</h2>
+<ul>
+<li>The first thing we would need to do is carry out some imports.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// import necessary libraries.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;iostream&gt;</span><span style="color:#75715e">
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;vector&gt;</span><span style="color:#75715e">
+</span></span></span></code></pre></div><ul>
+<li>Secondly, we create the abacus Class and define the rods in a private class.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#111">class</span> <span style="color:#111">BinaryAbacus</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">private</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">vector</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">bool</span><span style="color:#f92672">&gt;</span> <span style="color:#111">rod1</span><span style="color:#111">;</span>  <span style="color:#75715e">// First rod (represents 2^0)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">vector</span><span style="color:#f92672">&lt;</span><span style="color:#00a8c8">bool</span><span style="color:#f92672">&gt;</span> <span style="color:#111">rod2</span><span style="color:#111">;</span>  <span style="color:#75715e">// Second rod (represents 2^1)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#111">}</span>
+</span></span></code></pre></div><ul>
+<li>Now we&rsquo;ve created the rods, we can create the bead (node) and this would be an
+integer value, like so:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#111">public</span><span style="color:#111">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75af00">BinaryAbacus</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">numNodes</span><span style="color:#111">)</span> <span style="color:#f92672">:</span> <span style="color:#75af00">rod1</span><span style="color:#111">(</span><span style="color:#111">numNodes</span><span style="color:#111">,</span> <span style="color:#111">false</span><span style="color:#111">),</span> <span style="color:#75af00">rod2</span><span style="color:#111">(</span><span style="color:#111">numNodes</span><span style="color:#111">,</span> <span style="color:#111">false</span><span style="color:#111">)</span> <span style="color:#111">{}</span>
+</span></span></code></pre></div><ul>
+<li>Next, we would need to display the values of the abacus effectively. To do
+this, we create a function to display and update the state of the Abacus:</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>    <span style="color:#75715e">// Display the state of the binary abacus
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#00a8c8">void</span> <span style="color:#75af00">display</span><span style="color:#111">()</span> <span style="color:#00a8c8">const</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;Rod 1: &#34;</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span> <span style="color:#111">(</span><span style="color:#00a8c8">bool</span> <span style="color:#111">node</span> <span style="color:#111">:</span> <span style="color:#111">rod1</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">(</span><span style="color:#111">node</span> <span style="color:#f92672">?</span> <span style="color:#d88200">&#34;1&#34;</span> <span style="color:#f92672">:</span> <span style="color:#d88200">&#34;0&#34;</span><span style="color:#111">)</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34; &#34;</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34;Rod 2: &#34;</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">for</span> <span style="color:#111">(</span><span style="color:#00a8c8">bool</span> <span style="color:#111">node</span> <span style="color:#111">:</span> <span style="color:#111">rod2</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">(</span><span style="color:#111">node</span> <span style="color:#f92672">?</span> <span style="color:#d88200">&#34;1&#34;</span> <span style="color:#f92672">:</span> <span style="color:#d88200">&#34;0&#34;</span><span style="color:#111">)</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#d88200">&#34; &#34;</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">cout</span> <span style="color:#f92672">&lt;&lt;</span> <span style="color:#111">std</span><span style="color:#f92672">::</span><span style="color:#111">endl</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span></code></pre></div><ul>
+<li>Since this is a vertical structure, we need to write a function that controls
+the movement of the nodes up and down the <em>first</em> rod.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// Move a node up on the first rod
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">void</span> <span style="color:#75af00">moveUpRod1</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">nodeIndex</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">nodeIndex</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">nodeIndex</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">rod1</span><span style="color:#111">.</span><span style="color:#75af00">size</span><span style="color:#111">())</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">rod1</span><span style="color:#111">[</span><span style="color:#111">nodeIndex</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#75715e">// Move a node down on the first rod
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#00a8c8">void</span> <span style="color:#75af00">moveDownRod1</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">nodeIndex</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">nodeIndex</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">nodeIndex</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">rod1</span><span style="color:#111">.</span><span style="color:#75af00">size</span><span style="color:#111">())</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">rod1</span><span style="color:#111">[</span><span style="color:#111">nodeIndex</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#111">false</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><p>Here, we created methods to move the bead (node) up and down on the first rod.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>    <span style="color:#75715e">// Move a node up on the second rod
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#00a8c8">void</span> <span style="color:#75af00">moveUpRod2</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">nodeIndex</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">nodeIndex</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">nodeIndex</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">rod2</span><span style="color:#111">.</span><span style="color:#75af00">size</span><span style="color:#111">())</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">rod2</span><span style="color:#111">[</span><span style="color:#111">nodeIndex</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#111">true</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Move a node down on the second rod
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#00a8c8">void</span> <span style="color:#75af00">moveDownRod2</span><span style="color:#111">(</span><span style="color:#00a8c8">int</span> <span style="color:#111">nodeIndex</span><span style="color:#111">)</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#00a8c8">if</span> <span style="color:#111">(</span><span style="color:#111">nodeIndex</span> <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#f92672">&amp;&amp;</span> <span style="color:#111">nodeIndex</span> <span style="color:#f92672">&lt;</span> <span style="color:#111">rod2</span><span style="color:#111">.</span><span style="color:#75af00">size</span><span style="color:#111">())</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>            <span style="color:#111">rod2</span><span style="color:#111">[</span><span style="color:#111">nodeIndex</span><span style="color:#111">]</span> <span style="color:#f92672">=</span> <span style="color:#111">false</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#111">}</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#111">}</span>
+</span></span></code></pre></div><p>Here, we created methods to move the bead (node) up and down on the second rod.</p>
+<ul>
+<li>Lastly, the main function that handles the beads (nodes) and movea them
+accordingly.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span><span style="color:#00a8c8">int</span> <span style="color:#75af00">main</span><span style="color:#111">()</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Create a binary abacus with 5 nodes on each rod
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">BinaryAbacus</span> <span style="color:#75af00">abacus</span><span style="color:#111">(</span><span style="color:#ae81ff">5</span><span style="color:#111">);</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Move some nodes to represent binary values
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">abacus</span><span style="color:#111">.</span><span style="color:#75af00">moveUpRod1</span><span style="color:#111">(</span><span style="color:#ae81ff">1</span><span style="color:#111">);</span>  <span style="color:#75715e">// Rod 1: 00100
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">abacus</span><span style="color:#111">.</span><span style="color:#75af00">moveUpRod2</span><span style="color:#111">(</span><span style="color:#ae81ff">2</span><span style="color:#111">);</span>  <span style="color:#75715e">// Rod 2: 00010
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">abacus</span><span style="color:#111">.</span><span style="color:#75af00">moveUpRod1</span><span style="color:#111">(</span><span style="color:#ae81ff">3</span><span style="color:#111">);</span>  <span style="color:#75715e">// Rod 1: 00101
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Display the state of the binary abacus
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#111">abacus</span><span style="color:#111">.</span><span style="color:#75af00">display</span><span style="color:#111">();</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#00a8c8">return</span> <span style="color:#ae81ff">0</span><span style="color:#111">;</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">}</span>
+</span></span></code></pre></div><p>There. We have correctly implemented a binary abacus from in C++ from scratch.
+Hope you enjoyed it. Will be back in the next one.</p>
+
+        </article>
+        
+    </article>
+
+
+    </main>
+    <footer>
+  <div class="content-container">
+    <div class="content">I&rsquo;m Gerald Maduabuchi Okereke. Welcome to my thoughts, my journal and my little space on the web.
+
+
+  <p class="horizontal-links"><a href="https://github.com/grayoj"
+        target="_blank" 
+       
+      >Github</a><a href="https://twitter.com/geraldmokereke"
+        target="_blank" 
+       
+      >X</a><a href="mailto:geraldmokereke@gmail.com"
+        target="_blank" 
+       
+      >Email</a></p>
+
+</div>
+  </div>
+</footer>
+    
+    <script>
+      const emailId = atob("bWFpbEBleGFtcGxlLmNvbQ==");
+    </script>
+      <script src="/js/rocinante.min.js"></script></body>
+</html>

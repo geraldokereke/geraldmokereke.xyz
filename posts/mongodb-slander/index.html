@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Why I don&#39;t like Mongo DB · Gerald&#39;s Journal</title>
+
+
+
+<link rel="stylesheet" href="/css/rocinante.css" />
+<link rel="shortcut icon" href="https://i.ibb.co/YNRSK0Z/gerald-logo.png">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<body>
+    <header><h2>
+  
+    <a href="https://geraldmokereke.xyz/">‹ Gerald&#39;s Journal</a>
+  
+</h2>
+</header>
+    <main>
+
+    <div class="post">
+      
+        <div class="title-group">
+            <div class="title">
+                <h1>Why I don&#39;t like Mongo DB</h1>
+            </div>
+            <div class="date"><h5>Jan 18, 2024</h5></div>
+        </div>
+              
+        <article class="content">
+            <p>Gerald, why so much hate for Mongo DB? You don&rsquo;t understand <strong>SCALE!</strong></p>
+<p><img src="https://i.ibb.co/s3TNdNB/mongodb.png" alt="Mongo DB, A Joke"></p>
+<p>Yes, I like boring relational databases. I love SQL, SQLite. Except it&rsquo;s Oracle owned.</p>
+<p>Before anything else, once Mongo DB comes up — the first thing that comes to my mind is <em>data integrity</em> as it should be. Mongo DB as we all know is a NoSQL database that has gained popularity over the years. Ah, partly because it’s being used in maybe — <em>every single Node JS beginner tutorial on the internet?</em> Maybe that, or because in standard industries such as banking/finance, education, we tend to lean towards structured data which Mongo DB is a train-wreck for such use cases.</p>
+<p>Mongo DB unlike the traditional SQL (relational databases) defaults in ACID (Atomicity, Consistency, Isolation, Durability) that guarantees transactional consistency and data integrity. Mongo DB assumes it’s worth sacrificing data integrity and consistency for your application in favor of performance and scalability.</p>
+<p>Also I find the memory usage in Mongo DB pretty <a href="https://dba.stackexchange.com/questions/148395/mongodb-using-too-much-memory" target="_blank">disgusting and not encouraging</a>. I’m sorry to say. MongoDB’s memory and storage usage/overhead is extremely noticeable, particularly in environments dealing large datasets and high write throughput. Hence you’d find Mongo DB in your environment kind of slowing down your other applications.</p>
+<blockquote>
+<p>So just use SQL, for petesake. Here’s a <a href="https://www.enterprisedb.com/news/new-benchmarks-show-postgres-dominating-mongodb-varied-workloads" target="_blank">benchmark</a>.</p>
+</blockquote>
+<p>So as the datasets grow more than the available memory capacity, Mongo DB begins to dwindle, unfortunately.</p>
+<p>Another clear in the night sky issue with Mongo DB, is Mongo DB’s <a href="https://stackoverflow.com/questions/33589380/how-does-mongos-eventual-consistency-work-with-a-large-number-of-data-writes" target="_blank">Eventual Consistency Model</a>. MongoDB implements an eventual consistency model, in which data updates are propagated asynchronously across distributed nodes. Though eventual consistency enhances system scalability and availability, it introduces challenges and complexity in ensuring immediate data consistency. In scenarios where immediate consistency is paramount, MongoDB&rsquo;s eventual consistency would fall short, aggravating data integrity concerns.</p>
+<p><img src="https://media.geeksforgeeks.org/wp-content/uploads/20230227103752/eventual_consistenct.png" alt="Eventual Consistency in Distributive systems"></p>
+<p>I found this article here on <a href="https://www.geeksforgeeks.org/eventual-consistency-in-distributive-systems-learn-system-design" target="_blank">geeks for geeks</a> good enough to understand the model.</p>
+<p>Limited join support is also another terrible, terrible problem. Mongo DB doesn’t support joins like in regular SQL relational databases. In the need to perform certain complex joins across several collections, I can fully guarantee that the experience is awful. In summary I genuinely feel Mongo DB throws out data consistency, integrity, memory management functions in the name of “scalability.” I find that absolutely catastrophic.</p>
+<p>Lastly writing queries in Mongo DB is pretty much complex, compared to traditional relational databases. I mean, just look at that!</p>
+
+<p>Funny enough, I’d only ever use Mongo DB for “pet projects” I may never roll out. I said pet because in my opinion it’s beneath <em>hobby</em> projects, which I would definitely use SQLite for — or a simple store solution. I started <a href="https://www.reddit.com/r/node/comments/vn2awc/comment/ie4n8s1/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button" target="_blank">coughing blood</a> seeing this comment on Reddit.</p>
+<p>I think most people going crazy over Mongo DB is due to the ease of setup and being very useful for prototyping projects. People love low-bar solutions that they can dip their feet into. The shallow end of the pool to be precise, before they move up and possibly drown. I mean look at Python. Toodles.</p>
+
+        </article>
+        
+            <div class="tags">
+                <span title="Tags">🏷</span>
+                <div class="horizontal-links links">
+                    <a href="/tags/databases/">Databases</a>
+                </div>
+            </div>
+        
+    </article>
+
+
+    </main>
+    <footer>
+  <div class="content-container">
+    <div class="content">I&rsquo;m Gerald Maduabuchi Okereke. Welcome to my thoughts, my journal and my little space on the web.
+
+
+  <p class="horizontal-links"><a href="https://github.com/grayoj"
+        target="_blank" 
+       
+      >Github</a><a href="https://twitter.com/geraldmokereke"
+        target="_blank" 
+       
+      >X</a><a href="mailto:geraldmokereke@gmail.com"
+        target="_blank" 
+       
+      >Email</a></p>
+
+</div>
+  </div>
+</footer>
+    
+    <script>
+      const emailId = atob("bWFpbEBleGFtcGxlLmNvbQ==");
+    </script>
+      <script src="/js/rocinante.min.js"></script></body>
+</html>

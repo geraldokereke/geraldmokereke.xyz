@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Developing Console · Gerald&#39;s Journal</title>
+
+
+
+<link rel="stylesheet" href="/css/rocinante.css" />
+<link rel="shortcut icon" href="https://i.ibb.co/YNRSK0Z/gerald-logo.png">
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous" onload="renderMathInElement(document.body);"></script>
+
+<body>
+    <header><h2>
+  
+    <a href="https://geraldmokereke.xyz/">‹ Gerald&#39;s Journal</a>
+  
+</h2>
+</header>
+    <main>
+
+    <div class="post">
+      
+        <div class="title-group">
+            <div class="title">
+                <h1>Developing Console</h1>
+            </div>
+            <div class="date"><h5>Jan 15, 2024</h5></div>
+        </div>
+              
+        <article class="content">
+            <p><img src="https://i.ibb.co/WxycM1G/console.png" alt="Console"></p>
+<p>I love Go. For many reasons, at the same time I hate the language. It&rsquo;s the regular toxic love-hate relationship to have for a programming language.
+Nothing new. Firstly Go is so much like C. Being a C programmer, it has been an enjoyable experience. The simplicty is fantastic for me.</p>
+<p>The only problem with Go is the error handling and, as a matter of fact, the stupid compiler. Though I have some other &ldquo;icks,&rdquo; the aforementioned are the most significant. Anyways, I&rsquo;m not here to rant about Go. Rather, I want to walk you through how I developed a project called &ldquo;Console&rdquo; that you can use to view your system processes, memory, system usage, and system information from a decent GUI.</p>
+<p>The project is written in Go, on the Fiber framework. Initially, for the closed-sourced version, it started off on the Echo framework.</p>
+<p>But I wasn&rsquo;t liking it so much, then again this is down to my personal preference so I tried out fiber, and it&rsquo;s safe to say that I may not come back. I love the Express-ish (Node) feel to the framework. I fancy that.</p>
+<h2 id="what-is-console">What is Console?</h2>
+<p>Console is an open-sourced dashboard panel used to view and manage resources on a Linux/MacOS system, using a browser. Console helps you perform functions such as:</p>
+<blockquote>
+<p>Note: <a href="https://github.com/grayoj/console" target="_blank">Console</a> may be updated and I may not be able to factor all latest additions into this article.</p>
+</blockquote>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> View processes running and their number, just like on the activty monitor.</li>
+<li><input checked="" disabled="" type="checkbox"> View disk usage via a Graph.</li>
+<li><input checked="" disabled="" type="checkbox"> View Memory and CPU usage via a Graph.</li>
+<li><input checked="" disabled="" type="checkbox"> View your system&rsquo;s network information.</li>
+<li><input checked="" disabled="" type="checkbox"> View your system&rsquo;s disk volume (Planning to make it extensible)</li>
+<li><input disabled="" type="checkbox"> Explore your file system better.</li>
+<li><input disabled="" type="checkbox"> Include more stats and memory cleaning features.</li>
+<li><input disabled="" type="checkbox"> Available on more Linux distributions (asides Ubuntu) and Windows (hopefully)</li>
+</ul>
+<h2 id="console-stack">Console Stack</h2>
+<p>I built console using Go, on the fiber framework, Vite with React and Typescript. I also used Tailwind as per-usual for styling the project&rsquo;s interface.
+Console starts on port <code>9595</code> by default. It relies on the <a href="https://pkg.go.dev/embed" target="_blank">Go Embed</a> package, which makes embedding static assets (HTML, CSS, JavaScript, Images) into a Go binary possible.</p>
+<p>The embed api is simplistic by nature and easy to call. Once we have a built vite app within the <code>/dist</code>, we call embed and point to the directory of the build from our go application like below:</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75715e">//go:embed client/dist/*</span>
+</span></span></code></pre></div><p>To give you better context of the project structure so you understand the embedding further, <a href="https://github.com/grayoj/console" target="_blank">here</a>.
+The client folder contains the Vite application which is built into the static assets embedded to the binary.</p>
+<p>The Go binary is extremely light as well.</p>
+<p>I used <a href="https://recharts.org" target="_blank">recharts</a> an open-source react-library for the charts as an alternative to Airbnb&rsquo;s visio I planned on going with, as so not to overcomplicate things.</p>
+<h2 id="interesting-bottlenecks-faced">Interesting Bottlenecks faced</h2>
+<ul>
+<li>
+<p><strong>Routing Issues</strong>: I kept experiencing 404 - Not found pages when trying to explore with the client due to many reasons. One of which, was because Go servers the static index.html page in the root, on routing to another page say <code>/monitor</code>
+which doesn&rsquo;t exist as a html page either, it results to a 404. To solve this issue, I had to implement a catch all routes function. That way, Console routes seamlessly with no issues.</p>
+<div class="highlight"><pre tabindex="0" style="color:#272822;background-color:#fafafa;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#75af00">app</span><span style="color:#111">.</span><span style="color:#75af00">Static</span><span style="color:#111">(</span><span style="color:#d88200">&#34;/&#34;</span><span style="color:#111">,</span> <span style="color:#d88200">&#34;client/dist&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75af00">app</span><span style="color:#111">.</span><span style="color:#75af00">Get</span><span style="color:#111">(</span><span style="color:#d88200">&#34;*&#34;</span><span style="color:#111">,</span> <span style="color:#00a8c8">func</span><span style="color:#111">(</span><span style="color:#75af00">c</span> <span style="color:#f92672">*</span><span style="color:#75af00">fiber</span><span style="color:#111">.</span><span style="color:#75af00">Ctx</span><span style="color:#111">)</span> <span style="color:#00a8c8">error</span> <span style="color:#111">{</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#00a8c8">return</span> <span style="color:#75af00">c</span><span style="color:#111">.</span><span style="color:#75af00">SendFile</span><span style="color:#111">(</span><span style="color:#d88200">&#34;client/dist/index.html&#34;</span><span style="color:#111">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#111">})</span>
+</span></span></code></pre></div></li>
+<li>
+<p><strong>Processes overflowing on the client side</strong>: The solution here was to use a pagination on the Go backend for the records, then append parameters to query per page. This way I was able to fit it into the UI and include steps.</p>
+</li>
+</ul>
+<h2 id="how-can-i-setup-console">How can I setup Console?</h2>
+<p>While I intend to make a <a href="https://formulae.brew.sh" target="_blank">homebrew formula</a> for the project, you can download the project binaries from the releases page. You can also compile from the soure-code. You can build the project using Docker on your local machine, on your Virtual Machine or server.</p>
+
+        </article>
+        
+    </article>
+
+
+    </main>
+    <footer>
+  <div class="content-container">
+    <div class="content">I&rsquo;m Gerald Maduabuchi Okereke. Welcome to my thoughts, my journal and my little space on the web.
+
+
+  <p class="horizontal-links"><a href="https://github.com/grayoj"
+        target="_blank" 
+       
+      >Github</a><a href="https://twitter.com/geraldmokereke"
+        target="_blank" 
+       
+      >X</a><a href="mailto:geraldmokereke@gmail.com"
+        target="_blank" 
+       
+      >Email</a></p>
+
+</div>
+  </div>
+</footer>
+    
+    <script>
+      const emailId = atob("bWFpbEBleGFtcGxlLmNvbQ==");
+    </script>
+      <script src="/js/rocinante.min.js"></script></body>
+</html>
